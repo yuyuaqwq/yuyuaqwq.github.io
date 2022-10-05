@@ -1,22 +1,16 @@
 <?xml version="1.0"?>
-<rss version="2.0">
-    <channel>
-        <title>鹿鹿鱼鱼</title>
-        <link>http://yuyuaqwq.github.io</link>
-        <description>人为什么要起床？</description>
-        <language>zh-CN</language>
-        <pubDate>Tue, 04 Oct 2022 19:33:52 +0800</pubDate>
-        <lastBuildDate>Tue, 04 Oct 2022 19:33:52 +0800</lastBuildDate>
-        <category>MFC</category>
-        <category>没饭吃</category>
-        <item>
-            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/7c79.html</guid>
-            <title>【MFC】初识MFC</title>
-            <link>http://yuyuaqwq.github.io/posts/7c79.html</link>
-            <category>MFC</category>
-            <category>没饭吃</category>
-            <pubDate>Tue, 04 Oct 2022 19:33:52 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;mfc简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mfc简述&#34;&gt;#&lt;/a&gt; MFC 简述&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;mfc&#34; category</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2022-10-04T11:33:52.000Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/7c79.html</id>
+        <title>【MFC】初识MFC</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/7c79.html"/>
+        <content type="html">&lt;h1 id=&#34;mfc简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mfc简述&#34;&gt;#&lt;/a&gt; MFC 简述&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;MFC (Microsoft Foundation Classes)，微软基础类库；&lt;/strong&gt;&lt;br&gt;
 是微软使用 &lt;code&gt;C++&lt;/code&gt;  的特性，在 &lt;code&gt;Win32API&lt;/code&gt;  基础上再次进行的封装。&lt;/p&gt;
 &lt;hr&gt;
@@ -88,16 +82,16 @@
 &lt;p&gt;当然，这些代码也许会使你感到困惑，毕竟代码中甚至找不到你最熟悉的 main、WinMain，为什么它能够跑起来？&lt;/p&gt;
 &lt;p&gt;我们将在下篇文章探索 MFC 的程序启动机制。&lt;/p&gt;
 &lt;hr&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/c22c.html</guid>
-            <title>【MFC】探索消息映射机制的实现原理</title>
-            <link>http://yuyuaqwq.github.io/posts/c22c.html</link>
-            <category>MFC</category>
-            <category>没饭吃</category>
-            <pubDate>Tue, 04 Oct 2022 13:07:21 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;消息机制简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息机制简述&#34;&gt;#&lt;/a&gt; 消息机制简述&lt;/h1&gt;
+</content>
+        <category term="MFC" />
+        <category term="没饭吃" />
+        <updated>2022-10-04T11:33:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/c22c.html</id>
+        <title>【MFC】探索消息映射机制的实现原理</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/c22c.html"/>
+        <content type="html">&lt;h1 id=&#34;消息机制简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息机制简述&#34;&gt;#&lt;/a&gt; 消息机制简述&lt;/h1&gt;
 &lt;p&gt;我们知道，Windows 的窗口是由&lt;strong&gt;消息&lt;/strong&gt;驱动的；&lt;br&gt;
 Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对应的消息，并传递给正确的窗口。&lt;/p&gt;
 &lt;div class=&#34;note purple icon-padding simple&#34;&gt;&lt;i class=&#34;note-icon fas fa-fan&#34;&gt;&lt;/i&gt;&lt;p&gt;直接基于 &lt;code&gt;Win32API&lt;/code&gt;  开发时，我们需要在注册窗口类时指定&lt;strong&gt;窗口过程函数&lt;/strong&gt;，以告知 Windows 回调 (传递消息) 的入口。&lt;/p&gt;
@@ -156,7 +150,9 @@ Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对
 基于此映射表，就可以在其&lt;strong&gt;窗口过程函数&lt;/strong&gt;中，&lt;emp&gt;根据消息调用对应的成员函数&lt;/emp&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
- ]]></description>
-        </item>
-    </channel>
-</rss>
+</content>
+        <category term="MFC" />
+        <category term="没饭吃" />
+        <updated>2022-10-04T05:07:21.000Z</updated>
+    </entry>
+</feed>

@@ -2,18 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yuyuaqwq.github.io/posts/3eeb.html</loc>
+    <loc>http://yuyuaqwq.github.io/posts/c22c.html</loc>
     
-    <lastmod>2022-10-03</lastmod>
+    <lastmod>2022-10-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yuyuaqwq.github.io/posts/f82e.html</loc>
+    <loc>http://yuyuaqwq.github.io/posts/7c79.html</loc>
     
-    <lastmod>2022-10-03</lastmod>
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuyuaqwq.github.io/about/index.html</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuyuaqwq.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuyuaqwq.github.io/categories/index.html</loc>
+    
+    <lastmod>2022-10-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,12 +58,33 @@
 
   <url>
     <loc>http://yuyuaqwq.github.io/</loc>
-    <lastmod>2022-10-03</lastmod>
+    <lastmod>2022-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
+  <url>
+    <loc>http://yuyuaqwq.github.io/tags/MFC/</loc>
+    <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://yuyuaqwq.github.io/tags/%E6%B2%A1%E9%A5%AD%E5%90%83/</loc>
+    <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>http://yuyuaqwq.github.io/categories/MFC/</loc>
+    <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
