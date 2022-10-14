@@ -5,6 +5,41 @@
     "home_page_url": "http://yuyuaqwq.github.io",
     "items": [
         {
+            "id": "http://yuyuaqwq.github.io/posts/51b.html",
+            "url": "http://yuyuaqwq.github.io/posts/51b.html",
+            "title": "【C/C++逆向】数据类型的表现形式",
+            "date_published": "2022-10-14T09:49:00.000Z",
+            "content_html": "<div class=\"hbe hbe-container\" id=\"hexo-blog-encrypt\" data-wpm=\"咱也不知道发生了啥\" data-whm=\"咱也不知道发生了啥\">\n  <script id=\"hbeData\" type=\"hbeData\" data-hmacdigest=\"dfea2844e4baf3c8dcd5a0ea14f21045fd66d72652f94d8b7b034e0193d5ff28\">db3f4eb17c2318c256622b6960219afda507dbc0f727563f20c8a378137edd144480af96f63ef9ac5ad29fe678f7a1b1</script>\n  <div class=\"hbe hbe-content\">\n    <div class=\"hbe hbe-input hbe-input-default\">\n      <input class=\"hbe hbe-input-field hbe-input-field-default\" type=\"password\" id=\"hbePass\">\n      <label class=\"hbe hbe-input-label hbe-input-label-default\" for=\"hbePass\">\n        <span class=\"hbe hbe-input-label-content hbe-input-label-content-default\">或许，需要什么魔法咒语？</span>\n      </label>\n    </div>\n  </div>\n</div>\n<script data-pjax src=\"/lib/hbe.js\"></script><link href=\"/css/hbe.style.css\" rel=\"stylesheet\" type=\"text/css\">",
+            "tags": [
+                "逆向分析",
+                "C/C++",
+                "反汇编"
+            ]
+        },
+        {
+            "id": "http://yuyuaqwq.github.io/posts/3fe5.html",
+            "url": "http://yuyuaqwq.github.io/posts/3fe5.html",
+            "title": "【C/C++逆向】前言",
+            "date_published": "2022-10-14T09:48:45.000Z",
+            "content_html": "<p>当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。</p>\n<blockquote>\n<p>参考资料<br>\n《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清</p>\n</blockquote>\n",
+            "tags": [
+                "逆向分析",
+                "C/C++",
+                "反汇编"
+            ]
+        },
+        {
+            "id": "http://yuyuaqwq.github.io/posts/3f7e.html",
+            "url": "http://yuyuaqwq.github.io/posts/3f7e.html",
+            "title": "【工具推荐】常用工具推荐与用法",
+            "date_published": "2022-10-14T08:13:05.618Z",
+            "content_html": "<p><em><strong>工欲善其事，必先利其器。</strong></em></p>\n<blockquote>\n<p>这里收录了一些我个人常用并推荐的工具。</p>\n</blockquote>\n<h1 id=\"动态分析\"><a class=\"markdownIt-Anchor\" href=\"#动态分析\">#</a> 动态分析</h1>\n<h2 id=\"软件调试\"><a class=\"markdownIt-Anchor\" href=\"#软件调试\">#</a> 软件调试</h2>\n<h3 id=\"x64dbg\"><a class=\"markdownIt-Anchor\" href=\"#x64dbg\">#</a> x64dbg</h3>\n<p><strong>面向未来的 Windows R3 调试器，开源，支持 x86/x64。</strong></p>\n<ul>\n<li>\n<p>官方网站<br>\n<a href=\"https://x64dbg.com/\"> https://x64dbg.com/</a></p>\n</li>\n<li>\n<p>推荐插件<br>\n ret-sync<br>\nSharpOD</p>\n</li>\n</ul>\n<h3 id=\"windbg\"><a class=\"markdownIt-Anchor\" href=\"#windbg\">#</a> WinDbg</h3>\n<p><strong>微软家的东西，不仅能够调试应用，还能调试内核，学习内核必备的工具。</strong></p>\n<ul>\n<li>推荐辅助工具<br>\n VirtualKD-Redux</li>\n</ul>\n<hr>\n<h2 id=\"内存搜索\"><a class=\"markdownIt-Anchor\" href=\"#内存搜索\">#</a> 内存搜索</h2>\n<h3 id=\"cheat-engine\"><a class=\"markdownIt-Anchor\" href=\"#cheat-engine\">#</a> Cheat Engine</h3>\n<p><strong>大名鼎鼎的 CE，开源的内存修改工具，但不仅仅只能用于修改内存，其中依赖于调试机制的 &quot;找出是什么访问 / 修改了这个地址&quot; 等功能也非常好用。</strong></p>\n<ul>\n<li>官方网站<br>\n<a href=\"https://www.cheatengine.org/\"> https://www.cheatengine.org/</a></li>\n</ul>\n<hr>\n<h2 id=\"进程监控\"><a class=\"markdownIt-Anchor\" href=\"#进程监控\">#</a> 进程监控</h2>\n<h3 id=\"process-monitor\"><a class=\"markdownIt-Anchor\" href=\"#process-monitor\">#</a> Process Monitor</h3>\n<p><strong>用于 Windows 的高级监控工具，能够实时监控进程的行为，如文件、注册表、网络等动作，对分析工作有很大的帮助。</strong></p>\n<ul>\n<li>下载地址<br>\n<a href=\"https://learn.microsoft.com/en-us/sysinternals/downloads/procmon\"> https://learn.microsoft.com/en-us/sysinternals/downloads/procmon</a></li>\n</ul>\n<h3 id=\"火绒剑\"><a class=\"markdownIt-Anchor\" href=\"#火绒剑\">#</a> 火绒剑</h3>\n<p><strong>火绒剑的系统监控也意外的好用，比起 Process Monitor，我觉得火绒剑的使用体验更加轻快。</strong></p>\n<hr>\n<h2 id=\"网络分析\"><a class=\"markdownIt-Anchor\" href=\"#网络分析\">#</a> 网络分析</h2>\n<h3 id=\"wireshark\"><a class=\"markdownIt-Anchor\" href=\"#wireshark\">#</a> WireShark</h3>\n<p><strong>开源的网络分析工具，针对网卡抓包，能用于分析学习更底层的协议 (传输层，网络层、数据链路层)。</strong></p>\n<ul>\n<li>官方网站<br>\n<a href=\"https://www.wireshark.org/\"> https://www.wireshark.org/</a></li>\n</ul>\n<h3 id=\"fiddler\"><a class=\"markdownIt-Anchor\" href=\"#fiddler\">#</a> Fiddler</h3>\n<p><strong>免费的 http/https 抓包工具，基于系统代理工作，https 抓包原理是中间人攻击，为操作系统安装 Fiddler 生成的证书，就能截获信任操作系统中安装的证书的应用程序的 https 流量。</strong></p>\n<ul>\n<li>官方网站<br>\n<a href=\"https://www.telerik.com/fiddler\"> https://www.telerik.com/fiddler</a></li>\n</ul>\n<h3 id=\"proxifier\"><a class=\"markdownIt-Anchor\" href=\"#proxifier\">#</a> Proxifier</h3>\n<p><strong>强制代理工具，有些应用并不会使用系统代理设置指定的代理，因此 Fiddler 无法截获这类应用的 http/https 流量，这个时候 Proxifier 是很好的搭档。</strong></p>\n<hr>\n<h1 id=\"静态分析\"><a class=\"markdownIt-Anchor\" href=\"#静态分析\">#</a> 静态分析</h1>\n<h2 id=\"反汇编\"><a class=\"markdownIt-Anchor\" href=\"#反汇编\">#</a> 反汇编</h2>\n<h3 id=\"ida\"><a class=\"markdownIt-Anchor\" href=\"#ida\">#</a> IDA</h3>\n<p><strong>我觉得 &quot;IDA&quot; 这个名字，就是对 &quot;静态分析&quot; 最有力的诠释了，世界顶级的交互式反汇编工具，功能及其强大，所以使用也很复杂。</strong></p>\n<ul>\n<li>\n<p>推荐书籍<br>\n《IDA Pro 权威指南 (第 2 版)》</p>\n</li>\n<li>\n<p>推荐插件<br>\n ret-sync</p>\n</li>\n</ul>\n<hr>\n<h2 id=\"pe分析\"><a class=\"markdownIt-Anchor\" href=\"#pe分析\">#</a> PE 分析</h2>\n<h3 id=\"cff-explorer-viii\"><a class=\"markdownIt-Anchor\" href=\"#cff-explorer-viii\">#</a> CFF Explorer VIII</h3>\n<p><strong>很优秀的 PE 分析工具，用过之后就基本上没有再尝试其他的 PE 工具了。</strong></p>\n<h2 id=\"十六进制编辑器\"><a class=\"markdownIt-Anchor\" href=\"#十六进制编辑器\">#</a> 十六进制编辑器</h2>\n<h3 id=\"hxd\"><a class=\"markdownIt-Anchor\" href=\"#hxd\">#</a> HxD</h3>\n<p><strong>个人体验很好的免费十六进制编辑器，轻便。</strong></p>\n<ul>\n<li>官方网站<br>\n<a href=\"https://mh-nexus.de/en/hxd/\"> https://mh-nexus.de/en/hxd/</a></li>\n</ul>\n",
+            "tags": [
+                "逆向分析",
+                "工具"
+            ]
+        },
+        {
             "id": "http://yuyuaqwq.github.io/posts/c22c.html",
             "url": "http://yuyuaqwq.github.io/posts/c22c.html",
             "title": "【MFC】探索消息映射机制的实现原理",

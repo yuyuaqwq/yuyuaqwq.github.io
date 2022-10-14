@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>鹿鹿鱼鱼 • Posts by &#34;c/c++逆向&#34; category</title>
+        <link>http://yuyuaqwq.github.io</link>
+        <description>人为什么要起床？</description>
+        <language>zh-CN</language>
+        <pubDate>Fri, 14 Oct 2022 17:49:00 +0800</pubDate>
+        <lastBuildDate>Fri, 14 Oct 2022 17:49:00 +0800</lastBuildDate>
+        <category>MFC</category>
+        <category>没饭吃</category>
+        <category>逆向分析</category>
+        <category>工具</category>
+        <category>C/C++</category>
+        <category>反汇编</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/51b.html</guid>
+            <title>【C/C++逆向】数据类型的表现形式</title>
+            <link>http://yuyuaqwq.github.io/posts/51b.html</link>
+            <category>逆向分析</category>
+            <category>C/C++</category>
+            <category>反汇编</category>
+            <pubDate>Fri, 14 Oct 2022 17:49:00 +0800</pubDate>
+            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;咱也不知道发生了啥&#34; data-whm=&#34;咱也不知道发生了啥&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;dfea2844e4baf3c8dcd5a0ea14f21045fd66d72652f94d8b7b034e0193d5ff28&#34;&gt;db3f4eb17c2318c256622b6960219afda507dbc0f727563f20c8a378137edd144480af96f63ef9ac5ad29fe678f7a1b1&lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;或许，需要什么魔法咒语？&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/3fe5.html</guid>
+            <title>【C/C++逆向】前言</title>
+            <link>http://yuyuaqwq.github.io/posts/3fe5.html</link>
+            <category>逆向分析</category>
+            <category>C/C++</category>
+            <category>反汇编</category>
+            <pubDate>Fri, 14 Oct 2022 17:48:45 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考资料&lt;br&gt;
+《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>【C/C++逆向】数据类型的表现形式</title>
+      <link href="/posts/51b.html"/>
+      <url>/posts/51b.html</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="咱也不知道发生了啥" data-whm="咱也不知道发生了啥">  <script id="hbeData" type="hbeData" data-hmacdigest="dfea2844e4baf3c8dcd5a0ea14f21045fd66d72652f94d8b7b034e0193d5ff28">db3f4eb17c2318c256622b6960219afda507dbc0f727563f20c8a378137edd144480af96f63ef9ac5ad29fe678f7a1b1</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">或许，需要什么魔法咒语？</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> C/C++逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向分析 </tag>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> 反汇编 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【C/C++逆向】前言</title>
+      <link href="/posts/3fe5.html"/>
+      <url>/posts/3fe5.html</url>
+      
+        <content type="html"><![CDATA[<p>当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。</p><blockquote><p>参考资料<br>《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> C/C++逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向分析 </tag>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> 反汇编 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【工具推荐】常用工具推荐与用法</title>
+      <link href="/posts/3f7e.html"/>
+      <url>/posts/3f7e.html</url>
+      
+        <content type="html"><![CDATA[<p><em><strong>工欲善其事，必先利其器。</strong></em></p><blockquote><p>这里收录了一些我个人常用并推荐的工具。</p></blockquote><h1 id="动态分析"><a class="markdownIt-Anchor" href="#动态分析">#</a> 动态分析</h1><h2 id="软件调试"><a class="markdownIt-Anchor" href="#软件调试">#</a> 软件调试</h2><h3 id="x64dbg"><a class="markdownIt-Anchor" href="#x64dbg">#</a> x64dbg</h3><p><strong>面向未来的 Windows R3 调试器，开源，支持 x86/x64。</strong></p><ul><li><p>官方网站<br><a href="https://x64dbg.com/"> https://x64dbg.com/</a></p></li><li><p>推荐插件<br> ret-sync<br>SharpOD</p></li></ul><h3 id="windbg"><a class="markdownIt-Anchor" href="#windbg">#</a> WinDbg</h3><p><strong>微软家的东西，不仅能够调试应用，还能调试内核，学习内核必备的工具。</strong></p><ul><li>推荐辅助工具<br> VirtualKD-Redux</li></ul><hr><h2 id="内存搜索"><a class="markdownIt-Anchor" href="#内存搜索">#</a> 内存搜索</h2><h3 id="cheat-engine"><a class="markdownIt-Anchor" href="#cheat-engine">#</a> Cheat Engine</h3><p><strong>大名鼎鼎的 CE，开源的内存修改工具，但不仅仅只能用于修改内存，其中依赖于调试机制的 &quot;找出是什么访问 / 修改了这个地址&quot; 等功能也非常好用。</strong></p><ul><li>官方网站<br><a href="https://www.cheatengine.org/"> https://www.cheatengine.org/</a></li></ul><hr><h2 id="进程监控"><a class="markdownIt-Anchor" href="#进程监控">#</a> 进程监控</h2><h3 id="process-monitor"><a class="markdownIt-Anchor" href="#process-monitor">#</a> Process Monitor</h3><p><strong>用于 Windows 的高级监控工具，能够实时监控进程的行为，如文件、注册表、网络等动作，对分析工作有很大的帮助。</strong></p><ul><li>下载地址<br><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/procmon"> https://learn.microsoft.com/en-us/sysinternals/downloads/procmon</a></li></ul><h3 id="火绒剑"><a class="markdownIt-Anchor" href="#火绒剑">#</a> 火绒剑</h3><p><strong>火绒剑的系统监控也意外的好用，比起 Process Monitor，我觉得火绒剑的使用体验更加轻快。</strong></p><hr><h2 id="网络分析"><a class="markdownIt-Anchor" href="#网络分析">#</a> 网络分析</h2><h3 id="wireshark"><a class="markdownIt-Anchor" href="#wireshark">#</a> WireShark</h3><p><strong>开源的网络分析工具，针对网卡抓包，能用于分析学习更底层的协议 (传输层，网络层、数据链路层)。</strong></p><ul><li>官方网站<br><a href="https://www.wireshark.org/"> https://www.wireshark.org/</a></li></ul><h3 id="fiddler"><a class="markdownIt-Anchor" href="#fiddler">#</a> Fiddler</h3><p><strong>免费的 http/https 抓包工具，基于系统代理工作，https 抓包原理是中间人攻击，为操作系统安装 Fiddler 生成的证书，就能截获信任操作系统中安装的证书的应用程序的 https 流量。</strong></p><ul><li>官方网站<br><a href="https://www.telerik.com/fiddler"> https://www.telerik.com/fiddler</a></li></ul><h3 id="proxifier"><a class="markdownIt-Anchor" href="#proxifier">#</a> Proxifier</h3><p><strong>强制代理工具，有些应用并不会使用系统代理设置指定的代理，因此 Fiddler 无法截获这类应用的 http/https 流量，这个时候 Proxifier 是很好的搭档。</strong></p><hr><h1 id="静态分析"><a class="markdownIt-Anchor" href="#静态分析">#</a> 静态分析</h1><h2 id="反汇编"><a class="markdownIt-Anchor" href="#反汇编">#</a> 反汇编</h2><h3 id="ida"><a class="markdownIt-Anchor" href="#ida">#</a> IDA</h3><p><strong>我觉得 &quot;IDA&quot; 这个名字，就是对 &quot;静态分析&quot; 最有力的诠释了，世界顶级的交互式反汇编工具，功能及其强大，所以使用也很复杂。</strong></p><ul><li><p>推荐书籍<br>《IDA Pro 权威指南 (第 2 版)》</p></li><li><p>推荐插件<br> ret-sync</p></li></ul><hr><h2 id="pe分析"><a class="markdownIt-Anchor" href="#pe分析">#</a> PE 分析</h2><h3 id="cff-explorer-viii"><a class="markdownIt-Anchor" href="#cff-explorer-viii">#</a> CFF Explorer VIII</h3><p><strong>很优秀的 PE 分析工具，用过之后就基本上没有再尝试其他的 PE 工具了。</strong></p><h2 id="十六进制编辑器"><a class="markdownIt-Anchor" href="#十六进制编辑器">#</a> 十六进制编辑器</h2><h3 id="hxd"><a class="markdownIt-Anchor" href="#hxd">#</a> HxD</h3><p><strong>个人体验很好的免费十六进制编辑器，轻便。</strong></p><ul><li>官方网站<br><a href="https://mh-nexus.de/en/hxd/"> https://mh-nexus.de/en/hxd/</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 逆向工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向分析 </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【MFC】探索消息映射机制的实现原理</title>
       <link href="/posts/c22c.html"/>
       <url>/posts/c22c.html</url>

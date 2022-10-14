@@ -9,6 +9,10 @@
         <lastBuildDate>Tue, 11 Oct 2022 22:08:21 +0800</lastBuildDate>
         <category>MFC</category>
         <category>没饭吃</category>
+        <category>逆向分析</category>
+        <category>工具</category>
+        <category>C/C++</category>
+        <category>反汇编</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/c22c.html</guid>
             <title>【MFC】探索消息映射机制的实现原理</title>

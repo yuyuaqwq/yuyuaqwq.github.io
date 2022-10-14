@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;逆向工具&#34; category</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2022-10-14T08:13:05.618Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <category term="逆向分析" />
+    <category term="工具" />
+    <category term="C/C++" />
+    <category term="反汇编" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/3f7e.html</id>
+        <title>【工具推荐】常用工具推荐与用法</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/3f7e.html"/>
+        <content type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;工欲善其事，必先利其器。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里收录了一些我个人常用并推荐的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;动态分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#动态分析&#34;&gt;#&lt;/a&gt; 动态分析&lt;/h1&gt;
+&lt;h2 id=&#34;软件调试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#软件调试&#34;&gt;#&lt;/a&gt; 软件调试&lt;/h2&gt;
+&lt;h3 id=&#34;x64dbg&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#x64dbg&#34;&gt;#&lt;/a&gt; x64dbg&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;面向未来的 Windows R3 调试器，开源，支持 x86/x64。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;https://x64dbg.com/&#34;&gt; https://x64dbg.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;推荐插件&lt;br&gt;
+ ret-sync&lt;br&gt;
+SharpOD&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;windbg&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windbg&#34;&gt;#&lt;/a&gt; WinDbg&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;微软家的东西，不仅能够调试应用，还能调试内核，学习内核必备的工具。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推荐辅助工具&lt;br&gt;
+ VirtualKD-Redux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;内存搜索&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内存搜索&#34;&gt;#&lt;/a&gt; 内存搜索&lt;/h2&gt;
+&lt;h3 id=&#34;cheat-engine&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cheat-engine&#34;&gt;#&lt;/a&gt; Cheat Engine&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;大名鼎鼎的 CE，开源的内存修改工具，但不仅仅只能用于修改内存，其中依赖于调试机制的 &amp;quot;找出是什么访问 / 修改了这个地址&amp;quot; 等功能也非常好用。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;https://www.cheatengine.org/&#34;&gt; https://www.cheatengine.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;进程监控&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#进程监控&#34;&gt;#&lt;/a&gt; 进程监控&lt;/h2&gt;
+&lt;h3 id=&#34;process-monitor&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#process-monitor&#34;&gt;#&lt;/a&gt; Process Monitor&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;用于 Windows 的高级监控工具，能够实时监控进程的行为，如文件、注册表、网络等动作，对分析工作有很大的帮助。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载地址&lt;br&gt;
+&lt;a href=&#34;https://learn.microsoft.com/en-us/sysinternals/downloads/procmon&#34;&gt; https://learn.microsoft.com/en-us/sysinternals/downloads/procmon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;火绒剑&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#火绒剑&#34;&gt;#&lt;/a&gt; 火绒剑&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;火绒剑的系统监控也意外的好用，比起 Process Monitor，我觉得火绒剑的使用体验更加轻快。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;网络分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络分析&#34;&gt;#&lt;/a&gt; 网络分析&lt;/h2&gt;
+&lt;h3 id=&#34;wireshark&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wireshark&#34;&gt;#&lt;/a&gt; WireShark&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;开源的网络分析工具，针对网卡抓包，能用于分析学习更底层的协议 (传输层，网络层、数据链路层)。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;https://www.wireshark.org/&#34;&gt; https://www.wireshark.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fiddler&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#fiddler&#34;&gt;#&lt;/a&gt; Fiddler&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;免费的 http/https 抓包工具，基于系统代理工作，https 抓包原理是中间人攻击，为操作系统安装 Fiddler 生成的证书，就能截获信任操作系统中安装的证书的应用程序的 https 流量。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;https://www.telerik.com/fiddler&#34;&gt; https://www.telerik.com/fiddler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;proxifier&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#proxifier&#34;&gt;#&lt;/a&gt; Proxifier&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;强制代理工具，有些应用并不会使用系统代理设置指定的代理，因此 Fiddler 无法截获这类应用的 http/https 流量，这个时候 Proxifier 是很好的搭档。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;静态分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#静态分析&#34;&gt;#&lt;/a&gt; 静态分析&lt;/h1&gt;
+&lt;h2 id=&#34;反汇编&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#反汇编&#34;&gt;#&lt;/a&gt; 反汇编&lt;/h2&gt;
+&lt;h3 id=&#34;ida&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ida&#34;&gt;#&lt;/a&gt; IDA&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;我觉得 &amp;quot;IDA&amp;quot; 这个名字，就是对 &amp;quot;静态分析&amp;quot; 最有力的诠释了，世界顶级的交互式反汇编工具，功能及其强大，所以使用也很复杂。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;推荐书籍&lt;br&gt;
+《IDA Pro 权威指南 (第 2 版)》&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;推荐插件&lt;br&gt;
+ ret-sync&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pe分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pe分析&#34;&gt;#&lt;/a&gt; PE 分析&lt;/h2&gt;
+&lt;h3 id=&#34;cff-explorer-viii&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cff-explorer-viii&#34;&gt;#&lt;/a&gt; CFF Explorer VIII&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;很优秀的 PE 分析工具，用过之后就基本上没有再尝试其他的 PE 工具了。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;十六进制编辑器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#十六进制编辑器&#34;&gt;#&lt;/a&gt; 十六进制编辑器&lt;/h2&gt;
+&lt;h3 id=&#34;hxd&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hxd&#34;&gt;#&lt;/a&gt; HxD&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;个人体验很好的免费十六进制编辑器，轻便。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;https://mh-nexus.de/en/hxd/&#34;&gt; https://mh-nexus.de/en/hxd/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="逆向分析" />
+        <category term="工具" />
+        <updated>2022-10-14T08:13:05.618Z</updated>
+    </entry>
+</feed>

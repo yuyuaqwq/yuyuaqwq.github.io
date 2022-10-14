@@ -1,0 +1,32 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "鹿鹿鱼鱼 • All posts by \"反汇编\" tag",
+    "description": "人为什么要起床？",
+    "home_page_url": "http://yuyuaqwq.github.io",
+    "items": [
+        {
+            "id": "http://yuyuaqwq.github.io/posts/51b.html",
+            "url": "http://yuyuaqwq.github.io/posts/51b.html",
+            "title": "【C/C++逆向】数据类型的表现形式",
+            "date_published": "2022-10-14T09:49:00.000Z",
+            "content_html": "<div class=\"hbe hbe-container\" id=\"hexo-blog-encrypt\" data-wpm=\"咱也不知道发生了啥\" data-whm=\"咱也不知道发生了啥\">\n  <script id=\"hbeData\" type=\"hbeData\" data-hmacdigest=\"dfea2844e4baf3c8dcd5a0ea14f21045fd66d72652f94d8b7b034e0193d5ff28\">db3f4eb17c2318c256622b6960219afda507dbc0f727563f20c8a378137edd144480af96f63ef9ac5ad29fe678f7a1b1</script>\n  <div class=\"hbe hbe-content\">\n    <div class=\"hbe hbe-input hbe-input-default\">\n      <input class=\"hbe hbe-input-field hbe-input-field-default\" type=\"password\" id=\"hbePass\">\n      <label class=\"hbe hbe-input-label hbe-input-label-default\" for=\"hbePass\">\n        <span class=\"hbe hbe-input-label-content hbe-input-label-content-default\">或许，需要什么魔法咒语？</span>\n      </label>\n    </div>\n  </div>\n</div>\n<script data-pjax src=\"/lib/hbe.js\"></script><link href=\"/css/hbe.style.css\" rel=\"stylesheet\" type=\"text/css\">",
+            "tags": [
+                "逆向分析",
+                "C/C++",
+                "反汇编"
+            ]
+        },
+        {
+            "id": "http://yuyuaqwq.github.io/posts/3fe5.html",
+            "url": "http://yuyuaqwq.github.io/posts/3fe5.html",
+            "title": "【C/C++逆向】前言",
+            "date_published": "2022-10-14T09:48:45.000Z",
+            "content_html": "<p>当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。</p>\n<blockquote>\n<p>参考资料<br>\n《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清</p>\n</blockquote>\n",
+            "tags": [
+                "逆向分析",
+                "C/C++",
+                "反汇编"
+            ]
+        }
+    ]
+}
