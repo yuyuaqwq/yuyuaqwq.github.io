@@ -44,14 +44,14 @@
             <pubDate>Fri, 14 Oct 2022 17:48:45 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;参考资料&lt;br&gt;
+&lt;p&gt;主要参考资料&lt;br&gt;
 《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清&lt;/p&gt;
 &lt;/blockquote&gt;
  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/3f7e.html</guid>
-            <title>【工具推荐】常用工具推荐与用法</title>
+            <title>【逆向工具】常用工具推荐</title>
             <link>http://yuyuaqwq.github.io/posts/3f7e.html</link>
             <category>逆向分析</category>
             <category>工具</category>
