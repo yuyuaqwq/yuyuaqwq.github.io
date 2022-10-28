@@ -113,16 +113,16 @@
 &lt;/ul&gt;
 &lt;p&gt;还是先来遍历这颗树：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;根节点，是减法，表明需要用左子节点减去右子节点；
+&lt;li&gt;根节点，是加法，表明需要将左子节点与右子节点相加；
 &lt;ol&gt;
-&lt;li&gt;左子节点是加法，表明需要将左子节点与右子节点相加，需要继续向下展开；&lt;/li&gt;
+&lt;li&gt;左子节点是减法，表明需要用左子节点减去右子节点，需要继续向下展开；&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;3 - 2&lt;/code&gt; ，返回结果  &lt;code&gt;1&lt;/code&gt; ；&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;1 + 4&lt;/code&gt; ，返回结果  &lt;code&gt;5&lt;/code&gt; ；&lt;/li&gt;
 &lt;li&gt;遍历结束；&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;因此，遍历的过程也符合我们所要求的 &lt;code&gt;左结合律&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此，遍历的过程也符合我们所要求的 &lt;code&gt;左结合律&lt;/code&gt; ，也就是由左边的运算符开始，向右边的运算符结合。&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;因为同优先级下，我们更优先计算左边的运算符组成的子表达式，&lt;/li&gt;
 &lt;/ul&gt;
