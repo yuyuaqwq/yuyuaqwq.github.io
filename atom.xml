@@ -149,7 +149,7 @@
 &lt;img src=&#34;/posts/56ac/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在遍历的过程中，我们就能够完成对表达式加法运算，赋值表达式赋值运算。&lt;/p&gt;
+&lt;p&gt;在遍历的过程中，我们就能够完成对加法表达式加法运算，赋值表达式的赋值运算。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;ast解释器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ast解释器&#34;&gt;#&lt;/a&gt; AST 解释器&lt;/h1&gt;
 &lt;p&gt;最后，我们也确实展示了有关 &amp;quot;解释器&amp;quot; 的东西，是的，即便你难以置信。&lt;br&gt;
