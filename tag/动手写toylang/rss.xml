@@ -28,7 +28,7 @@
 &lt;p&gt;如果你曾经接触过《编译原理》的话，不知道是否与我有着同样的困惑呢？&lt;/p&gt;
 &lt;p&gt;各种不近人情的名词，公式乱飞，这让我学习起来格外痛苦。&lt;/p&gt;
 &lt;p&gt;我在尝试阅读过不少文章、书籍，动手之后，才逐渐理解了一些比较关键的东西。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;实际上，当我真正自己动手完成了对四则运算表达式的解析的那一刻，我才真切感受到了编译原理的优雅与美妙之处，这也是由无数人智慧造就的伟大吧 (偏得有点远了)。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;实际上，当我真正自己动手完成了对四则运算表达式的解析的那一刻，我才真切感受到了编译原理的优雅与美妙之处，这大概就是由无数人智慧造就的伟大吧 (偏得有点远了)。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;初尝构思&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初尝构思&#34;&gt;#&lt;/a&gt; 初尝构思&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;现在，我来尝试给你出一道题吧，请你用你所熟悉的语言，编写一个模块：&lt;/strong&gt;&lt;/p&gt;
@@ -83,8 +83,8 @@
 &lt;p&gt;从左往右结合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;那我们自然是需要先在表达式中找到 &lt;code&gt;*&lt;/code&gt; 、 &lt;code&gt;/&lt;/code&gt;  两种符号，好消息是，没有，嘿嘿。&lt;/p&gt;
-&lt;p&gt;接下来继续左往右找 &lt;code&gt;+&lt;/code&gt; 、 &lt;code&gt;-&lt;/code&gt; ，找到之后将其取出，这也是我们需要计算的子表达式。&lt;/p&gt;
+&lt;p&gt;那我们自然是需要先&lt;strong&gt;左往右找&lt;/strong&gt;在表达式中找到 &lt;code&gt;*&lt;/code&gt; 、 &lt;code&gt;/&lt;/code&gt;  两种符号，好消息是，没有，嘿嘿。&lt;/p&gt;
+&lt;p&gt;接下来继续&lt;strong&gt;左往右找&lt;/strong&gt; &lt;code&gt;+&lt;/code&gt; 、 &lt;code&gt;-&lt;/code&gt; ，找到之后将其取出，这也是我们需要计算的子表达式。&lt;/p&gt;
 &lt;p&gt;我们将其分成三部分，分别是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;左边的数字  &lt;code&gt;3&lt;/code&gt;&lt;/li&gt;
@@ -99,8 +99,7 @@
 &lt;/ul&gt;
 &lt;p&gt;接下来我们遍历这棵树：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;根节点，是加法，表明要对两个子节点进行加法；&lt;/li&gt;
-&lt;li&gt;将左子节点与右子节点相加；&lt;/li&gt;
+&lt;li&gt;根节点，是加法，表明需要将左子节点与右子节点相加；&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;3 + 2&lt;/code&gt; ，返回结果  &lt;code&gt;5&lt;/code&gt; ；&lt;/li&gt;
 &lt;li&gt;遍历结束；&lt;/li&gt;
 &lt;/ol&gt;
@@ -120,9 +119,9 @@
 &lt;/ul&gt;
 &lt;p&gt;还是先来遍历这颗树：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;根节点，是减法，表明要对两个子节点进行减法，用左子节点减去右子节点；
+&lt;li&gt;根节点，是减法，表明需要用左子节点减去右子节点；
 &lt;ol&gt;
-&lt;li&gt;左子节点是加法，表明要对两个子节点进行加法，将左子节点与右子节点相加，需要继续向下展开；&lt;/li&gt;
+&lt;li&gt;左子节点是加法，表明需要将左子节点与右子节点相加，需要继续向下展开；&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;3 - 2&lt;/code&gt; ，返回结果  &lt;code&gt;1&lt;/code&gt; ；&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
@@ -139,13 +138,13 @@
 &lt;img src=&#34;/posts/56ac/4.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;你可以尝试一下遍历这棵树，会发现先被执行的一定是减法，这并不符合我们的从一开始就要求的 &lt;code&gt;左结合律&lt;/code&gt; 。&lt;br&gt;
+&lt;p&gt;你可以尝试一下遍历这棵树，会发现先被执行的一定是加法，这并不符合我们的从一开始就要求的 &lt;code&gt;左结合律&lt;/code&gt; 。&lt;br&gt;
 在部分情况下，由于结合律的错误，就会产出错误的结果：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如我们本次求解的表达式，通过遍历此树得出的结果为 &lt;code&gt;-3&lt;/code&gt; 。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;目标根据语法规则生成ast&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#目标根据语法规则生成ast&#34;&gt;#&lt;/a&gt; 目标：根据语法规则生成 AST&lt;/h2&gt;
-&lt;p&gt;我不说你大概也已经猜到了，其实我们上面所构造的树，在当前应用场景下，就叫做 &lt;code&gt;抽象语法树&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;我不说你大概也已经猜到了，其实我们上面所构造的树，在当前的应用场景下，就叫做 &lt;code&gt;抽象语法树&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;并且遍历树并计算的过程，与我们人脑对表达式的计算的过程是十分相似的。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;也就是说，我们只需要构造出这么一颗抽象语法树，就已经基本上完成了编译工作的一大半甚至全部。&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;此时，若我们需要执行编译产生的结果，只需要遍历我们所生成 AST 即可。&lt;/strong&gt;&lt;/p&gt;
@@ -155,7 +154,7 @@
 &lt;img src=&#34;/posts/56ac/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在遍历的过程中，我们就能够完成对加法表达式加法运算，赋值表达式的赋值运算。&lt;/p&gt;
+&lt;p&gt;在遍历的过程中，我们就能够正确的完成对加法表达式的加法运算，再对赋值表达式的赋值运算。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;ast解释器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ast解释器&#34;&gt;#&lt;/a&gt; AST 解释器&lt;/h1&gt;
 &lt;p&gt;最后，我们也确实展示了有关 &amp;quot;解释器&amp;quot; 的东西，是的，即便你难以置信。&lt;br&gt;
