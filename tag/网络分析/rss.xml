@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>鹿鹿鱼鱼 • Posts by &#34;网络分析&#34; tag</title>
+        <link>http://yuyuaqwq.github.io</link>
+        <description>人为什么要起床？</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 27 Oct 2022 00:37:40 +0800</pubDate>
+        <lastBuildDate>Thu, 27 Oct 2022 00:37:40 +0800</lastBuildDate>
+        <category>MFC</category>
+        <category>没饭吃</category>
+        <category>逆向分析</category>
+        <category>工具</category>
+        <category>C/C++</category>
+        <category>反汇编</category>
+        <category>网络分析</category>
+        <category>Proxifier</category>
+        <category>编译原理</category>
+        <category>动手写ToyLang</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/5e1f.html</guid>
+            <title>【Proxifier】基本配置与使用</title>
+            <link>http://yuyuaqwq.github.io/posts/5e1f.html</link>
+            <category>网络分析</category>
+            <category>Proxifier</category>
+            <pubDate>Thu, 27 Oct 2022 00:37:40 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;proxifier&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#proxifier&#34;&gt;#&lt;/a&gt; Proxifier&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Proxifier 是为其他不支持指定代理服务器的应用进行强制代理的工具。&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;其原理 (大致) 是在内核层面通过驱动过滤的形式实现的网络控制。&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;下载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下载&#34;&gt;#&lt;/a&gt; 下载&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站&lt;br&gt;
+&lt;a href=&#34;http://www.proxifier.com/&#34;&gt; http://www.proxifier.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;应用本身是收费的，有能力请支持正版软件。&lt;/p&gt;
+&lt;h1 id=&#34;配置与使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置与使用&#34;&gt;#&lt;/a&gt; 配置与使用&lt;/h1&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h2&gt;
+&lt;p&gt;这里使用 &lt;code&gt;Fiddler&lt;/code&gt;  这个软件来担任代理服务器的工作。&lt;/p&gt;
+&lt;p&gt;启动 Fiddler 后，请先关闭 Windows 系统代理&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们需要使用浏览器来测试强制代理，但是 Fiddler 会自动开启系统代理。&lt;/li&gt;
+&lt;li&gt;并且浏览器默认会使用系统代理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;启动界面&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#启动界面&#34;&gt;#&lt;/a&gt; 启动界面&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/1.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配置代理服务器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置代理服务器&#34;&gt;#&lt;/a&gt; 配置代理服务器&lt;/h2&gt;
+&lt;p&gt;工具栏 -&amp;gt; Profile -&amp;gt; Proxy Servers…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/2.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;添加代理服务器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/3.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/4.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择否&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;点击 OK&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/6.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;依然选择否&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/7.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配置代理规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置代理规则&#34;&gt;#&lt;/a&gt; 配置代理规则&lt;/h2&gt;
+&lt;p&gt;工具栏 -&amp;gt; Profile -&amp;gt; Proxification Rules…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;添加代理规则，保持与我一致即可。&lt;br&gt;
+添加了一条代理规则 chrome 并启用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/9.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/10.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里说明一下选项：&lt;br&gt;
+Direct：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxifier 放行此规则的流量&lt;br&gt;
+ Block:&lt;/li&gt;
+&lt;li&gt;Proxifier 拦截此规则的流量&lt;br&gt;
+ Proxy HTTPS 127.0.0.1:&lt;/li&gt;
+&lt;li&gt;这里的选项是我们先前设置的代理服务器&lt;/li&gt;
+&lt;li&gt;Proxifier 代理此规则的流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;点击 OK，继续。&lt;/p&gt;
+&lt;h2 id=&#34;配置域名解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置域名解析&#34;&gt;#&lt;/a&gt; 配置域名解析&lt;/h2&gt;
+&lt;p&gt;工具栏 -&amp;gt; Profile -&amp;gt; Name Rusolution…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/11.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;指定通过代理解析域名。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/12.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基本上大功告成。&lt;/p&gt;
+&lt;h2 id=&#34;访问测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#访问测试&#34;&gt;#&lt;/a&gt; 访问测试&lt;/h2&gt;
+&lt;p&gt;接下来通过浏览器访问网页，Fiddler 中就会看到来自 Proxifier 进程的流量。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/5e1f/13.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;仍有缺陷&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#仍有缺陷&#34;&gt;#&lt;/a&gt; 仍有缺陷&lt;/h1&gt;
+&lt;p&gt;我们通过 &lt;code&gt;Proxifier&lt;/code&gt;  配合 &lt;code&gt;Fiddler&lt;/code&gt; ，能实现对应用 http/https 流量的强制抓包 / 解密。&lt;br&gt;
+但是需要注意的是， &lt;code&gt;Fiddler&lt;/code&gt;  的原理是在操作系统中安装证书，以实现中间人攻击；&lt;br&gt;
+某些情况下，通过此方法抓包，应用如果无法正常上网，说明应用可能并不信任操作系统的证书，而是自己有一套证书用于校验。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

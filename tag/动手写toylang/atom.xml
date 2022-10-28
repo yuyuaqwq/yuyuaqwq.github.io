@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;动手写toylang&#34; tag</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2022-10-28T13:18:53.000Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <category term="逆向分析" />
+    <category term="工具" />
+    <category term="C/C++" />
+    <category term="反汇编" />
+    <category term="网络分析" />
+    <category term="Proxifier" />
+    <category term="编译原理" />
+    <category term="动手写ToyLang" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/c4d3.html</id>
+        <title>【动手写ToyLang】0.前言</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/c4d3.html"/>
+        <content type="html">&lt;h1 id=&#34;关于&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于&#34;&gt;#&lt;/a&gt; 关于&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门在别人看来是&lt;emp&gt;玩具&lt;/emp&gt;的通用计算机语言，事实也确实如此。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好的捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
+&lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;我会尽可能的查阅资料、学习，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
+&lt;h2 id=&#34;语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#语言&#34;&gt;#&lt;/a&gt; 语言&lt;/h2&gt;
+&lt;p&gt;这里我选用我个人较为常用的 C++ 作为开发语言，风格尽量以《Google C++ Style Guide》为准，在我个人能力范围内尽量写得 &amp;quot;现代 C++&amp;quot; 一点。&lt;/p&gt;
+&lt;p&gt;当然，我个人也还是 C++ 彩笔，代码写得不好，还请理解。&lt;/p&gt;
+&lt;h2 id=&#34;开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发环境&#34;&gt;#&lt;/a&gt; 开发环境&lt;/h2&gt;
+&lt;p&gt;我基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; 。&lt;/p&gt;
+</content>
+        <category term="编译原理" />
+        <category term="动手写ToyLang" />
+        <updated>2022-10-28T13:18:53.000Z</updated>
+    </entry>
+</feed>

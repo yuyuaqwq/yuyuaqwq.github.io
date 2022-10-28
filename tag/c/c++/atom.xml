@@ -10,6 +10,10 @@
     <category term="工具" />
     <category term="C/C++" />
     <category term="反汇编" />
+    <category term="网络分析" />
+    <category term="Proxifier" />
+    <category term="编译原理" />
+    <category term="动手写ToyLang" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/51b.html</id>
         <title>【C/C++逆向】数据类型的表现形式</title>

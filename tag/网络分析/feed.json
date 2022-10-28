@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "鹿鹿鱼鱼 • All posts by \"网络分析\" tag",
+    "description": "人为什么要起床？",
+    "home_page_url": "http://yuyuaqwq.github.io",
+    "items": [
+        {
+            "id": "http://yuyuaqwq.github.io/posts/5e1f.html",
+            "url": "http://yuyuaqwq.github.io/posts/5e1f.html",
+            "title": "【Proxifier】基本配置与使用",
+            "date_published": "2022-10-26T16:37:40.000Z",
+            "content_html": "<h1 id=\"proxifier\"><a class=\"markdownIt-Anchor\" href=\"#proxifier\">#</a> Proxifier</h1>\n<p><strong>Proxifier 是为其他不支持指定代理服务器的应用进行强制代理的工具。</strong><br>\n<em>其原理 (大致) 是在内核层面通过驱动过滤的形式实现的网络控制。</em></p>\n<h1 id=\"下载\"><a class=\"markdownIt-Anchor\" href=\"#下载\">#</a> 下载</h1>\n<ul>\n<li>官方网站<br>\n<a href=\"http://www.proxifier.com/\"> http://www.proxifier.com/</a></li>\n</ul>\n<p>应用本身是收费的，有能力请支持正版软件。</p>\n<h1 id=\"配置与使用\"><a class=\"markdownIt-Anchor\" href=\"#配置与使用\">#</a> 配置与使用</h1>\n<h2 id=\"准备工作\"><a class=\"markdownIt-Anchor\" href=\"#准备工作\">#</a> 准备工作</h2>\n<p>这里使用 <code>Fiddler</code>  这个软件来担任代理服务器的工作。</p>\n<p>启动 Fiddler 后，请先关闭 Windows 系统代理</p>\n<ul>\n<li>我们需要使用浏览器来测试强制代理，但是 Fiddler 会自动开启系统代理。</li>\n<li>并且浏览器默认会使用系统代理。</li>\n</ul>\n<h2 id=\"启动界面\"><a class=\"markdownIt-Anchor\" href=\"#启动界面\">#</a> 启动界面</h2>\n<ul>\n<li>\n<img src=\"/posts/5e1f/1.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<h2 id=\"配置代理服务器\"><a class=\"markdownIt-Anchor\" href=\"#配置代理服务器\">#</a> 配置代理服务器</h2>\n<p>工具栏 -&gt; Profile -&gt; Proxy Servers…</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/2.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>添加代理服务器</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/3.png\" class=\"\" title=\"这是一张图片\">\n</li>\n<li>\n<img src=\"/posts/5e1f/4.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>选择否</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/5.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>点击 OK</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/6.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>依然选择否</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/7.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<h2 id=\"配置代理规则\"><a class=\"markdownIt-Anchor\" href=\"#配置代理规则\">#</a> 配置代理规则</h2>\n<p>工具栏 -&gt; Profile -&gt; Proxification Rules…</p>\n<ul>\n<li>\n\n</li>\n</ul>\n<p>添加代理规则，保持与我一致即可。<br>\n添加了一条代理规则 chrome 并启用。</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/9.png\" class=\"\" title=\"这是一张图片\">\n</li>\n<li>\n<img src=\"/posts/5e1f/10.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>这里说明一下选项：<br>\nDirect：</p>\n<ul>\n<li>Proxifier 放行此规则的流量<br>\n Block:</li>\n<li>Proxifier 拦截此规则的流量<br>\n Proxy HTTPS 127.0.0.1:</li>\n<li>这里的选项是我们先前设置的代理服务器</li>\n<li>Proxifier 代理此规则的流量</li>\n</ul>\n<p>点击 OK，继续。</p>\n<h2 id=\"配置域名解析\"><a class=\"markdownIt-Anchor\" href=\"#配置域名解析\">#</a> 配置域名解析</h2>\n<p>工具栏 -&gt; Profile -&gt; Name Rusolution…</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/11.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>指定通过代理解析域名。</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/12.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<p>基本上大功告成。</p>\n<h2 id=\"访问测试\"><a class=\"markdownIt-Anchor\" href=\"#访问测试\">#</a> 访问测试</h2>\n<p>接下来通过浏览器访问网页，Fiddler 中就会看到来自 Proxifier 进程的流量。</p>\n<ul>\n<li>\n<img src=\"/posts/5e1f/13.png\" class=\"\" title=\"这是一张图片\">\n</li>\n</ul>\n<h1 id=\"仍有缺陷\"><a class=\"markdownIt-Anchor\" href=\"#仍有缺陷\">#</a> 仍有缺陷</h1>\n<p>我们通过 <code>Proxifier</code>  配合 <code>Fiddler</code> ，能实现对应用 http/https 流量的强制抓包 / 解密。<br>\n但是需要注意的是， <code>Fiddler</code>  的原理是在操作系统中安装证书，以实现中间人攻击；<br>\n某些情况下，通过此方法抓包，应用如果无法正常上网，说明应用可能并不信任操作系统的证书，而是自己有一套证书用于校验。</p>\n",
+            "tags": [
+                "网络分析",
+                "Proxifier"
+            ]
+        }
+    ]
+}

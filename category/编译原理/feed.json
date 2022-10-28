@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "鹿鹿鱼鱼 • All posts by \"编译原理\" category",
+    "description": "人为什么要起床？",
+    "home_page_url": "http://yuyuaqwq.github.io",
+    "items": [
+        {
+            "id": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "url": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "title": "【动手写ToyLang】0.前言",
+            "date_published": "2022-10-28T13:18:53.000Z",
+            "content_html": "<h1 id=\"关于\"><a class=\"markdownIt-Anchor\" href=\"#关于\">#</a> 关于</h1>\n<p><strong>本系列文章会手把手教你打造一门在别人看来是<emp>玩具</emp>的通用计算机语言，事实也确实如此。</strong></p>\n<p>但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好的捷径，为此制造 &quot;玩具&quot;，并不丢人。</p>\n<p>笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。</p>\n<p><em>我会尽可能的查阅资料、学习，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。</em></p>\n<h1 id=\"准备工作\"><a class=\"markdownIt-Anchor\" href=\"#准备工作\">#</a> 准备工作</h1>\n<h2 id=\"语言\"><a class=\"markdownIt-Anchor\" href=\"#语言\">#</a> 语言</h2>\n<p>这里我选用我个人较为常用的 C++ 作为开发语言，风格尽量以《Google C++ Style Guide》为准，在我个人能力范围内尽量写得 &quot;现代 C++&quot; 一点。</p>\n<p>当然，我个人也还是 C++ 彩笔，代码写得不好，还请理解。</p>\n<h2 id=\"开发环境\"><a class=\"markdownIt-Anchor\" href=\"#开发环境\">#</a> 开发环境</h2>\n<p>我基本上只在 Windows 上工作，因此选择自然是 <code>Visual Studio</code> 。</p>\n",
+            "tags": [
+                "编译原理",
+                "动手写ToyLang"
+            ]
+        }
+    ]
+}
