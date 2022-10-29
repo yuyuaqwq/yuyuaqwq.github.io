@@ -33,7 +33,7 @@
 &lt;li&gt;如源代码中的变量标识，关键字，字符串字面量，数值字面量等…&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我们上一节课所展示的算术表达式， &lt;code&gt;3 + 2&lt;/code&gt; ，也是先将其分成 &lt;code&gt;3&lt;/code&gt;   &lt;code&gt;+&lt;/code&gt;   &lt;code&gt;2&lt;/code&gt; ，才能用于构成抽象语法树。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;词法分析器产出的单词序列，我们将其成为 &lt;code&gt;Token&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词法分析器产出的单词序列，我们将其称为 &lt;code&gt;Token&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;四则运算表达式的token&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#四则运算表达式的token&#34;&gt;#&lt;/a&gt; 四则运算表达式的 &lt;code&gt;Token&lt;/code&gt;&lt;/h1&gt;
 &lt;p&gt;我们既然需要将四则运算表达式转成 &lt;code&gt;Token&lt;/code&gt; ，也就需要知道其单词序列的规则，当然，关于这一点，我们早已烂熟于心了。&lt;br&gt;
@@ -46,6 +46,10 @@
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Eof&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;\0&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;Number&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;\d+&lt;/td&gt;
@@ -67,11 +71,11 @@
 &lt;td style=&#34;text-align:left&#34;&gt;/&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;SepLPar&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SepLParen&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;(&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;SepRPar&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SepRParen&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
