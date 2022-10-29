@@ -5,8 +5,8 @@
         <link>http://yuyuaqwq.github.io</link>
         <description>人为什么要起床？</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 28 Oct 2022 23:01:12 +0800</pubDate>
-        <lastBuildDate>Fri, 28 Oct 2022 23:01:12 +0800</lastBuildDate>
+        <pubDate>Sat, 29 Oct 2022 12:29:50 +0800</pubDate>
+        <lastBuildDate>Sat, 29 Oct 2022 12:29:50 +0800</lastBuildDate>
         <category>MFC</category>
         <category>没饭吃</category>
         <category>逆向分析</category>
@@ -18,17 +18,80 @@
         <category>编译原理</category>
         <category>动手写ToyLang</category>
         <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/aca7.html</guid>
+            <title>【动手写ToyLang】2.词法分析</title>
+            <link>http://yuyuaqwq.github.io/posts/aca7.html</link>
+            <category>编译原理</category>
+            <category>动手写ToyLang</category>
+            <pubDate>Sat, 29 Oct 2022 12:29:50 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;词法分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#词法分析&#34;&gt;#&lt;/a&gt; 词法分析&lt;/h1&gt;
+&lt;p&gt;词法分析是整个编译结构中最简单的一个阶段，所以放轻松，咱们往下看。&lt;/p&gt;
+&lt;p&gt;那么，词法分析是什么呢？&lt;br&gt;
+我们知道，程序开发者编写的源代码，也就是编译器最初能够接收到的输入，即连续的字符序列。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词法分析存在的意义，就是提前将源代码切分成能被后续编译程序直接使用的单词序列。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如源代码中的变量标识，关键字，字符串字面量，数值字面量等…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们上一节课所展示的算术表达式， &lt;code&gt;3 + 2&lt;/code&gt; ，也是先将其分成 &lt;code&gt;3&lt;/code&gt;   &lt;code&gt;+&lt;/code&gt;   &lt;code&gt;2&lt;/code&gt; ，才能用于构成抽象语法树。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词法分析器产出的单词序列，我们将其成为 &lt;code&gt;Token&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;四则运算表达式的token&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#四则运算表达式的token&#34;&gt;#&lt;/a&gt; 四则运算表达式的 &lt;code&gt;Token&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;我们既然需要将四则运算表达式转成 &lt;code&gt;Token&lt;/code&gt; ，也就需要知道四则运算表达式的规则，当然，关于这一点，我们早已烂熟于心了。&lt;br&gt;
+以下是我通过正则表达式描述的 &lt;code&gt;Token&lt;/code&gt;  匹配规则 (以我们将要开发的词法分析器为准)。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;TokenType&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Regex&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;\d+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OpAdd&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OpSub&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OpMul&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;OpDiv&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;/&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SepLPar&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;(&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;SepRPar&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;此处我忽略了运算符在正则表达式中需要转义的情况，做一个参考即可。&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/56ac.html</guid>
             <title>【动手写ToyLang】1.从四则运算表达式开始</title>
             <link>http://yuyuaqwq.github.io/posts/56ac.html</link>
             <category>编译原理</category>
             <category>动手写ToyLang</category>
             <pubDate>Fri, 28 Oct 2022 23:01:12 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;编译原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#编译原理&#34;&gt;#&lt;/a&gt; 编译原理&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;由此开始&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#由此开始&#34;&gt;#&lt;/a&gt; 由此开始&lt;/h1&gt;
 &lt;p&gt;如果你曾经接触过《编译原理》的话，不知道是否与我有着同样的困惑呢？&lt;/p&gt;
 &lt;p&gt;各种不近人情的名词，公式乱飞，这让我学习起来格外痛苦。&lt;/p&gt;
 &lt;p&gt;我在尝试阅读过不少文章、书籍，动手之后，才逐渐理解了一些比较关键的东西。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;实际上，当我真正自己动手完成了对四则运算表达式的解析的那一刻，我才真切感受到了编译原理的优雅与美妙之处，这大概就是由无数人智慧造就的伟大吧 (偏得有点远了)。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此，我才会选择先从四则运算表达式开始，将其逐步扩展成为一门 &lt;code&gt;通用编程语言&lt;/code&gt; ，也能让读者每一节都能感受到学习有所反馈的喜悦。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;初尝构思&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初尝构思&#34;&gt;#&lt;/a&gt; 初尝构思&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;现在，我来尝试给你出一道题吧，请你用你所熟悉的语言，编写一个模块：&lt;/strong&gt;&lt;/p&gt;
@@ -64,8 +127,9 @@
 &lt;p&gt;&lt;strong&gt;现在提出来，也不是为了为难你，只是为了让你记住眼下的感觉，当你学完本系列文章后，再回来看看，这一道题，是否真的有那么难呢？&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;抽象语法树&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#抽象语法树&#34;&gt;#&lt;/a&gt; 抽象语法树&lt;/h1&gt;
+&lt;p&gt;咱们先来看百度百科对 &lt;code&gt;抽象语法树&lt;/code&gt; 的定义：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;在计算机科学中，抽象语法树（Abstract Syntax Tree，AST），或简称&lt;a href=&#34;https://baike.baidu.com/item/%E8%AF%AD%E6%B3%95%E6%A0%91/7031301?fromModule=lemma_inlink&#34;&gt;语法树&lt;/a&gt;（Syntax tree），是&lt;a href=&#34;https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81?fromModule=lemma_inlink&#34;&gt;源代码&lt;/a&gt;&lt;a href=&#34;https://baike.baidu.com/item/%E8%AF%AD%E6%B3%95?fromModule=lemma_inlink&#34;&gt;语法&lt;/a&gt;结构的一种抽象表示。它以树状的形式表现&lt;a href=&#34;https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80?fromModule=lemma_inlink&#34;&gt;编程语言&lt;/a&gt;的语法结构，树上的每个节点都表示源代码中的一种结构。---- 摘自百度百科&lt;/p&gt;
+&lt;p&gt;在计算机科学中，抽象语法树（Abstract Syntax Tree，AST），或简称&lt;a href=&#34;https://baike.baidu.com/item/%E8%AF%AD%E6%B3%95%E6%A0%91/7031301?fromModule=lemma_inlink&#34;&gt;语法树&lt;/a&gt;（Syntax tree），是&lt;a href=&#34;https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81?fromModule=lemma_inlink&#34;&gt;源代码&lt;/a&gt;&lt;a href=&#34;https://baike.baidu.com/item/%E8%AF%AD%E6%B3%95?fromModule=lemma_inlink&#34;&gt;语法&lt;/a&gt;结构的一种抽象表示。它以树状的形式表现&lt;a href=&#34;https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80?fromModule=lemma_inlink&#34;&gt;编程语言&lt;/a&gt;的语法结构，树上的每个节点都表示源代码中的一种结构。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;嗯… 不愧是名字就带着抽象的东西，连说明都这么抽象。&lt;/p&gt;
 &lt;p&gt;咱们先不整那么多虚头巴脑的，干就完了。&lt;/p&gt;
@@ -128,9 +192,10 @@
 &lt;li&gt;&lt;code&gt;1 + 4&lt;/code&gt; ，返回结果  &lt;code&gt;5&lt;/code&gt; ；&lt;/li&gt;
 &lt;li&gt;遍历结束；&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;因此，遍历的过程也符合我们所要求的 &lt;code&gt;左结合律&lt;/code&gt; ，也就是由左边的运算符开始，向右边的运算符结合。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此，遍历的过程也符合我们所要求的 &lt;code&gt;左结合律&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;因为同优先级下，我们更优先计算左边的运算符组成的子表达式，&lt;/li&gt;
+&lt;li&gt;由左边的运算符开始，向右结合。&lt;/li&gt;
+&lt;li&gt;同优先级下，我们需要优先计算左边的运算符组成的子表达式，&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;接下来我再给你画一下另一种情况，你大概也就明白了。&lt;/p&gt;
 &lt;ul&gt;
@@ -145,7 +210,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;目标根据语法规则生成ast&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#目标根据语法规则生成ast&#34;&gt;#&lt;/a&gt; 目标：根据语法规则生成 AST&lt;/h2&gt;
 &lt;p&gt;我不说你大概也已经猜到了，其实我们上面所构造的树，在当前的应用场景下，就叫做 &lt;code&gt;抽象语法树&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;并且遍历树并计算的过程，与我们人脑对表达式的计算的过程是十分相似的。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;遍历抽象语法树并计算的过程，与我们人脑对表达式的计算的过程是十分相似的。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;也就是说，我们只需要构造出这么一颗抽象语法树，就已经基本上完成了编译工作的一大半甚至全部。&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;此时，若我们需要执行编译产生的结果，只需要遍历我们所生成 AST 即可。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如下图：&lt;/p&gt;
@@ -154,11 +219,12 @@
 &lt;img src=&#34;/posts/56ac/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在遍历的过程中，我们就能够正确的完成对加法表达式的加法运算，再对赋值表达式的赋值运算。&lt;/p&gt;
+&lt;p&gt;在遍历的过程中，我们就能够正确的完成对加法表达式的加法运算，再完成对赋值表达式的赋值运算。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;ast解释器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ast解释器&#34;&gt;#&lt;/a&gt; AST 解释器&lt;/h1&gt;
 &lt;p&gt;最后，我们也确实展示了有关 &amp;quot;解释器&amp;quot; 的东西，是的，即便你难以置信。&lt;br&gt;
-但是遍历这棵树的过程，可以叫做解释，完整一点就是我们所编写的 &lt;code&gt;AST解释器&lt;/code&gt; 。&lt;/p&gt;
+遍历这棵树的过程，就可以叫做解释；&lt;br&gt;
+如果我们写出代码实现遍历树的过程，即是 &lt;code&gt;AST解释器&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;当然，解释器是一种比较广泛的概念，即便到后面我们基于 AST 生成了字节码，交给虚拟机执行，我们的程序也依然可以称之为解释器，只不过解释的对象从 AST 换成了字节码。&lt;/p&gt;
 &lt;p&gt;我个人觉得，当初造这个词的人只是为了区分所谓的 &amp;quot;编译型语言&amp;quot; 和 &amp;quot;解释型语言&amp;quot;。&lt;br&gt;
 以下是百度百科对解释器的定义：&lt;/p&gt;
@@ -178,17 +244,18 @@
             <category>动手写ToyLang</category>
             <pubDate>Fri, 28 Oct 2022 21:18:53 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;关于&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于&#34;&gt;#&lt;/a&gt; 关于&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门在别人看来是&lt;emp&gt;玩具&lt;/emp&gt;的通用计算机语言，事实也确实如此。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门在别人看来是&lt;emp&gt;玩具&lt;/emp&gt;的通用编程语言，事实也确实如此。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好的捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
-&lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我会尽可能的查阅资料、学习，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
+学完本系列文章之后，基本上可以对编译原理有一定程度的认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;我会尽可能的查阅资料，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;h2 id=&#34;开发语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发语言&#34;&gt;#&lt;/a&gt; 开发语言&lt;/h2&gt;
 &lt;p&gt;这里我选用我个人较为常用的 C++ 作为开发语言，风格尽量以《Google C++ Style Guide》为准，在我个人能力范围内尽量写得 &amp;quot;现代 C++&amp;quot; 一点。&lt;/p&gt;
 &lt;p&gt;当然，我个人也还是 C++ 彩笔，代码写得不好，还请理解。&lt;/p&gt;
 &lt;h2 id=&#34;开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发环境&#34;&gt;#&lt;/a&gt; 开发环境&lt;/h2&gt;
-&lt;p&gt;我基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;我基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; ，你们可以选择自己喜欢的开发环境。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
