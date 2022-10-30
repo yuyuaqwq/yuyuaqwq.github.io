@@ -20,7 +20,7 @@
         <link rel="alternate" href="http://yuyuaqwq.github.io/posts/1571.html"/>
         <content type="html">&lt;h1 id=&#34;语法分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#语法分析&#34;&gt;#&lt;/a&gt; 语法分析&lt;/h1&gt;
 &lt;p&gt;按照传统的编译原理教材讲述的编译器结构， &lt;code&gt;词法分析阶段&lt;/code&gt; 之后，理当是 &lt;code&gt;语法分析阶段&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;以下摘自百度百科&lt;/p&gt;
+&lt;p&gt;以下摘自百度百科：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;语法分析是编译过程的一个逻辑阶段。语法分析的任务是在词法分析的基础上将单词序列组合成各类语法短语，如 “程序”，“语句”，“表达式” 等等。语法分析程序判断源程序在结构上是否正确。源程序的结构由上下文无关文法描述。语法分析程序可以用 YACC 等工具自动生成。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -59,7 +59,7 @@
 &lt;ul&gt;
 &lt;li&gt;在 &lt;code&gt;=&lt;/code&gt;  左边的，我们称为 &lt;code&gt;左式&lt;/code&gt; ；&lt;/li&gt;
 &lt;li&gt;在 &lt;code&gt;=&lt;/code&gt;  右边的，我们称为 &lt;code&gt;右式&lt;/code&gt; ；&lt;/li&gt;
-&lt;li&gt;这样一行式子，我们称为 &lt;code&gt;推导式&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;这样一行式子，我们称为 &lt;code&gt;产生式&lt;/code&gt; 。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;非终结符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非终结符&#34;&gt;#&lt;/a&gt; 非终结符&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;是某条产生式的左式，可以用其右式代换。&lt;/strong&gt;&lt;br&gt;
@@ -68,12 +68,12 @@
 &lt;p&gt;&lt;strong&gt;无法被再被代换的符号。&lt;/strong&gt;&lt;br&gt;
 如 &lt;code&gt;+&lt;/code&gt; 、 &lt;code&gt;-&lt;/code&gt; 、 &lt;code&gt;0&lt;/code&gt; 、 &lt;code&gt;1&lt;/code&gt; …。&lt;/p&gt;
 &lt;h1 id=&#34;自顶向下&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自顶向下&#34;&gt;#&lt;/a&gt; 自顶向下&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;我们需要做的就是：找到可以通过不断展开右式的非终结符，直到右式只剩下终结符时，能够与 &lt;code&gt;输入串&lt;/code&gt; 匹配的推导式，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我们需要做的就是：找到可以通过不断展开右式的非终结符，直到右式只剩下终结符时，能够与 &lt;code&gt;输入串&lt;/code&gt; 匹配的产生式，这个展开的过程我们叫做推导，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;关于更多 EBNF 的语法规则，请参阅相关资料。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;尝试解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尝试解析&#34;&gt;#&lt;/a&gt; 尝试解析&lt;/h2&gt;
-&lt;p&gt;我们先来看第一行推导式：&lt;br&gt;
+&lt;p&gt;我们先来看第一行产生式：&lt;br&gt;
  &lt;code&gt;exp = exp &#39;+&#39; number | exp &#39;-&#39; number | number&lt;/code&gt; &lt;br&gt;
  它描述了 &lt;code&gt;表达式&lt;/code&gt; 可以由：&lt;/p&gt;
 &lt;ul&gt;
@@ -95,7 +95,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 扩展巴科斯范式 (EBNF) 简介.&lt;a href=&#34;https://blog.csdn.net/lin_strong/article/details/78583543&#34;&gt;https://blog.csdn.net/lin_strong/article/details/78583543&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
 &lt;em&gt; [2] 应该如何理解「上下文无关文法」？.&lt;a href=&#34;https://www.zhihu.com/question/21833944&#34;&gt;https://www.zhihu.com/question/21833944&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
-&lt;em&gt; 其他网络上较为零碎的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt; 其他网络上较为零散的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
         <category term="编译原理" />
