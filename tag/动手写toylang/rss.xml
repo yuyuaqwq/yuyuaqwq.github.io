@@ -73,11 +73,13 @@
 &lt;h2 id=&#34;终结符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#终结符&#34;&gt;#&lt;/a&gt; 终结符&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;无法被再被代换的符号。&lt;/strong&gt;&lt;br&gt;
 如 &lt;code&gt;+&lt;/code&gt; 、 &lt;code&gt;-&lt;/code&gt; 、 &lt;code&gt;0&lt;/code&gt; 、 &lt;code&gt;1&lt;/code&gt; …。&lt;/p&gt;
-&lt;h1 id=&#34;自顶向下&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自顶向下&#34;&gt;#&lt;/a&gt; 自顶向下&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;我们需要做的就是：找到可以通过不断展开右式的非终结符，直到右式只剩下终结符时，能够与 &lt;code&gt;输入串&lt;/code&gt; 匹配的产生式，这个展开的过程我们叫做推导，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;关于更多 EBNF 的语法规则，请参阅相关资料。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h1 id=&#34;自顶向下&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自顶向下&#34;&gt;#&lt;/a&gt; 自顶向下&lt;/h1&gt;
+&lt;p&gt;我们需要做的就是：&lt;br&gt;
+&lt;strong&gt;找到可以通过不断展开右式的非终结符，直到右式只剩下终结符时，能够与 &lt;code&gt;输入串&lt;/code&gt; 匹配的产生式。&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;这个展开的过程我们叫做推导，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;尝试解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尝试解析&#34;&gt;#&lt;/a&gt; 尝试解析&lt;/h2&gt;
 &lt;p&gt;我们先来看第一行产生式：&lt;br&gt;
  &lt;code&gt;exp = exp &#39;+&#39; number | exp &#39;-&#39; number | number&lt;/code&gt; &lt;br&gt;
@@ -96,7 +98,7 @@
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;exp -&amp;gt; exp &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        -&amp;gt; exp &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            -&amp;gt; number &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                        -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; &amp;#x27;3&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;当然，这个推导过程我们忽略了很多细节，并不能直接编写代码实现。&lt;/p&gt;
 &lt;h1 id=&#34;尾声&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尾声&#34;&gt;#&lt;/a&gt; 尾声&lt;/h1&gt;
-&lt;p&gt;在下一节，我们会用 EBNF 来描述完整的四则表达式的文法，并且通过 &lt;code&gt;递归下降&lt;/code&gt; 实现语法分析器。&lt;/p&gt;
+&lt;p&gt;在下一篇文章，我们会通过 EBNF 来描述完整的四则表达式的文法，并且通过 &lt;code&gt;递归下降&lt;/code&gt; 算法实现语法分析器。&lt;/p&gt;
 &lt;h1 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 扩展巴科斯范式 (EBNF) 简介.&lt;a href=&#34;https://blog.csdn.net/lin_strong/article/details/78583543&#34;&gt;https://blog.csdn.net/lin_strong/article/details/78583543&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
