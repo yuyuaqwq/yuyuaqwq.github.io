@@ -43,11 +43,8 @@
 &lt;p&gt;&lt;em&gt;文法是一个汉语词汇，读音为 wén fǎ ，即文章的书写法规，一般用来指以文字、词语、短句、句子的编排而组成的完整语句和文章的合理性组织。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;学编译原理确实有很多东西难以理解，特别是各种各样的名字。&lt;/p&gt;
-&lt;p&gt;这里引用郑钢老师书中的解释：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;文法是制定单词和句子如何组成语言的种种规则。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我们的语言自然也需要存在文法，比如 if 语句必须按照下列规定的文法来解析：&lt;/p&gt;
+&lt;p&gt;我们先简单理解成，&lt;strong&gt;文法就是描述如何将 token 组织成语法树的规则&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们的语言自然也需要存在文法，比如 if 语句必须按照下列文法来解析：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;if&lt;/code&gt;   &lt;code&gt;exp&lt;/code&gt;   &lt;code&gt;block&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -107,8 +104,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 扩展巴科斯范式 (EBNF) 简介.&lt;a href=&#34;https://blog.csdn.net/lin_strong/article/details/78583543&#34;&gt;https://blog.csdn.net/lin_strong/article/details/78583543&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
 &lt;em&gt; [2] 应该如何理解「上下文无关文法」？.&lt;a href=&#34;https://www.zhihu.com/question/21833944&#34;&gt;https://www.zhihu.com/question/21833944&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
-&lt;em&gt; [3] 《自制编程语言：基于 C 语言》. 郑钢&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;其他网络上较为零散的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt; 其他网络上较为零散的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
  ]]></description>
         </item>
