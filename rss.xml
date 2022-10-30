@@ -42,14 +42,18 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;文法是一个汉语词汇，读音为 wén fǎ ，即文章的书写法规，一般用来指以文字、词语、短句、句子的编排而组成的完整语句和文章的合理性组织。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;简单点说，&lt;strong&gt;文法就是描述了 Token 应当如何组织的规则。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;学编译原理确实有很多东西难以理解，特别是各种各样的名字。&lt;/p&gt;
+&lt;p&gt;这里引用郑钢老师书中的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;文法是制定单词和句子如何组成语言的种种规则。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;我们的语言自然也需要存在文法，比如 if 语句必须按照下列规定的文法来解析：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;if&lt;/code&gt;   &lt;code&gt;exp&lt;/code&gt;   &lt;code&gt;block&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当然，现在我们还是将重心放到四则表达式的解析上。&lt;/p&gt;
 &lt;h2 id=&#34;上下文无关文法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#上下文无关文法&#34;&gt;#&lt;/a&gt; 上下文无关文法&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;在推导产生式时，正在进行的非终结符展开与前后已经展开的终结符不存在关联。&lt;/strong&gt;&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;在推导产生式时，正在进行的非终结符展开与前后已经展开的终结符不存在关联的文法。&lt;/strong&gt;&lt;br&gt;
 可以先继续向下看。&lt;/p&gt;
 &lt;h1 id=&#34;ebnf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ebnf&#34;&gt;#&lt;/a&gt; EBNF&lt;/h1&gt;
 &lt;p&gt;我们选择通过 &lt;code&gt;EBNF&lt;/code&gt;  来描述 &lt;code&gt;ToyLang&lt;/code&gt;  的文法。&lt;/p&gt;
@@ -103,7 +107,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 扩展巴科斯范式 (EBNF) 简介.&lt;a href=&#34;https://blog.csdn.net/lin_strong/article/details/78583543&#34;&gt;https://blog.csdn.net/lin_strong/article/details/78583543&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
 &lt;em&gt; [2] 应该如何理解「上下文无关文法」？.&lt;a href=&#34;https://www.zhihu.com/question/21833944&#34;&gt;https://www.zhihu.com/question/21833944&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
-&lt;em&gt; 其他网络上较为零散的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt; [3] 《自制编程语言：基于 C 语言》. 郑钢&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;其他网络上较为零散的资料，无法一一列举，十分抱歉。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
  ]]></description>
         </item>
