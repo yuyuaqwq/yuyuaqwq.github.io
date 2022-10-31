@@ -104,7 +104,8 @@
 &lt;img src=&#34;/posts/f573/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;你可以尝试自己编写一些表达式，然后画画图，找找感觉。&lt;/p&gt;
+&lt;p&gt;你可以尝试自己编写一些表达式，然后画画图，找找感觉。&lt;br&gt;
+也可以自己尝试在脑内遍历这颗语法树，看看是不是能够正确计算出结果。&lt;/p&gt;
 &lt;h1 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 消除左递归.&lt;a href=&#34;https://blog.csdn.net/qq2071114140/article/details/102787831&#34;&gt;https://blog.csdn.net/qq2071114140/article/details/102787831&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
