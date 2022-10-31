@@ -19,7 +19,7 @@
         <title>【动手写ToyLang】3.语法分析</title>
         <link rel="alternate" href="http://yuyuaqwq.github.io/posts/1571.html"/>
         <content type="html">&lt;h1 id=&#34;语法分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#语法分析&#34;&gt;#&lt;/a&gt; 语法分析&lt;/h1&gt;
-&lt;p&gt;按照传统的编译原理教材讲述的编译器结构， &lt;code&gt;词法分析阶段&lt;/code&gt; 之后，理当是 &lt;code&gt;语法分析阶段&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;按照传统的编译原理教材讲述的编译器结构， &lt;code&gt;词法分析阶段&lt;/code&gt; 之后，便是 &lt;code&gt;语法分析阶段&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;以下摘自百度百科：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;语法分析是编译过程的一个逻辑阶段。语法分析的任务是在词法分析的基础上将单词序列组合成各类语法短语，如 “程序”，“语句”，“表达式” 等等。语法分析程序判断源程序在结构上是否正确。源程序的结构由上下文无关文法描述。语法分析程序可以用 YACC 等工具自动生成。&lt;/em&gt;&lt;/p&gt;
