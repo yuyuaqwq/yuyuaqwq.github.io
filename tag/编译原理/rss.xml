@@ -43,7 +43,7 @@
 &lt;p&gt;&lt;em&gt;文法是一个汉语词汇，读音为 wén fǎ ，即文章的书写法规，一般用来指以文字、词语、短句、句子的编排而组成的完整语句和文章的合理性组织。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;学编译原理确实有很多东西难以理解，特别是各种各样的名词。&lt;/p&gt;
-&lt;p&gt;我们先简单理解成，&lt;strong&gt;文法就是描述如何将 token 组织成语法树的规则&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们先简单理解成，&lt;strong&gt;文法就是描述如何将 token 组织成语法树的规则。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我们的语言自然也需要存在文法，比如 if 语句必须按照下列文法来解析：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;if&lt;/code&gt;   &lt;code&gt;exp&lt;/code&gt;   &lt;code&gt;block&lt;/code&gt;&lt;/li&gt;
@@ -78,8 +78,7 @@
 &lt;p&gt;&lt;em&gt;关于更多 EBNF 的语法规则，请参阅相关资料。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;自顶向下&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自顶向下&#34;&gt;#&lt;/a&gt; 自顶向下&lt;/h1&gt;
-&lt;p&gt;我们需要做的就是：&lt;br&gt;
-&lt;strong&gt;找到可以通过不断展开右式的非终结符，直到右式只剩下终结符时，能够与 &lt;code&gt;输入串&lt;/code&gt; 匹配的产生式。&lt;/strong&gt;&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;已知 &lt;code&gt;输入串&lt;/code&gt; 为某条产生式的左式，根据输入串不断展开其非终结符，直至只剩下终结符。&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;这个展开的过程我们叫做推导，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;尝试解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尝试解析&#34;&gt;#&lt;/a&gt; 尝试解析&lt;/h2&gt;
 &lt;p&gt;我们先来看第一行产生式：&lt;br&gt;
@@ -91,11 +90,11 @@
 &lt;li&gt;也可以只由 &lt;code&gt;数字&lt;/code&gt; 组成。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;其中， &lt;code&gt;|&lt;/code&gt;  表示或的意思，如果你学习过正则表达式，应当很容易理解。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;假设我们需要解析的 token 序列为 &lt;code&gt;1&lt;/code&gt;   &lt;code&gt;+&lt;/code&gt;   &lt;code&gt;2&lt;/code&gt; ，解析过程如下：&lt;/p&gt;
+&lt;p&gt;假设我们需要解析的 exp 输入串为 &lt;code&gt;1 + 2&lt;/code&gt; ，解析过程如下：&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;exp -&amp;gt; exp &amp;#x27;+&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        -&amp;gt; number &amp;#x27;+&amp;#x27; &amp;#x27;number&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;number&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;就是在重复将右式中的非终结符展开的过程。&lt;br&gt;
 &lt;em&gt;这里为了节约篇幅，我没有将从 number 推导成 digit，再推导成数字的推导过程记录下来，你明白这一点即可。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;再尝试一下解析 token 序列 &lt;code&gt;1&lt;/code&gt;   &lt;code&gt;+&lt;/code&gt;   &lt;code&gt;2&lt;/code&gt;   &lt;code&gt;-&lt;/code&gt;   &lt;code&gt;3&lt;/code&gt; :&lt;/p&gt;
+&lt;p&gt;再尝试一下解析 exp 输入串 &lt;code&gt;1&lt;/code&gt;   &lt;code&gt;+&lt;/code&gt;   &lt;code&gt;2&lt;/code&gt;   &lt;code&gt;-&lt;/code&gt;   &lt;code&gt;3&lt;/code&gt; :&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;exp -&amp;gt; exp &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        -&amp;gt; exp &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            -&amp;gt; number &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                        -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; &amp;#x27;3&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;当然，这个推导过程我们忽略了很多细节，并不能直接编写代码实现。&lt;/p&gt;
 &lt;h1 id=&#34;尾声&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尾声&#34;&gt;#&lt;/a&gt; 尾声&lt;/h1&gt;
