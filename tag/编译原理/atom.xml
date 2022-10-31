@@ -3,7 +3,7 @@
     <id>http://yuyuaqwq.github.io</id>
     <title>鹿鹿鱼鱼 • Posts by &#34;编译原理&#34; tag</title>
     <link href="http://yuyuaqwq.github.io" />
-    <updated>2022-10-30T03:52:33.000Z</updated>
+    <updated>2022-10-30T08:34:27.524Z</updated>
     <category term="MFC" />
     <category term="没饭吃" />
     <category term="逆向分析" />
@@ -14,6 +14,106 @@
     <category term="Proxifier" />
     <category term="编译原理" />
     <category term="动手写ToyLang" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/f573.html</id>
+        <title>【动手写ToyLang】4.递归下降</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/f573.html"/>
+        <content type="html">&lt;h1 id=&#34;递归下降&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#递归下降&#34;&gt;#&lt;/a&gt; 递归下降&lt;/h1&gt;
+&lt;p&gt;先前用于描述的加减运算表达式的文法，实际上并不能直接通过递归下降分析法来解析。&lt;/p&gt;
+&lt;p&gt;说了这么多，递归下降到底是个什么玩意呢？&lt;br&gt;
+接下来我们通过以下能够应用递归下降进行解析的文法来解析输入串，了解其解析过程，你大概就明白了。&lt;/p&gt;
+&lt;figure class=&#34;highlight ebnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;block&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;&amp;#x27;&lt;/span&gt; &amp;#123;stat&amp;#125; &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stat = assignExp &lt;span class=&#34;string&#34;&gt;&amp;#x27;;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;assignExp = ident &lt;span class=&#34;string&#34;&gt;&amp;#x27;=&amp;#x27;&lt;/span&gt; value&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;value = number | string&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;&amp;#123;&amp;#125;&lt;/code&gt;  表示重复，此处表示可以有 0~n 个 &lt;code&gt;stat&lt;/code&gt; 。&lt;br&gt;
+其中， &lt;code&gt;ident&lt;/code&gt;  是标识符，包括 &lt;code&gt;number&lt;/code&gt; ， &lt;code&gt;string&lt;/code&gt; ，我们都会放到词法分析中去解析，故不在此列出其文法。&lt;/p&gt;
+&lt;p&gt;首先，假设 &lt;code&gt;block&lt;/code&gt;  输入串为：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    a = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    b = &amp;quot;qwq&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以下是解析的伪代码：&lt;/p&gt;
+&lt;h2 id=&#34;解析block&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解析block&#34;&gt;#&lt;/a&gt; 解析 &lt;code&gt;block&lt;/code&gt;&lt;/h2&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;func ParseBlock(inStr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(&amp;#x27;&amp;#123;&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    while in.is(&amp;#x27;&amp;#125;&amp;#x27;) == false &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ParseStat(in);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(&amp;#x27;&amp;#125;&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;首先从输入串中匹配 &lt;code&gt;&amp;#123;&lt;/code&gt; 字符；&lt;br&gt;
+由于语句是可选的，因此需要检查紧接着的符号是否为 &lt;code&gt;&amp;#125;&lt;/code&gt;  字符，不是的话就可以匹配 &lt;code&gt;stat&lt;/code&gt;  了；&lt;br&gt;
+ &lt;code&gt;stat&lt;/code&gt;  是一个非终结符，需要继续展开，此处交给 &lt;code&gt;ParseStat&lt;/code&gt;  进一步解析；&lt;br&gt;
+ &lt;code&gt;ParseStat&lt;/code&gt;  返回后，表示一条语句的解析完成了，但语句可能存在多条，因此循环进行；&lt;br&gt;
+最后匹配一个 &lt;code&gt;&amp;#125;&lt;/code&gt;  字符；&lt;br&gt;
+ &lt;code&gt;block&lt;/code&gt;  解析完成。&lt;/p&gt;
+&lt;p&gt;抽象语法树如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/f573/1.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;为什么这里没有添加 &lt;code&gt;&amp;#123;&lt;/code&gt;  和  &lt;code&gt;&amp;#125;&lt;/code&gt;  节点呢？&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;因为树构建完成后，我们自然可以知道这个节点是 block，在词法阶段的两个符号于语法树而言并无关紧要。&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解析stat&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解析stat&#34;&gt;#&lt;/a&gt; 解析 &lt;code&gt;stat&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;关于 &lt;code&gt;stat&lt;/code&gt;  的解析，在 &lt;code&gt;ParseStat&lt;/code&gt;  函数中完成：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;func ParseStat(inStr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ParseAssignExp(inStr);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(&amp;#x27;;&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/f573/2.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;解析assignexp&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解析assignexp&#34;&gt;#&lt;/a&gt; 解析 &lt;code&gt;assignExp&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;接下来是 &lt;code&gt;assignExp&lt;/code&gt; ：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;func ParseAssignExp(inStr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(kIdent);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(&amp;#x27;=&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ParseValue(inStr);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/f573/3.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;这里同样没有将符号 &lt;code&gt;=&lt;/code&gt;  作为节点添加。&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解析value&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解析value&#34;&gt;#&lt;/a&gt; 解析 &lt;code&gt;Value&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;最后完成关于 &lt;code&gt;Value&lt;/code&gt;  的解析：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;func ParseValue(inStr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr in.is(kNumber) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        in.match(kNumber);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ret;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    inStr.match(kString);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;关键描述文法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关键描述文法&#34;&gt;#&lt;/a&gt; 关键：描述文法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;这种自顶逐层向下解析，以构造语法树的分析法，就叫做递归下降。&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;虽然笔者并没有在伪代码中添加构造树的节点相关的代码，但不妨碍读者理解递归下降。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;你会发现，只要我们描述好了文法，用递归下降解析输入串是一件非常轻松的事情。&lt;/p&gt;
+&lt;h2 id=&#34;无限递归&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#无限递归&#34;&gt;#&lt;/a&gt; 无限递归&lt;/h2&gt;
+&lt;p&gt;还记得我在上一篇文章中所描述的文法吗？&lt;/p&gt;
+&lt;p&gt;如果直接编写解析代码，就会形成无限递归：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;func ParseExp(inStr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ParseExp(inStr);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    if inStr.is(&amp;#x27;+&amp;#x27;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        inStr.match(&amp;#x27;+&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        inStr.match(&amp;#x27;-&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ParseNumber(inStr);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;消除左递归&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消除左递归&#34;&gt;#&lt;/a&gt; 消除左递归&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;如果非终结符 &lt;code&gt;r&lt;/code&gt;  被直接或间接推导后，其结果最左边又出现非终结符 &lt;code&gt;r&lt;/code&gt;  的情况，便称之为左递归。&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;exp = exp + number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-&amp;gt; exp = exp + number + number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;为此，我们需要改写文法，以避免出现左递归。&lt;/p&gt;
+&lt;h2 id=&#34;四则表达式文法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#四则表达式文法&#34;&gt;#&lt;/a&gt; 四则表达式文法&lt;/h2&gt;
+&lt;p&gt;首先，我们用 EBNF 描述更加完整的四则表达式文法：&lt;/p&gt;
+&lt;figure class=&#34;highlight ebnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;exp&lt;/span&gt; = addexp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;addexp = addexp oper2 mulexp | mulexp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oper2 = &lt;span class=&#34;string&#34;&gt;&amp;#x27;+&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;-&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mulexp = mulexp oper1 number | number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oper1 = &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;/&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;关于 &lt;code&gt;number&lt;/code&gt;  的产生式就不再列出，实际上我们会在词法分析阶段将 &lt;code&gt;number&lt;/code&gt;  解析为 &lt;code&gt;token&lt;/code&gt; 。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;我们现在很容易就能看出，在该文法中，左式为 &lt;code&gt;addexp&lt;/code&gt;  和 &lt;code&gt;mulexp&lt;/code&gt;  的产生式都存在左递归的问题。&lt;/p&gt;
+&lt;p&gt;如何消除呢？&lt;br&gt;
+首先观察产生式 &lt;code&gt;addexp = addexp oper2 mulexp | mulexp&lt;/code&gt; &lt;br&gt;
+ 我们会发现这么一条规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;addexp&lt;/code&gt;  的推导产生的句型，必然是 &lt;code&gt;mulexp &amp;#123;oper2 mulexp&amp;#125;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;于是我们可以重写文法为：&lt;/p&gt;
+&lt;figure class=&#34;highlight bnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;addexp ::= mulexp addexp&lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;addexp&amp;#x27;&lt;/span&gt; ::= oper2 addexp&lt;span class=&#34;string&#34;&gt;&amp;#x27; | ε&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;figure class=&#34;highlight ebnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;addexp&lt;/span&gt; = mulexp &amp;#123;oper2 mulexp&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第一种是教学时经常用于举例的 BNF 文法&lt;br&gt;
+其中 &lt;code&gt;ε&lt;/code&gt;  表示空。&lt;br&gt;
+&lt;em&gt;事实上关于 BNF，似乎网上许多文章的写法都不尽相同。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;第二种则是使用 EBNF 描述的文法，通过 &lt;code&gt;&amp;#123;&amp;#125;&lt;/code&gt;  做了简化。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;事实上，我们如果直接按照第一种文法编写解析代码，最终构成的语法树会存在结合律的问题。&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;如果使用第二种文法，以多叉树的形式存储其节点，则会更加简单，因此本系列文章采用第二种文法。&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;构造语法树&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#构造语法树&#34;&gt;#&lt;/a&gt; 构造语法树&lt;/h1&gt;
+&lt;p&gt;接下来我们尝试基于此文法与表达式 &lt;code&gt;1 + 5 * 6&lt;/code&gt; ，构造其抽象语法树。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/f573/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你可以尝试自己编写一些表达式，然后画画图，找找感觉。&lt;/p&gt;
+&lt;h1 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;[1] 消除左递归.&lt;a href=&#34;https://blog.csdn.net/qq2071114140/article/details/102787831&#34;&gt;https://blog.csdn.net/qq2071114140/article/details/102787831&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="编译原理" />
+        <category term="动手写ToyLang" />
+        <updated>2022-10-30T08:34:27.524Z</updated>
+    </entry>
     <entry>
         <id>http://yuyuaqwq.github.io/posts/1571.html</id>
         <title>【动手写ToyLang】3.语法分析</title>
@@ -92,7 +192,7 @@
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;exp -&amp;gt; exp &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        -&amp;gt; exp &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            -&amp;gt; number &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; number &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                        -&amp;gt; &amp;#x27;1&amp;#x27; &amp;#x27;+&amp;#x27; &amp;#x27;2&amp;#x27; &amp;#x27;-&amp;#x27; &amp;#x27;3&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;当然，这个推导过程我们忽略了很多细节，并不能直接编写代码实现。&lt;/p&gt;
 &lt;h1 id=&#34;尾声&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尾声&#34;&gt;#&lt;/a&gt; 尾声&lt;/h1&gt;
-&lt;p&gt;在下一篇文章，我们会通过 EBNF 来描述完整的四则表达式的文法，并且通过 &lt;code&gt;递归下降&lt;/code&gt; 算法实现语法分析器。&lt;/p&gt;
+&lt;p&gt;在下一篇文章，我们会通过 EBNF 来描述完整的四则表达式的文法，并讲解 &lt;code&gt;递归下降&lt;/code&gt; 算法。&lt;/p&gt;
 &lt;h1 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;[1] 扩展巴科斯范式 (EBNF) 简介.&lt;a href=&#34;https://blog.csdn.net/lin_strong/article/details/78583543&#34;&gt;https://blog.csdn.net/lin_strong/article/details/78583543&lt;/a&gt;&lt;/em&gt;&lt;br&gt;
@@ -224,15 +324,9 @@
 &lt;h1 id=&#34;初尝构思&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初尝构思&#34;&gt;#&lt;/a&gt; 初尝构思&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;现在，我来尝试给你出一道题吧，请你用你所熟悉的语言，编写一个模块：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;输入符合四则运算表达式规范的字符串 (可以假定只有整数，不存在括号)；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;输出整型结果；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;要求关键逻辑由自己实现，不可借由库、语言本身提供的功能。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;输入符合四则运算表达式规范的字符串 (可以假定只有整数，不存在括号)；&lt;/li&gt;
+&lt;li&gt;输出整型结果；&lt;/li&gt;
+&lt;li&gt;要求关键逻辑由自己实现，不可借由库、语言本身提供的功能。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;你能实现吗？&lt;/p&gt;
 &lt;p&gt;是否觉得脑子有些空白，难以组织成较为优雅的实现思路呢？&lt;/p&gt;
@@ -265,15 +359,9 @@
 &lt;p&gt;&lt;code&gt;3 + 2&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;这个是大家熟悉的算术表达式，实际上，我们人脑是如何计算这个表达式的呢？当然需要遵循某些规则：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;先乘除&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;再加减&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;从左往右结合&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;先乘除&lt;/li&gt;
+&lt;li&gt;再加减&lt;/li&gt;
+&lt;li&gt;从左往右结合&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;那我们自然是需要先&lt;strong&gt;左往右找&lt;/strong&gt;在表达式中找到 &lt;code&gt;*&lt;/code&gt; 、 &lt;code&gt;/&lt;/code&gt;  两种符号，好消息是，没有，嘿嘿。&lt;/p&gt;
 &lt;p&gt;接下来继续&lt;strong&gt;左往右找&lt;/strong&gt; &lt;code&gt;+&lt;/code&gt; 、 &lt;code&gt;-&lt;/code&gt; ，找到之后将其取出，这也是我们需要计算的子表达式。&lt;/p&gt;
@@ -301,8 +389,8 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;多运算符与结合律&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#多运算符与结合律&#34;&gt;#&lt;/a&gt; 多运算符与结合律&lt;/h3&gt;
-&lt;p&gt;那么，当一个表达式中，存在多个运算符时，应该如何构造语法树呢？&lt;/p&gt;
-&lt;p&gt;接下来我们构造表达式  &lt;code&gt;3 - 2 + 4&lt;/code&gt;  的树。&lt;/p&gt;
+&lt;p&gt;那么，当一个表达式中，存在多个运算符时，应该如何构造语法树呢？&lt;br&gt;
+接下来我们构造表达式  &lt;code&gt;3 - 2 + 4&lt;/code&gt;  的树。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;首先我们应该注意的一点是，需要先被执行运算 (优先级更高) 的子表达式，其节点相对的，要在更底下：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
