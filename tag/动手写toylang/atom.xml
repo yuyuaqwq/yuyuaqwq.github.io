@@ -72,7 +72,7 @@
 &lt;p&gt;&lt;em&gt;关于更多 EBNF 的语法规则，请参阅相关资料。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;自顶向下&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自顶向下&#34;&gt;#&lt;/a&gt; 自顶向下&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;已知 &lt;code&gt;输入串&lt;/code&gt; 为某条产生式的左式，根据输入串不断展开其非终结符，直至只剩下终结符。&lt;/strong&gt;&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;已知 &lt;code&gt;输入串&lt;/code&gt; 为某条产生式的左式，扫描输入串以不断展开其非终结符，直至只剩下终结符。&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;这个展开的过程我们叫做推导，这属于自顶向下解析的思想。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;尝试解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#尝试解析&#34;&gt;#&lt;/a&gt; 尝试解析&lt;/h2&gt;
 &lt;p&gt;我们先来看第一行产生式：&lt;br&gt;
