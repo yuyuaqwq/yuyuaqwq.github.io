@@ -485,14 +485,14 @@
 &lt;p&gt;但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好的捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
 &lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
 学完本系列文章之后，基本上可以对编译原理有一定程度的认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我会尽可能的查阅资料，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;笔者会尽可能的查阅资料，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;h2 id=&#34;开发语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发语言&#34;&gt;#&lt;/a&gt; 开发语言&lt;/h2&gt;
-&lt;p&gt;这里我选用我个人较为常用的 C++ 作为开发语言，风格尽量以《Google C++ Style Guide》为准，在我个人能力范围内尽量写得 &amp;quot;现代 C++&amp;quot; 一点。&lt;/p&gt;
-&lt;p&gt;当然，我个人对 C++ 的理解也较为浅薄，代码写得不好，还请理解。&lt;/p&gt;
+&lt;p&gt;这里笔者选用个人较为常用的 C++ 作为开发语言，风格尽量以《Google C++ Style Guide》为准，在我个人能力范围内尽量写得 &amp;quot;现代 C++&amp;quot; 一点。&lt;/p&gt;
+&lt;p&gt;另外，笔者对 C++ 的理解也较为浅薄，代码写得不好，还请理解。&lt;/p&gt;
 &lt;h2 id=&#34;开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发环境&#34;&gt;#&lt;/a&gt; 开发环境&lt;/h2&gt;
-&lt;p&gt;我基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; ，你们可以选择自己喜欢的开发环境。&lt;/p&gt;
+&lt;p&gt;笔者基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; ，读者可以选择自己喜欢的开发环境。&lt;/p&gt;
 &lt;h1 id=&#34;项目地址&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目地址&#34;&gt;#&lt;/a&gt; 项目地址&lt;/h1&gt;
 &lt;p&gt;我将完整的项目代码以及每一阶段的代码以分支的形式放到了 github 上，供读者参考学习。&lt;/p&gt;
 &lt;ul&gt;
