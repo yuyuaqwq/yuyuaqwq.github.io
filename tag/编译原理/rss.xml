@@ -500,7 +500,7 @@
 &lt;h2 id=&#34;开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发环境&#34;&gt;#&lt;/a&gt; 开发环境&lt;/h2&gt;
 &lt;p&gt;我基本上只在 Windows 上工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; ，你们可以选择自己喜欢的开发环境。&lt;/p&gt;
 &lt;h1 id=&#34;项目地址&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目地址&#34;&gt;#&lt;/a&gt; 项目地址&lt;/h1&gt;
-&lt;p&gt;我将完整的项目代码以及每一阶段的代码以分支的形式放到了 github 上，读者可以参考学习。&lt;/p&gt;
+&lt;p&gt;我将完整的项目代码以及每一阶段的代码以分支的形式放到了 github 上，供读者参考学习。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/yuyuaqwq/ToyLang&#34;&gt;https://github.com/yuyuaqwq/ToyLang&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
