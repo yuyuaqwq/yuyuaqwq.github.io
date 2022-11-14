@@ -17,6 +17,9 @@
         <category>Proxifier</category>
         <category>编译原理</category>
         <category>动手写ToyLang</category>
+        <category>C++</category>
+        <category>界面开发</category>
+        <category>Qt</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/5e1f.html</guid>
             <title>【Proxifier】基本配置与使用</title>
@@ -101,10 +104,14 @@
 &lt;p&gt;这里说明一下选项：&lt;br&gt;
 Direct：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Proxifier 放行此规则的流量&lt;br&gt;
- Block:&lt;/li&gt;
-&lt;li&gt;Proxifier 拦截此规则的流量&lt;br&gt;
- Proxy HTTPS 127.0.0.1:&lt;/li&gt;
+&lt;li&gt;Proxifier 放行此规则的流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Block:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxifier 拦截此规则的流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Proxy HTTPS 127.0.0.1:&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;这里的选项是我们先前设置的代理服务器&lt;/li&gt;
 &lt;li&gt;Proxifier 代理此规则的流量&lt;/li&gt;
 &lt;/ul&gt;
@@ -133,7 +140,7 @@ Direct：&lt;/p&gt;
 &lt;h1 id=&#34;fiddler抓取应用配置示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#fiddler抓取应用配置示例&#34;&gt;#&lt;/a&gt; Fiddler 抓取应用配置示例&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;我们需要将目标端口为 &lt;code&gt;80&lt;/code&gt;  和 &lt;code&gt;443&lt;/code&gt;  的请求转发到 &lt;code&gt;Fiddler&lt;/code&gt;  创建的代理服务器中。&lt;/li&gt;
-&lt;li&gt;将 &lt;code&gt;Fiddler.exe&lt;/code&gt;  设为过滤项，(因为 &lt;code&gt;Fiddler&lt;/code&gt;  再次转发请求时，又会被 &lt;code&gt;Proxifier&lt;/code&gt;  捕获，因此要将其过滤)，通过右边的 &lt;code&gt;↑``↓&lt;/code&gt; 按钮调整其优先级为最高。&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;Fiddler.exe&lt;/code&gt;  设为过滤项，(因为 &lt;code&gt;Fiddler&lt;/code&gt;  再次转发请求时，又会被 &lt;code&gt;Proxifier&lt;/code&gt;  捕获，因此要将其过滤)，通过右边的 &lt;code&gt;↑&lt;/code&gt;   &lt;code&gt;↓&lt;/code&gt; 按钮调整其优先级为最高。&lt;/li&gt;
 &lt;li&gt;这里另外示范了过滤 &lt;code&gt;Chrome.exe&lt;/code&gt;  浏览器的情况，使浏览器的请求也不会被转发。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;

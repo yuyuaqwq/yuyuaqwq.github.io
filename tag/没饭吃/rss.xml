@@ -17,12 +17,17 @@
         <category>Proxifier</category>
         <category>编译原理</category>
         <category>动手写ToyLang</category>
+        <category>C++</category>
+        <category>界面开发</category>
+        <category>Qt</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/842e.html</guid>
             <title>【MFC】视图与文档</title>
             <link>http://yuyuaqwq.github.io/posts/842e.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 25 Oct 2022 22:01:10 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图&#34;&gt;#&lt;/a&gt; 视图&lt;/h1&gt;
 &lt;h2 id=&#34;视图窗口简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图窗口简述&#34;&gt;#&lt;/a&gt; 视图窗口简述&lt;/h2&gt;
@@ -94,6 +99,8 @@
             <link>http://yuyuaqwq.github.io/posts/6ee.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Sun, 16 Oct 2022 16:41:10 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;工具栏简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#工具栏简述&#34;&gt;#&lt;/a&gt; 工具栏简述&lt;/h1&gt;
 &lt;p&gt;Windows 下的工具栏通常是指放置工具的容器。&lt;br&gt;
@@ -151,6 +158,8 @@
             <link>http://yuyuaqwq.github.io/posts/d43b.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Sat, 15 Oct 2022 15:28:54 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;菜单简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#菜单简述&#34;&gt;#&lt;/a&gt; 菜单简述&lt;/h1&gt;
 &lt;p&gt;Windows 的菜单分为两类：&lt;/p&gt;
@@ -248,6 +257,8 @@
             <link>http://yuyuaqwq.github.io/posts/c22c.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 11 Oct 2022 22:08:21 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;消息机制简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息机制简述&#34;&gt;#&lt;/a&gt; 消息机制简述&lt;/h1&gt;
 &lt;p&gt;我们知道，Windows 的窗口是由&lt;strong&gt;消息&lt;/strong&gt;驱动的；&lt;br&gt;
@@ -429,6 +440,8 @@ Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对
             <link>http://yuyuaqwq.github.io/posts/78f0.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Thu, 06 Oct 2022 12:48:45 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;何时创建窗口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#何时创建窗口&#34;&gt;#&lt;/a&gt; 何时创建窗口？&lt;/h1&gt;
 &lt;p&gt;我们在直接使用 &lt;code&gt;Win32API&lt;/code&gt;  开发窗口程序的时候，一般都是在消息循环之前调用相关的函数创建窗口，那么 MFC 的窗口是在何时被创建的呢？&lt;/p&gt;
@@ -562,6 +575,8 @@ MFC 在需要通过 &lt;code&gt;HWND&lt;/code&gt;  查找到对应窗口类对�
             <link>http://yuyuaqwq.github.io/posts/a6e.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Wed, 05 Oct 2022 10:45:26 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;全局对象的构造&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#全局对象的构造&#34;&gt;#&lt;/a&gt; 全局对象的构造&lt;/h1&gt;
 &lt;p&gt;C++ 的对象在创建时，会调用构造函数。&lt;br&gt;
@@ -744,6 +759,8 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
             <link>http://yuyuaqwq.github.io/posts/7c79.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 04 Oct 2022 19:33:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;mfc简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mfc简述&#34;&gt;#&lt;/a&gt; MFC 简述&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;MFC (Microsoft Foundation Classes)，微软基础类库；&lt;/strong&gt;&lt;br&gt;
@@ -845,8 +862,10 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
             <link>http://yuyuaqwq.github.io/posts/6339.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 04 Oct 2022 19:30:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;当前分类所收录的博客主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;当前分类所收录的文章主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 &lt;a href=&#34;https://www.bilibili.com/video/BV1mU4y1C7XA/?p=14&amp;amp;spm_id_from=333.999.header_right.history_list.click&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt; C++ 之 MFC 全套教程&lt;/a&gt;&lt;/p&gt;

@@ -5,8 +5,8 @@
         <link>http://yuyuaqwq.github.io</link>
         <description>人为什么要起床？</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 30 Oct 2022 16:34:27 +0800</pubDate>
-        <lastBuildDate>Sun, 30 Oct 2022 16:34:27 +0800</lastBuildDate>
+        <pubDate>Sat, 12 Nov 2022 16:39:44 +0800</pubDate>
+        <lastBuildDate>Sat, 12 Nov 2022 16:39:44 +0800</lastBuildDate>
         <category>MFC</category>
         <category>没饭吃</category>
         <category>逆向分析</category>
@@ -17,6 +17,26 @@
         <category>Proxifier</category>
         <category>编译原理</category>
         <category>动手写ToyLang</category>
+        <category>C++</category>
+        <category>界面开发</category>
+        <category>Qt</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/2fd3.html</guid>
+            <title>【Qt】前言</title>
+            <link>http://yuyuaqwq.github.io/posts/2fd3.html</link>
+            <category>C++</category>
+            <category>界面开发</category>
+            <category>Qt</category>
+            <pubDate>Sat, 12 Nov 2022 16:39:44 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;当前分类所收录的文章主要是我个人学习 QT 时记录的读书笔记。&lt;/p&gt;
+&lt;p&gt;记得初学 C++ 不久学习过 QT，一直用不上，基本遗忘了。&lt;br&gt;
+最近有些需求，重新捡一捡。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主要参考资料&lt;br&gt;
+&lt;a href=&#34;https://www.bilibili.com/video/BV1Qp4y167dD?p=5&amp;amp;spm_id_from=pageDriver&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt;【风骚程序员】QT&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/f573.html</guid>
             <title>【动手写ToyLang】4.递归下降</title>
@@ -29,8 +49,8 @@
 &lt;p&gt;说了这么多，递归下降到底是个什么玩意呢？&lt;br&gt;
 接下来我们通过以下能够应用递归下降进行解析的文法来解析输入串，了解其解析过程，读者大概就明白了。&lt;/p&gt;
 &lt;figure class=&#34;highlight ebnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;block&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;&amp;#x27;&lt;/span&gt; &amp;#123;stat&amp;#125; &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stat = assignExp &lt;span class=&#34;string&#34;&gt;&amp;#x27;;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;assignExp = ident &lt;span class=&#34;string&#34;&gt;&amp;#x27;=&amp;#x27;&lt;/span&gt; value&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;value = number | string&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;code&gt;&amp;#123;&amp;#125;&lt;/code&gt;  表示重复，此处表示可以有 0~n 个 &lt;code&gt;stat&lt;/code&gt; 。&lt;br&gt;
-其中， &lt;code&gt;ident&lt;/code&gt;  是标识符，包括 &lt;code&gt;number&lt;/code&gt; ， &lt;code&gt;string&lt;/code&gt; ，我们都会放到词法分析中去解析，故不在此列出其文法。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#123;stat&amp;#125;&lt;/code&gt;  表示重复 &lt;code&gt;stat&lt;/code&gt; ，此处表示可以有 0~n 个 &lt;code&gt;stat&lt;/code&gt; 。&lt;br&gt;
+其中， &lt;code&gt;ident&lt;/code&gt;  是标识符， &lt;code&gt;number&lt;/code&gt; 、 &lt;code&gt;string&lt;/code&gt;  是字面量，我们都会放到词法分析中去解析，故不在此列出其文法。&lt;/p&gt;
 &lt;p&gt;首先，假设 &lt;code&gt;block&lt;/code&gt;  输入串为：&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    a = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    b = &amp;quot;qwq&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;以下是解析的伪代码：&lt;/p&gt;
@@ -78,7 +98,7 @@
 &lt;h2 id=&#34;关键描述文法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关键描述文法&#34;&gt;#&lt;/a&gt; 关键：描述文法&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;这种自顶逐层向下解析，以构造语法树的分析法，就叫做递归下降。&lt;/strong&gt;&lt;br&gt;
 &lt;em&gt;虽然笔者并没有在伪代码中添加构造树的节点相关的代码，但不妨碍读者理解递归下降。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;你会发现，只要我们描述好了文法，用递归下降解析输入串是一件非常轻松的事情。&lt;/p&gt;
+&lt;p&gt;你会发现，只要我们描述好了文法，用递归下降来解析输入串是一件非常简单的事情。&lt;/p&gt;
 &lt;h2 id=&#34;无限递进&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#无限递进&#34;&gt;#&lt;/a&gt; 无限递进&lt;/h2&gt;
 &lt;p&gt;还记得我在上一篇文章中所描述的文法吗？&lt;/p&gt;
 &lt;p&gt;如果直接编写解析代码，就会形成无限递进：&lt;/p&gt;
@@ -163,7 +183,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;文法是一个汉语词汇，读音为 wén fǎ ，即文章的书写法规，一般用来指以文字、词语、短句、句子的编排而组成的完整语句和文章的合理性组织。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;学编译原理确实有很多东西难以理解，特别是各种各样的名词。&lt;/p&gt;
+&lt;p&gt;学习编译原理的过程中，确实会有许多概念难以理解。&lt;/p&gt;
 &lt;p&gt;我们先简单理解成，&lt;strong&gt;文法就是描述如何将 token 组织成语法树的规则。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我们的语言自然也需要存在文法，比如 if 语句必须按照下列文法来解析：&lt;/p&gt;
 &lt;ul&gt;
@@ -179,11 +199,11 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;扩展巴科斯 - 瑙尔范式 (Extended Backus–Naur Form,EBNF) 是一种用于描述计算机编程语言等正式语言的与上下文无关语法的元语法 (metasyntax) 符号表示法。简而言之，它是一种描述语言的语言。它是基本巴科斯范式 (BNF) 元语法符号表示法的一种扩展。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;只看说明通常很难理解新事物，咱们尝试一下用 EBNF 描述四则运算表达式的文法。&lt;/p&gt;
+&lt;p&gt;只看描述通常很难理解新事物，咱们尝试一下用 EBNF 描述四则运算表达式的文法。&lt;/p&gt;
 &lt;figure class=&#34;highlight ebnf&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;exp&lt;/span&gt; = exp &lt;span class=&#34;string&#34;&gt;&amp;#x27;+&amp;#x27;&lt;/span&gt; number | exp &lt;span class=&#34;string&#34;&gt;&amp;#x27;-&amp;#x27;&lt;/span&gt; number | number&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;number = digit &amp;#123;digit&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;digit = &lt;span class=&#34;string&#34;&gt;&amp;#x27;0&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;2&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;3&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;4&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;5&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;6&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;7&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;8&amp;#x27;&lt;/span&gt; | &lt;span class=&#34;string&#34;&gt;&amp;#x27;9&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;为了便于理解，这里只描述了加法与减法。&lt;/p&gt;
 &lt;h2 id=&#34;基本规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本规则&#34;&gt;#&lt;/a&gt; 基本规则&lt;/h2&gt;
-&lt;p&gt;你可能看不明白，没关系，我简单给你讲解一下：&lt;/p&gt;
+&lt;p&gt;读者或许没看明白，没关系，笔者简单讲解一下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 &lt;code&gt;=&lt;/code&gt;  左边的，我们称为 &lt;code&gt;左式&lt;/code&gt; ；&lt;/li&gt;
 &lt;li&gt;在 &lt;code&gt;=&lt;/code&gt;  右边的，我们称为 &lt;code&gt;右式&lt;/code&gt; ；&lt;/li&gt;
@@ -488,10 +508,10 @@
             <pubDate>Fri, 28 Oct 2022 21:18:53 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;关于&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于&#34;&gt;#&lt;/a&gt; 关于&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门在别人看来是&lt;emp&gt;玩具&lt;/emp&gt;的通用编程语言，事实也确实如此。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好的捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
+&lt;p&gt;但计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
 &lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
-学完本系列文章之后，基本上可以对编译原理有一定程度的认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;笔者会尽可能的查阅资料，以保证输出内容的可靠性，如果还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+学完本系列文章之后，基本上可以对编译原理有所认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;笔者会尽可能保证文章内容的准确，若还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;h2 id=&#34;开发语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发语言&#34;&gt;#&lt;/a&gt; 开发语言&lt;/h2&gt;
@@ -500,7 +520,7 @@
 &lt;h2 id=&#34;开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发环境&#34;&gt;#&lt;/a&gt; 开发环境&lt;/h2&gt;
 &lt;p&gt;笔者基本上只在 &lt;code&gt;Windows&lt;/code&gt;  下进行开发工作，因此选择自然是 &lt;code&gt;Visual Studio&lt;/code&gt; ，读者可以自由选择自己喜欢的开发环境。&lt;/p&gt;
 &lt;h1 id=&#34;项目地址&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目地址&#34;&gt;#&lt;/a&gt; 项目地址&lt;/h1&gt;
-&lt;p&gt;笔者将完整的项目代码以及每一阶段的代码以分支的形式放到了 &lt;code&gt;github&lt;/code&gt;  上，供读者参考学习。&lt;/p&gt;
+&lt;p&gt;最后，笔者已经将完整的项目代码放到了 &lt;code&gt;github&lt;/code&gt;  上，另外每一学习阶段的代码会以分支的形式推送，供读者参考学习。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/yuyuaqwq/ToyLang&#34;&gt;https://github.com/yuyuaqwq/ToyLang&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -707,10 +727,14 @@ Direct：&lt;/p&gt;
 &lt;p&gt;这里说明一下选项：&lt;br&gt;
 Direct：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Proxifier 放行此规则的流量&lt;br&gt;
- Block:&lt;/li&gt;
-&lt;li&gt;Proxifier 拦截此规则的流量&lt;br&gt;
- Proxy HTTPS 127.0.0.1:&lt;/li&gt;
+&lt;li&gt;Proxifier 放行此规则的流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Block:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxifier 拦截此规则的流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Proxy HTTPS 127.0.0.1:&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;这里的选项是我们先前设置的代理服务器&lt;/li&gt;
 &lt;li&gt;Proxifier 代理此规则的流量&lt;/li&gt;
 &lt;/ul&gt;
@@ -739,7 +763,7 @@ Direct：&lt;/p&gt;
 &lt;h1 id=&#34;fiddler抓取应用配置示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#fiddler抓取应用配置示例&#34;&gt;#&lt;/a&gt; Fiddler 抓取应用配置示例&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;我们需要将目标端口为 &lt;code&gt;80&lt;/code&gt;  和 &lt;code&gt;443&lt;/code&gt;  的请求转发到 &lt;code&gt;Fiddler&lt;/code&gt;  创建的代理服务器中。&lt;/li&gt;
-&lt;li&gt;将 &lt;code&gt;Fiddler.exe&lt;/code&gt;  设为过滤项，(因为 &lt;code&gt;Fiddler&lt;/code&gt;  再次转发请求时，又会被 &lt;code&gt;Proxifier&lt;/code&gt;  捕获，因此要将其过滤)，通过右边的 &lt;code&gt;↑``↓&lt;/code&gt; 按钮调整其优先级为最高。&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;Fiddler.exe&lt;/code&gt;  设为过滤项，(因为 &lt;code&gt;Fiddler&lt;/code&gt;  再次转发请求时，又会被 &lt;code&gt;Proxifier&lt;/code&gt;  捕获，因此要将其过滤)，通过右边的 &lt;code&gt;↑&lt;/code&gt;   &lt;code&gt;↓&lt;/code&gt; 按钮调整其优先级为最高。&lt;/li&gt;
 &lt;li&gt;这里另外示范了过滤 &lt;code&gt;Chrome.exe&lt;/code&gt;  浏览器的情况，使浏览器的请求也不会被转发。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
@@ -759,6 +783,8 @@ Direct：&lt;/p&gt;
             <link>http://yuyuaqwq.github.io/posts/842e.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 25 Oct 2022 22:01:10 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;视图&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图&#34;&gt;#&lt;/a&gt; 视图&lt;/h1&gt;
 &lt;h2 id=&#34;视图窗口简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#视图窗口简述&#34;&gt;#&lt;/a&gt; 视图窗口简述&lt;/h2&gt;
@@ -838,6 +864,8 @@ Direct：&lt;/p&gt;
             <link>http://yuyuaqwq.github.io/posts/6ee.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Sun, 16 Oct 2022 16:41:10 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;工具栏简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#工具栏简述&#34;&gt;#&lt;/a&gt; 工具栏简述&lt;/h1&gt;
 &lt;p&gt;Windows 下的工具栏通常是指放置工具的容器。&lt;br&gt;
@@ -895,6 +923,8 @@ Direct：&lt;/p&gt;
             <link>http://yuyuaqwq.github.io/posts/d43b.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Sat, 15 Oct 2022 15:28:54 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;菜单简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#菜单简述&#34;&gt;#&lt;/a&gt; 菜单简述&lt;/h1&gt;
 &lt;p&gt;Windows 的菜单分为两类：&lt;/p&gt;
@@ -1015,7 +1045,7 @@ Direct：&lt;/p&gt;
             <category>C/C++</category>
             <category>反汇编</category>
             <pubDate>Fri, 14 Oct 2022 17:48:45 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;当前分类所收录的文章主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清&lt;/p&gt;
@@ -1157,6 +1187,8 @@ Direct：&lt;/p&gt;
             <link>http://yuyuaqwq.github.io/posts/c22c.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 11 Oct 2022 22:08:21 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;消息机制简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息机制简述&#34;&gt;#&lt;/a&gt; 消息机制简述&lt;/h1&gt;
 &lt;p&gt;我们知道，Windows 的窗口是由&lt;strong&gt;消息&lt;/strong&gt;驱动的；&lt;br&gt;
@@ -1338,6 +1370,8 @@ Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对
             <link>http://yuyuaqwq.github.io/posts/78f0.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Thu, 06 Oct 2022 12:48:45 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;何时创建窗口&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#何时创建窗口&#34;&gt;#&lt;/a&gt; 何时创建窗口？&lt;/h1&gt;
 &lt;p&gt;我们在直接使用 &lt;code&gt;Win32API&lt;/code&gt;  开发窗口程序的时候，一般都是在消息循环之前调用相关的函数创建窗口，那么 MFC 的窗口是在何时被创建的呢？&lt;/p&gt;
@@ -1471,6 +1505,8 @@ MFC 在需要通过 &lt;code&gt;HWND&lt;/code&gt;  查找到对应窗口类对�
             <link>http://yuyuaqwq.github.io/posts/a6e.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Wed, 05 Oct 2022 10:45:26 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;全局对象的构造&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#全局对象的构造&#34;&gt;#&lt;/a&gt; 全局对象的构造&lt;/h1&gt;
 &lt;p&gt;C++ 的对象在创建时，会调用构造函数。&lt;br&gt;
@@ -1653,6 +1689,8 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
             <link>http://yuyuaqwq.github.io/posts/7c79.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 04 Oct 2022 19:33:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;mfc简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mfc简述&#34;&gt;#&lt;/a&gt; MFC 简述&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;MFC (Microsoft Foundation Classes)，微软基础类库；&lt;/strong&gt;&lt;br&gt;
@@ -1754,8 +1792,10 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
             <link>http://yuyuaqwq.github.io/posts/6339.html</link>
             <category>MFC</category>
             <category>没饭吃</category>
+            <category>C++</category>
+            <category>界面开发</category>
             <pubDate>Tue, 04 Oct 2022 19:30:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;当前分类所收录的博客主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;当前分类所收录的文章主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 &lt;a href=&#34;https://www.bilibili.com/video/BV1mU4y1C7XA/?p=14&amp;amp;spm_id_from=333.999.header_right.history_list.click&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt; C++ 之 MFC 全套教程&lt;/a&gt;&lt;/p&gt;

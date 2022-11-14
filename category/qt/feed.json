@@ -1,0 +1,20 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "鹿鹿鱼鱼 • All posts by \"qt\" category",
+    "description": "人为什么要起床？",
+    "home_page_url": "http://yuyuaqwq.github.io",
+    "items": [
+        {
+            "id": "http://yuyuaqwq.github.io/posts/2fd3.html",
+            "url": "http://yuyuaqwq.github.io/posts/2fd3.html",
+            "title": "【Qt】前言",
+            "date_published": "2022-11-12T08:39:44.161Z",
+            "content_html": "<p>当前分类所收录的文章主要是我个人学习 QT 时记录的读书笔记。</p>\n<p>记得初学 C++ 不久学习过 QT，一直用不上，基本遗忘了。<br>\n最近有些需求，重新捡一捡。</p>\n<blockquote>\n<p>主要参考资料<br>\n<a href=\"https://www.bilibili.com/video/BV1Qp4y167dD?p=5&amp;spm_id_from=pageDriver&amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3\">【风骚程序员】QT</a></p>\n</blockquote>\n",
+            "tags": [
+                "C++",
+                "界面开发",
+                "Qt"
+            ]
+        }
+    ]
+}

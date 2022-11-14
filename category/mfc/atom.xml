@@ -14,6 +14,9 @@
     <category term="Proxifier" />
     <category term="编译原理" />
     <category term="动手写ToyLang" />
+    <category term="C++" />
+    <category term="界面开发" />
+    <category term="Qt" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/842e.html</id>
         <title>【MFC】视图与文档</title>
@@ -83,6 +86,8 @@
             &lt;/details&gt;</content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-25T14:01:10.000Z</updated>
     </entry>
     <entry>
@@ -140,6 +145,8 @@
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-16T08:41:10.000Z</updated>
     </entry>
     <entry>
@@ -237,6 +244,8 @@
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-15T07:28:54.120Z</updated>
     </entry>
     <entry>
@@ -418,6 +427,8 @@ Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-11T14:08:21.000Z</updated>
     </entry>
     <entry>
@@ -551,6 +562,8 @@ MFC 在需要通过 &lt;code&gt;HWND&lt;/code&gt;  查找到对应窗口类对�
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-06T04:48:45.000Z</updated>
     </entry>
     <entry>
@@ -733,6 +746,8 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-05T02:45:26.000Z</updated>
     </entry>
     <entry>
@@ -834,13 +849,15 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-04T11:33:52.000Z</updated>
     </entry>
     <entry>
         <id>http://yuyuaqwq.github.io/posts/6339.html</id>
         <title>【MFC】前言</title>
         <link rel="alternate" href="http://yuyuaqwq.github.io/posts/6339.html"/>
-        <content type="html">&lt;p&gt;当前分类所收录的博客主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
+        <content type="html">&lt;p&gt;当前分类所收录的文章主要是我个人学习 MFC 时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 &lt;a href=&#34;https://www.bilibili.com/video/BV1mU4y1C7XA/?p=14&amp;amp;spm_id_from=333.999.header_right.history_list.click&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt; C++ 之 MFC 全套教程&lt;/a&gt;&lt;/p&gt;
@@ -848,6 +865,8 @@ MFC 程序自然也不例外，而 MFC 的消息循环究竟编写在哪里呢�
 </content>
         <category term="MFC" />
         <category term="没饭吃" />
+        <category term="C++" />
+        <category term="界面开发" />
         <updated>2022-10-04T11:30:00.000Z</updated>
     </entry>
 </feed>

@@ -21,7 +21,7 @@
             "url": "http://yuyuaqwq.github.io/posts/3fe5.html",
             "title": "【C/C++逆向】前言",
             "date_published": "2022-10-14T09:48:45.000Z",
-            "content_html": "<p>当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。</p>\n<blockquote>\n<p>主要参考资料<br>\n《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清</p>\n</blockquote>\n",
+            "content_html": "<p>当前分类所收录的文章主要是我个人学习 C/C++ 逆向时记录的读书笔记。</p>\n<blockquote>\n<p>主要参考资料<br>\n《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清</p>\n</blockquote>\n",
             "tags": [
                 "逆向分析",
                 "C/C++",

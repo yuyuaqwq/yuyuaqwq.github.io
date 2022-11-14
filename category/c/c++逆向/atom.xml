@@ -14,6 +14,9 @@
     <category term="Proxifier" />
     <category term="编译原理" />
     <category term="动手写ToyLang" />
+    <category term="C++" />
+    <category term="界面开发" />
+    <category term="Qt" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/51b.html</id>
         <title>【C/C++逆向】数据类型的表现形式</title>
@@ -39,7 +42,7 @@
         <id>http://yuyuaqwq.github.io/posts/3fe5.html</id>
         <title>【C/C++逆向】前言</title>
         <link rel="alternate" href="http://yuyuaqwq.github.io/posts/3fe5.html"/>
-        <content type="html">&lt;p&gt;当前分类所收录的博客主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
+        <content type="html">&lt;p&gt;当前分类所收录的文章主要是我个人学习 C/C++ 逆向时记录的读书笔记。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清&lt;/p&gt;
