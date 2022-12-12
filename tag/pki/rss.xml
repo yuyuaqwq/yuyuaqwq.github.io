@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>鹿鹿鱼鱼 • Posts by &#34;pki&#34; tag</title>
+        <link>http://yuyuaqwq.github.io</link>
+        <description>人为什么要起床？</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 08 Dec 2022 15:31:19 +0800</pubDate>
+        <lastBuildDate>Thu, 08 Dec 2022 15:31:19 +0800</lastBuildDate>
+        <category>MFC</category>
+        <category>没饭吃</category>
+        <category>逆向分析</category>
+        <category>工具</category>
+        <category>C/C++</category>
+        <category>反汇编</category>
+        <category>网络分析</category>
+        <category>Proxifier</category>
+        <category>编译原理</category>
+        <category>动手写ToyLang</category>
+        <category>C++</category>
+        <category>界面开发</category>
+        <category>Qt</category>
+        <category>保护模式</category>
+        <category>Windows内核</category>
+        <category>密码学</category>
+        <category>PKI</category>
+        <category>证书</category>
+        <category>签名</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/5d13.html</guid>
+            <title>【密码学】PKI体系：谁来保证我的通信安全？</title>
+            <link>http://yuyuaqwq.github.io/posts/5d13.html</link>
+            <category>密码学</category>
+            <category>PKI</category>
+            <category>证书</category>
+            <category>签名</category>
+            <pubDate>Thu, 08 Dec 2022 15:31:19 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;pki概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pki概述&#34;&gt;#&lt;/a&gt; PKI 概述&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Public Key Infrastructure，即公钥基础设施。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;以下摘自百度百科：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;公钥基础设施是一个包括硬件、软件、人员、策略和规程的集合，用来实现基于公钥密码体制的密钥和证书的产生、管理、存储、分发和撤销等功能。&lt;br&gt;
+PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为实施电子商务、电子政务、办公自动化等提供了基本的安全服务，从而使那些彼此不认识或距离很远的用户能通过信任链安全地交流。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当然，要是光看定义能看懂的话，想必各位也不会见到这一篇文章了，贴出定义只是个人习惯，咱们往下看。&lt;/p&gt;
+&lt;h1 id=&#34;明文与密文&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#明文与密文&#34;&gt;#&lt;/a&gt; 明文与密文&lt;/h1&gt;
+&lt;p&gt;首先咱们要知道，咱们能够阅读理解的东西是 &lt;code&gt;明文&lt;/code&gt; ，比如远在天边的网友给你发的一条 qq 消息，你看到的时候它就是明文，这样你才能看得懂你的网友想和你说些什么。&lt;/p&gt;
+&lt;p&gt;当然，你看得懂，别人也看得懂，中文嘛，大家都学过。&lt;br&gt;
+你想着，我要是不想赤裸裸的让别人窥探我的聊天内容是吧，咱们多少还是希望能有些隐私的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加密&lt;/strong&gt;自然而然的出现了。&lt;/p&gt;
+&lt;p&gt;我们通过某种方法对明文原本的信息进行可逆的改变，别人只要不知道我们是如何改变的，就无法还原，只有我们才能够还原为明文。&lt;br&gt;
+加密后无法直接理解的信息，我们就叫做 &lt;code&gt;密文&lt;/code&gt; 。&lt;/p&gt;
+&lt;h1 id=&#34;前置知识&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前置知识&#34;&gt;#&lt;/a&gt; 前置知识&lt;/h1&gt;
+&lt;h2 id=&#34;密钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#密钥&#34;&gt;#&lt;/a&gt; 密钥&lt;/h2&gt;
+&lt;p&gt;通常也是一组数据，就像现实世界的钥匙，是&lt;strong&gt;加锁 / 解锁&lt;/strong&gt;的关键。&lt;/p&gt;
+&lt;h2 id=&#34;对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对称加密&#34;&gt;#&lt;/a&gt; 对称加密&lt;/h2&gt;
+&lt;p&gt;首先创建一把&lt;strong&gt;密钥&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;通过这把密钥可以加密明文；&lt;br&gt;
+对密文的解密也需要&lt;strong&gt;同样的一把密钥&lt;/strong&gt;。&lt;br&gt;
+&lt;em&gt;如同常见的钥匙和锁一般，加锁和解锁都是同一把钥匙。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;缺陷：在公共的网络环境中，密钥难以安全传递。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;非对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#非对称加密&#34;&gt;#&lt;/a&gt; 非对称加密&lt;/h2&gt;
+&lt;p&gt;创建两把密钥，一把公钥，一把私钥，&lt;strong&gt;这两把密钥是对应关系&lt;/strong&gt;。&lt;br&gt;
+公钥是公开的，任何人都可以获得。&lt;br&gt;
+私钥是私有的，只有创建者持有。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;公钥加密的东西，只有对应的私钥能够解密；&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;&lt;strong&gt;私钥加密的东西，只有对应的公钥能够解密。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;相对对称加密而言，不存在密钥无法安全传递的问题。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;缺陷：基本上基于数学难题，加密速度十分缓慢。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;信息摘要&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#信息摘要&#34;&gt;#&lt;/a&gt; 信息摘要&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;数据的指纹，具有不可逆的性质。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一般输出的指纹数据长度都是固定的，便于传输。&lt;br&gt;
+通常可以用于验证数据是否被篡改。&lt;br&gt;
+&lt;em&gt;&lt;strong&gt;数据被篡改一位，都会导致计算出来的信息摘要不同。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;安全通信&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安全通信&#34;&gt;#&lt;/a&gt; 安全通信&lt;/h1&gt;
+&lt;p&gt;有了上述基础，你能否在公共网络中构建安全传输通信呢？&lt;br&gt;
+我们来尝试一下。&lt;/p&gt;
+&lt;h2 id=&#34;基本框架非对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本框架非对称加密&#34;&gt;#&lt;/a&gt; 基本框架：非对称加密&lt;/h2&gt;
+&lt;p&gt;当然，我们的数据不能在公网上裸奔，因此首先就需要对明文进行加密。&lt;/p&gt;
+&lt;p&gt;但此时我们难以解决密钥安全传输的问题，故需要引入 &lt;code&gt;非对称加密&lt;/code&gt; 。&lt;br&gt;
+&lt;em&gt;你可能会想到，如果我把密钥也加密呢？那如何解密加密后的密钥呢？是不是也需要一把新的密钥？这把密钥如何传输呢？&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;往复下去也不会有变化，并没有改变无法安全传输密钥的根本问题。&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;通信过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#通信过程&#34;&gt;#&lt;/a&gt; 通信过程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;假设 A、B 需要通信，各自创建私钥与公钥，并且交换公钥；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公钥是可以公开的，任何人都可以持有。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A 向 B 发送消息之前，使用 B 的公钥加密，再发送给 B；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;密文只有 B 能够解密，因为只有 B 持有对应的私钥。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;B 向 A 发送消息也是如此，使用 A 的公钥加密，再发送给 A。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第一个问题计算效率&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第一个问题计算效率&#34;&gt;#&lt;/a&gt; 第一个问题：计算效率&lt;/h3&gt;
+&lt;p&gt;在基础中提及到，非对称加密的计算缓慢，假设传输的数据较多，那么需要消耗大量的时间进行计算。&lt;/p&gt;
+&lt;h2 id=&#34;性能提高引入对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#性能提高引入对称加密&#34;&gt;#&lt;/a&gt; 性能提高：引入对称加密&lt;/h2&gt;
+&lt;p&gt;此时，对称加密计算效率高的特性能够完美弥补这个缺陷，故我们还是需要引入 &lt;code&gt;对称加密&lt;/code&gt; ：&lt;br&gt;
+&lt;em&gt;加密方案基本上都会首先基于已有的 &lt;code&gt;对称加密算法&lt;/code&gt; ，只有这种经过全世界密码学家考验的加密算法才是可靠的。&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;通信过程改进&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#通信过程改进&#34;&gt;#&lt;/a&gt; 通信过程改进&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;A、B 交换公钥；&lt;/li&gt;
+&lt;li&gt;A 生成本次通信的密钥，使用 B 的公钥加密，再将加密后的密钥发送给 B；&lt;/li&gt;
+&lt;li&gt;B 生成本次通信的密钥，使用 A 的公钥加密，再将加密后的密钥发送给 A；
+&lt;ul&gt;
+&lt;li&gt;此步并不一定需要，可以共用一把对称加密密钥。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;各自用私钥解密密钥，往后的通信都使用这把密钥加密 / 解密。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第二个问题中间人攻击&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#第二个问题中间人攻击&#34;&gt;#&lt;/a&gt; 第二个问题：中间人攻击&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;A、B 交换公钥；
+&lt;ul&gt;
+&lt;li&gt;假设 A、B 交换公钥的通信信道被 C 窃听了，C 也生成了自己的公钥与私钥对，将 A、B 的公钥保存起来，并将信道上的 A、B 的公钥替换为 C 的公钥发给对方；&lt;/li&gt;
+&lt;li&gt;A 收到的是 C 的公钥，B 收到的也是 C 的公钥。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A、B 交换密钥；
+&lt;ul&gt;
+&lt;li&gt;A 使用 C 的公钥加密密钥，发往 B；
+&lt;ul&gt;
+&lt;li&gt;依旧被 C 劫持，C 通过私钥解密，得到原始密钥，再将其通过 B 的公钥加密，替换后发往 B。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;B 收到 B 的公钥加密的密钥，用 B 的私钥解密，得到密钥。&lt;/li&gt;
+&lt;li&gt;B 发往 A 同理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个过程中，A 和 B 看似正常安全的通信，实际上自以为隐私的通信信道早已被 C 看得干干净净。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于 A 而言，&lt;strong&gt;C 伪造身份为 B 与 A 通信&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;对于 B 而言，&lt;strong&gt;C 伪造身份为 A 与 B 通信&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;避免篡改数据指纹&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#避免篡改数据指纹&#34;&gt;#&lt;/a&gt; 避免篡改：数据指纹&lt;/h2&gt;
+&lt;p&gt;你可能会想到，既然信息摘要可以避免数据被篡改，那么能不能在发送公钥的时候顺带发送信息摘要来避免中间人伪造身份？&lt;/p&gt;
+&lt;p&gt;实际上是不行的，因为&lt;strong&gt;中间人完全可以重新使用相同的信息摘要算法重新计算被替换的公钥，得到新的指纹，将信息摘要也替换。&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;而接收者无法辨别信息摘要是否已被替换。&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;验明身份数字证书&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验明身份数字证书&#34;&gt;#&lt;/a&gt; 验明身份：数字证书&lt;/h2&gt;
+&lt;p&gt;首先想一下，现实世界咱们是如何证明你是你呢？&lt;br&gt;
+多数情况下都是亮出身份证，对吧，我们有国家颁发的身份证。&lt;br&gt;
+因为是国家颁发的，有 &lt;code&gt;权威性&lt;/code&gt; 和 &lt;code&gt;公信力&lt;/code&gt; ，大家伙都相信和认可。&lt;/p&gt;
+&lt;p&gt;在公网上证明你是你的话，也得拿出证据说话，随便说说我是不认的，谁知道你是不是中间人那个坏蛋呢？&lt;/p&gt;
+&lt;p&gt;因此，证书自然就出现了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;证书&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#证书&#34;&gt;#&lt;/a&gt; 证书&lt;/h3&gt;
+&lt;p&gt;证书类似 &amp;quot;身份证&amp;quot;，用于证明某个人 (公司) 的身份，如：&lt;/p&gt;
+&lt;p&gt;所有者：ABC, &lt;a href=&#34;http://www.abc.com&#34;&gt;www.abc.com&lt;/a&gt;&lt;br&gt;
+ 公钥：xxxxxx&lt;br&gt;
+ 颁发 CA 机构：XXX&lt;br&gt;
+…&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;证书当中记录了一些必要的信息，当然，就简简单单的在证书里写我是 XXX，那肯定也不行，因为一点可信度都没有，中间人也可以给你发这么一串数据，说他也是 XXX，你是信还是不信呢？&lt;/p&gt;
+&lt;p&gt;因此引入证书也不可避免的产生了一个问题：&lt;strong&gt;证书也能被替换&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;拒绝伪造数字签名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拒绝伪造数字签名&#34;&gt;#&lt;/a&gt; 拒绝伪造：数字签名&lt;/h2&gt;
+&lt;p&gt;上面我们提到过，私钥加密的东西，只有公钥才能解密。&lt;br&gt;
+咋一看好像没什么鸡蛋饼用，我这私钥加密，所有人都能解密，这有个啥用啊？&lt;br&gt;
+实际上，这也是验证身份的核心关键： &lt;code&gt;不可抵赖性&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;如果我们将这个特性应用到证书上呢？&lt;/p&gt;
+&lt;p&gt;A 的私钥只有 A 持有，那么 A 用私钥加密的 A 证书，只有用 A 的公钥才能正确解密。&lt;br&gt;
+B 想要判断 A 的身份，只需要用 A 的公钥解密 A 证书，如果能够正确解密的话，那么这个证书就一定是 A 的，别人无法伪造的东西，A 自然无法抵赖，也就验明了 A 的身份。&lt;/p&gt;
+&lt;p&gt;我们就把经过公钥加密的证书叫做 &lt;code&gt;数字证书&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;而用私钥加密数据的过程就叫做 &lt;code&gt;数字签名&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt;数字签名具备不可抵赖性&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;咋一看好像已经完结撒花了，实际上还是无法真正避免中间人攻击。&lt;br&gt;
+因为 A 的公钥需要在公网上传播，就存在被 C 偷天换日，替换为 C 的公钥的可能。&lt;/p&gt;
+&lt;p&gt;B 以为拿到的是 A 的公钥，实际上还是 C 的公钥，因此 C 用 C 的私钥伪造数字证书再发给 B，B 当然能够正确解密，这也给了 B 一个错觉：和我通信的 A 的身份没有问题。&lt;br&gt;
+所以 A 和 B 见面后：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;B：就是你，A！你为什么要骂我？我要和你绝交！&lt;br&gt;
+A：？？？？啥啊，我说啥了！&lt;br&gt;
+B：还想抵赖？我都能用你的公钥解开你的数字证书！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;无奈之举本地预装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#无奈之举本地预装&#34;&gt;#&lt;/a&gt; 无奈之举：本地预装&lt;/h2&gt;
+&lt;p&gt;哪里都有 C 这个小人，咱们实在是没法子了，干脆直接在本地计算机中预先存放公钥吧，这样 C 就没有替换公钥的机会了。&lt;/p&gt;
+&lt;p&gt;但是这样又会出现其他的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何提前预装需要与其通信的对象的公钥？这就跟如何安全交换对称加密密钥是一个难度了，属于物理层面的难题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;最终解法权威机构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#最终解法权威机构&#34;&gt;#&lt;/a&gt; 最终解法：权威机构&lt;/h2&gt;
+&lt;p&gt;人们怎么能被 C 这个小人打败呢？于是，这么一套验证体系出现了：&lt;br&gt;
+&lt;strong&gt;在本地计算机中预装 &lt;code&gt;权威机构CA&lt;/code&gt;  颁发的 &lt;code&gt;数字证书&lt;/code&gt; ，通过 CA 的数字证书来验证经过了公网的数字证书是否可信，避免中间人攻击。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ca证书授权中心&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ca证书授权中心&#34;&gt;#&lt;/a&gt; CA 证书授权中心&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;CA证书授权(CertificateAuthority)中心&lt;/code&gt; 是数字证书发行的唯一机构。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;CA 机构持有自己的公钥与私钥&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公钥是公开的，会包含在&lt;strong&gt;数字证书&lt;/strong&gt;内，预置到操作系统 / 浏览器中。
+&lt;ul&gt;
+&lt;li&gt;即 CA 机构会生成一份自己的明文证书 (里面的公钥就是公开的公钥)，然后自己用私钥&lt;strong&gt;签名&lt;/strong&gt; (又或者是交给其他 CA 机构去签名)，自签发的数字证书就应该是根证书，不管是自签发还是其他 CA 机构签发的，最后都会得到&lt;strong&gt;数字证书&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;私钥由 CA 机构自行保存。
+&lt;ul&gt;
+&lt;li&gt;这样子就保证了数字签名的可靠，因为别人是无法得到 CA 机构的私钥的，也就无法伪造该 CA 机构所签发的数字证书。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;签发数字证书&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#签发数字证书&#34;&gt;#&lt;/a&gt; 签发数字证书&lt;/h2&gt;
+&lt;p&gt;B 假定是服务器，他如果想和客户端建立安全信道，得到客户端的信任，就需要先向 CA 机构申请数字证书。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;B 提交证书；&lt;/li&gt;
+&lt;li&gt;CA 机构对证书进行签名，得到数字证书，交回给 B。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;签发后的数字证书包含了：&lt;strong&gt;证书内容&lt;/strong&gt;、&lt;strong&gt;摘要算法&lt;/strong&gt;、&lt;strong&gt;加密摘要信息&lt;/strong&gt; 三部分。&lt;/p&gt;
+&lt;p&gt;CA 机构使用摘要算法对证书内容进行计算，得到摘要信息，再对摘要信息使用私钥进行加密。&lt;br&gt;
+&lt;em&gt;为什么不直接加密证书内容？因为加密摘要信息可以减少计算量，同样也可以保证数字证书不被篡改。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;客户端收到 B 的数字证书时，就会先使用预装的 CA 数字证书 (包含了 CA 的公钥) 对加密摘要信息进行解密，同时用摘要算法对证书内容进行计算，得到摘要信息。&lt;br&gt;
+最后比较解密后的摘要信息与计算得出的摘要信息，相同则表示数据并未被篡改。&lt;/p&gt;
+&lt;p&gt;看到这里想必有些读者就迷糊了：&lt;br&gt;
+&lt;em&gt;&lt;strong&gt;CA 机构颁发的数字证书和服务器的数字证书到底是不是一回事呢？&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+可以说是一回事，他们是逐层签发的关系。&lt;br&gt;
+我先信任我计算机中的数字证书，而服务器发过来的数字证书又是我所信任的数字证书对应的私钥 (CA 机构持有) 签发的 (通过我所信任的数字证书进行验证)，故我再信任服务器发过来的数字证书。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;可为什么预装的是数字证书，而不是直接是公钥呢？&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+有更多的信息需要存放，因此将其封装是更好的选择。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;为什么是服务器申请数字证书，客户端不需要吗？&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+首先数字证书通常需要向权威机构申请，并且是需要钱的；&lt;br&gt;
+其次也很难为全世界所有计算机都分配数字证书；&lt;br&gt;
+最后通常也无需验证客户端的身份，因为服务器所服务的对象绝大多数应用场景下并不特指某个客户端 (不管你是正常用户还是坏蛋，我都一视同仁)，只需要客户端认证服务器的身份就足够了。&lt;/p&gt;
+&lt;h1 id=&#34;验证过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证过程&#34;&gt;#&lt;/a&gt; 验证过程&lt;/h1&gt;
+&lt;h2 id=&#34;签名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#签名&#34;&gt;#&lt;/a&gt; 签名：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;A 生成证书 (填好个人信息)，发给 CA 机构。&lt;/li&gt;
+&lt;li&gt;CA 机构通过散列函数对明文证书进行计算，得到明文证书的信息摘要。&lt;/li&gt;
+&lt;li&gt;CA 机构通过持有的私钥加密信息摘要，其结果即&lt;strong&gt;数字签名&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;将明文证书以及数字签名打包，即得到&lt;strong&gt;数字证书&lt;/strong&gt;，再发给申请者 A。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;验签&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验签&#34;&gt;#&lt;/a&gt; 验签：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;B 收到 A 发来的&lt;strong&gt;数字证书&lt;/strong&gt;，包含了明文证书与 CA 机构签发的&lt;strong&gt;数字签名&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;B 通过本地预置的 CA 机构&lt;strong&gt;数字证书&lt;/strong&gt;中的公钥，对&lt;strong&gt;数字签名&lt;/strong&gt;进行解密，得到信息摘要&lt;/li&gt;
+&lt;li&gt;B 通过散列函数对明文证书进行计算，得到明文证书的信息摘要。&lt;/li&gt;
+&lt;li&gt;比较计算明文证书得到的信息摘要与解密&lt;strong&gt;数字签名&lt;/strong&gt;得到的信息摘要，不同则表示明文证书被篡改了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;补充&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#补充&#34;&gt;#&lt;/a&gt; 补充&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;CA 是有能力进行中间人攻击的，因为 CA 持有大家伙本地计算机预置公钥的私钥。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CA 叫做 CA 的意义就在这里，CA 机构必须是权威公信的，不能做出这种行为，否则将会失去大家伙的信任。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数字签名并非只能用于签名明文证书得到数字证书，可以用于签名任何数据防止篡改。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;信任证书链&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#信任证书链&#34;&gt;#&lt;/a&gt; 信任证书链&lt;/h1&gt;
+&lt;p&gt;如公司 ABC 的数字证书，就是由 A 机构签发的，需要用 A 机构的数字证书来验签；&lt;br&gt;
+而 A 机构的数字证书又是 B 机构签发的，需要用 B 机构的数字证书来验签；&lt;br&gt;
+这样就形成了信任链。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;信任过程就是逐层向上的验签，直到根证书 (Root，即自签名的证书) 为止；&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;&lt;strong&gt;对根证书只能无条件信任。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;windowspe文件数字签名简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windowspe文件数字签名简述&#34;&gt;#&lt;/a&gt; WindowsPE 文件数字签名简述&lt;/h1&gt;
+&lt;p&gt;Windows 的 PE 文件如果存在数字签名，那么在其安全目录中，即包含了数字证书，再将 PE 文件散列值进行数字签名 (由 PE 文件数字证书的所有者签名)，同样也包含在内。&lt;br&gt;
+首先通过本地预置数字证书证明 PE 文件中数字证书的可靠性，再通过 PE 文件中的数字证书的公钥解密 (验签) 数字签名，得到正确的散列值，再计算 PE 文件的散列值进行比较。&lt;/p&gt;
+&lt;h1 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/sky8336/article/details/113696551&#34;&gt;https://blog.csdn.net/sky8336/article/details/113696551&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://zhuanlan.zhihu.com/p/43789231&#34;&gt;https://zhuanlan.zhihu.com/p/43789231&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
