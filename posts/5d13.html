@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>【密码学】PKI体系：谁来保证我的通信安全？ | 鹿鹿鱼鱼</title><meta name="keywords" content="密码学,PKI,证书,签名"><meta name="author" content="鱼鱼,1454832774@qq.com"><meta name="copyright" content="鱼鱼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="# PKI 概述 Public Key Infrastructure，即公钥基础设施。 以下摘自百度百科：  公钥基础设施是一个包括硬件、软件、人员、策略和规程的集合，用来实现基于公钥密码体制的密钥和证书的产生、管理、存储、分发和撤销等功能。 PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为实施电子商务、电子政务、办公自动化等提供了基本的安全服务，从而使那些彼此不认识或距离很远的用户能通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【密码学】PKI体系：谁来保证我的通信安全？">
+<meta property="og:url" content="http://yuyuaqwq.github.io/posts/5d13.html">
+<meta property="og:site_name" content="鹿鹿鱼鱼">
+<meta property="og:description" content="# PKI 概述 Public Key Infrastructure，即公钥基础设施。 以下摘自百度百科：  公钥基础设施是一个包括硬件、软件、人员、策略和规程的集合，用来实现基于公钥密码体制的密钥和证书的产生、管理、存储、分发和撤销等功能。 PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为实施电子商务、电子政务、办公自动化等提供了基本的安全服务，从而使那些彼此不认识或距离很远的用户能通">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-08T07:31:19.000Z">
+<meta property="article:modified_time" content="2022-12-12T08:16:54.340Z">
+<meta property="article:author" content="鱼鱼">
+<meta property="article:tag" content="密码学">
+<meta property="article:tag" content="PKI">
+<meta property="article:tag" content="证书">
+<meta property="article:tag" content="签名">
+<meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/siteicon/32.png"><link rel="canonical" href="http://yuyuaqwq.github.io/posts/5d13"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#425aef"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【密码学】PKI体系：谁来保证我的通信安全？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-12 16:16:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="鹿鹿鱼鱼" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/artitalk/"><i class="fa-fw fas fa-comment-dots faa-tada"></i><span> 闲言碎语</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw fas fa-folder-open faa-tada"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/fcircle/"><i class="fa-fw fab fa-artstation faa-tada"></i><span> 朋友圈</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw fas fa-link faa-tada"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhifeiji"></use></svg><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">鹿鹿鱼鱼</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw fas fa-home faa-tada"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/artitalk/"><i class="fa-fw fas fa-comment-dots faa-tada"></i><span> 闲言碎语</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> 音乐馆</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw fas fa-folder-open faa-tada"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/fcircle/"><i class="fa-fw fab fa-artstation faa-tada"></i><span> 朋友圈</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw fas fa-link faa-tada"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhifeiji"></use></svg><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【密码学】PKI体系：谁来保证我的通信安全？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-08T07:31:19.000Z" title="发表于 2022-12-08 15:31:19">2022-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-12T08:16:54.340Z" title="更新于 2022-12-12 16:16:54">2022-12-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【密码学】PKI体系：谁来保证我的通信安全？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="pki概述"><a class="markdownIt-Anchor" href="#pki概述">#</a> PKI 概述</h1>
+<p>Public Key Infrastructure，即公钥基础设施。</p>
+<p>以下摘自百度百科：</p>
+<blockquote>
+<p>公钥基础设施是一个包括硬件、软件、人员、策略和规程的集合，用来实现基于公钥密码体制的密钥和证书的产生、管理、存储、分发和撤销等功能。<br>
+PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为实施电子商务、电子政务、办公自动化等提供了基本的安全服务，从而使那些彼此不认识或距离很远的用户能通过信任链安全地交流。</p>
+</blockquote>
+<p>当然，要是光看定义能看懂的话，想必各位也不会见到这一篇文章了，贴出定义只是个人习惯，咱们往下看。</p>
+<h1 id="明文与密文"><a class="markdownIt-Anchor" href="#明文与密文">#</a> 明文与密文</h1>
+<p>首先咱们要知道，咱们能够阅读理解的东西是明文，比如远在天边的网友给你发的一条 qq 消息，你看到的时候它就是明文，这样你才能看得懂你的网友想和你说些什么。</p>
+<p>当然，你看得懂，别人也看得懂，中文嘛，大家都学过。<br>
+你想着，我要是不想赤裸裸的让别人窥探我的聊天内容是吧，咱们多少还是希望能有些隐私的。</p>
+<p>加密自然而然的出现了。</p>
+<p>我们通过某种方法对明文原本的信息进行可逆的改变，别人只要不知道我们是如何改变的，就无法还原，只有我们才能够还原为明文。</p>
+<p>加密后无法直接理解的信息，我们就叫做密文。</p>
+<h1 id="前置知识"><a class="markdownIt-Anchor" href="#前置知识">#</a> 前置知识</h1>
+<h2 id="密钥"><a class="markdownIt-Anchor" href="#密钥">#</a> 密钥</h2>
+<p>通常也是一组数据。</p>
+<h2 id="对称加密"><a class="markdownIt-Anchor" href="#对称加密">#</a> 对称加密</h2>
+<p>首先创建一把<strong>密钥</strong>。<br>
+通过这把密钥可以加密明文；<br>
+对密文的解密也需要同样的一把密钥。</p>
+<p>缺陷：在公共的网络环境中，密钥难以安全传递。</p>
+<h2 id="非对称加密"><a class="markdownIt-Anchor" href="#非对称加密">#</a> 非对称加密</h2>
+<p>创建两把密钥，一把公钥，一把私钥。<br>
+公钥是公开的，任何人都可以获得。<br>
+私钥是私有的，只有创建者持有。</p>
+<p>公钥加密的东西，只有私钥能够解密；<br>
+私钥加密的东西，只有公钥能够解密。</p>
+<p>相对对称加密而言，不存在密钥无法安全传递的问题。</p>
+<p>缺陷：基本上基于数学难题，加密速度十分缓慢。</p>
+<h2 id="信息摘要"><a class="markdownIt-Anchor" href="#信息摘要">#</a> 信息摘要</h2>
+<p>数据的指纹，具有不可逆的性质。<br>
+一般输出的指纹数据长度都是固定的，便于传输。<br>
+通常可以用于验证数据是否被篡改。</p>
+<h1 id="安全通信"><a class="markdownIt-Anchor" href="#安全通信">#</a> 安全通信</h1>
+<p>有了上述基础，你能否在公共网络中构建安全传输通信呢？<br>
+我们来尝试一下。</p>
+<h2 id="基本框架非对称加密"><a class="markdownIt-Anchor" href="#基本框架非对称加密">#</a> 基本框架：非对称加密</h2>
+<p>首先我们难以解决密钥安全传输的问题，故需要引入非对称加密。</p>
+<ul>
+<li>你可能会想到，我把密钥也加密呢？那如何解密加密后的密钥呢？是不是也需要一把新的密钥？这把密钥如何传输呢？</li>
+</ul>
+<ol>
+<li>假设 A、B 需要通信，各自创建私钥与公钥，并且交换公钥。</li>
+</ol>
+<ul>
+<li>公钥是可以公开的，任何人都可以持有。</li>
+</ul>
+<ol start="2">
+<li>A 向 B 发送消息之前，使用 B 的公钥加密，再发送给 B。</li>
+</ol>
+<ul>
+<li>密文只有 B 能够解密，因为只有 B 持有对应的私钥。</li>
+</ul>
+<ol start="3">
+<li>B 向 A 发送消息也是如此，使用 A 的公钥加密，再发送给 A。</li>
+</ol>
+<h3 id="第一个问题计算效率"><a class="markdownIt-Anchor" href="#第一个问题计算效率">#</a> 第一个问题：计算效率</h3>
+<p>在基础中提及到，非对称加密的计算缓慢，假设传输的数据较多，那么需要消耗大量的时间进行计算。</p>
+<h2 id="性能提高引入对称加密"><a class="markdownIt-Anchor" href="#性能提高引入对称加密">#</a> 性能提高：引入对称加密</h2>
+<p>此时，对称加密计算效率高的特性能够完美弥补这个缺陷：</p>
+<ol>
+<li>A、B 交换公钥</li>
+<li>A 生成本次通信的密钥，使用 B 的公钥加密，再将加密后的密钥发送给 B</li>
+<li>B 生成本次通信的密钥，使用 A 的公钥加密，再将加密后的密钥发送给 A</li>
+</ol>
+<ul>
+<li>并不一定需要，可以共用一把对称加密密钥</li>
+</ul>
+<ol start="4">
+<li>各自用私钥解密密钥，往后的通信都使用这把密钥加密 / 解密。</li>
+</ol>
+<h3 id="第二个问题中间人攻击"><a class="markdownIt-Anchor" href="#第二个问题中间人攻击">#</a> 第二个问题：中间人攻击</h3>
+<ol>
+<li>A、B 交换公钥</li>
+</ol>
+<ul>
+<li>假设 A、B 交换公钥的通信信道被 C 窃听了，C 也生成了自己的公钥与私钥对，将 A、B 的公钥保存起来，并将信道上的 A、B 的公钥替换为 C 的公钥发给对方。</li>
+<li>A 收到的是 C 的公钥，B 收到的也是 C 的公钥</li>
+</ul>
+<ol start="2">
+<li>A、B 交换密钥</li>
+</ol>
+<ul>
+<li>A 使用 C 的公钥加密密钥，发往 B
+<ul>
+<li>依旧被 C 劫持，C 通过私钥解密，得到原始密钥，再将其通过 B 的公钥加密，替换后发往 B</li>
+</ul>
+</li>
+<li>B 收到 B 的公钥加密的密钥，用 B 的私钥解密，得到密钥。</li>
+<li>B 发往 A 同理。</li>
+</ul>
+<p>这个过程中，A 和 B 看似正常安全的通信，实际上自以为隐私的通信信道早已被 C 扒得干干净净。</p>
+<ul>
+<li>对于 A 而言，C 伪造了 B 的身份</li>
+<li>对于 B 而言，C 伪造了 A 的身份</li>
+</ul>
+<h2 id="避免篡改数据指纹"><a class="markdownIt-Anchor" href="#避免篡改数据指纹">#</a> 避免篡改：数据指纹</h2>
+<p>你可能会想到，既然信息摘要可以避免数据被篡改，那么能不能在发送数据的时候顺带发送信息摘要来避免中间人伪造身份？</p>
+<p>实际上是不行的，因为中间人完全可以重新使用相同的信息摘要算法重新计算被替换的数据，得到新的指纹。</p>
+<h2 id="验明身份数字证书"><a class="markdownIt-Anchor" href="#验明身份数字证书">#</a> 验明身份：数字证书</h2>
+<p>首先想一下，现实世界咱们是如何证明你是你呢？<br>
+多数情况下都是亮出身份证，对吧，我们有国家颁发的身份证。<br>
+因为是国家颁发的，有权威性和公信力，大家伙都相信和认可。</p>
+<p>在公网上证明你是你的话，也得拿出证据说话，随便说说我是不认的，谁知道你是不是中间人那个坏蛋呢？</p>
+<p>因此，证书自然就出现了。</p>
+<hr>
+<h3 id="证书"><a class="markdownIt-Anchor" href="#证书">#</a> 证书</h3>
+<p>证书类似 &quot;身份证&quot;，用于证明某个人 (公司) 的身份，如：</p>
+<p>所有者：ABC, <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a><br>
+ 公钥：xxxxxx<br>
+ 颁发 CA 机构：XXX<br>
+…</p>
+<hr>
+<p>证书当中记录了一些必要的信息，当然，就简简单单的在证书里写我是 XXX，那肯定也不行，因为一点可信度都没有，中间人也可以给你发这么一串数据，说他也是 XXX，你是信还是不信呢？</p>
+<p>因此引入证书也不可避免的产生了一个问题：证书也能被替换。</p>
+<h2 id="拒绝伪造数字签名"><a class="markdownIt-Anchor" href="#拒绝伪造数字签名">#</a> 拒绝伪造：数字签名</h2>
+<p>上面我们提到过，私钥加密的东西，只有公钥才能解密。<br>
+咋一看好像没什么鸡蛋饼用，我这私钥加密，所有人都能解密，这有个啥用啊？<br>
+实际上，这也是验证身份的核心关键：不可抵赖性。</p>
+<p>如果我们将这个特性应用到证书上呢？</p>
+<p>A 的私钥只有 A 持有，那么 A 用私钥加密的 A 证书，只有用 A 的公钥才能正确解密。<br>
+B 想要判断 A 的身份，只需要用 A 的公钥解密 A 证书，如果能够正确解密的话，那么这个证书就一定是 A 的，别人无法伪造的东西，A 自然无法抵赖，也就验明了 A 的身份。</p>
+<p>我们就把经过公钥加密的证书叫做 <code>数字证书</code> 。</p>
+<p>咋一看好像已经完结撒花了，实际上还是无法真正避免中间人攻击。<br>
+因为 A 的公钥需要在公网上传播，就存在被 C 偷天换日，替换为 C 的公钥的可能。</p>
+<p>B 以为拿到的是 A 的公钥，实际上还是 C 的公钥，因此 C 用 C 的私钥伪造数字证书再发给 B，B 当然能够正确解密，这也给了 B 一个错觉：和我通信的 A 的身份没有问题。<br>
+所以 A 和 B 见面后：<br>
+B：就是你，A！你为什么要骂我？我要和你绝交！<br>
+A：？？？？啥啊，我说啥了！<br>
+B：还想抵赖？我都能用你的公钥解开你的数字证书！</p>
+<h2 id="无奈之举本地预装"><a class="markdownIt-Anchor" href="#无奈之举本地预装">#</a> 无奈之举：本地预装</h2>
+<p>哪里都有 C 这个小人，咱们实在是没法子了，干脆直接在本地计算机中预先存放公钥吧，这样 C 就没有替换公钥的机会了。</p>
+<p>但是这样又会出现其他的问题：</p>
+<ul>
+<li>如何提前预装需要与其通信的对象的公钥？这就跟如何安全交换对称加密密钥是一个难度了，属于物理层面的难题。</li>
+</ul>
+<h2 id="最终解法权威机构"><a class="markdownIt-Anchor" href="#最终解法权威机构">#</a> 最终解法：权威机构</h2>
+<p>人们怎么能被 C 这个小人打败呢？于是，这么一套验证体系出现了：<br>
+在本地计算机中预装权威机构 CA 的数字证书，通过 CA 的数字证书来验证经过了公网的数字证书是否可信，避免中间人攻击。</p>
+<h3 id="ca证书授权中心"><a class="markdownIt-Anchor" href="#ca证书授权中心">#</a> CA 证书授权中心</h3>
+<p>CA 证书授权 (CertificateAuthority) 中心是数字证书发行的唯一机构。</p>
+<p>CA 机构持有自己的公钥与私钥</p>
+<ul>
+<li>公钥是公开的，会包含在<strong>数字证书</strong>内，预置到操作系统 / 浏览器中。
+<ul>
+<li>即 CA 机构会生成一份自己的明文证书 (里面的公钥就是公开的公钥)，然后自己用私钥<strong>签名</strong> (又或者是交给其他 CA 机构去签名)，自签发的数字证书就应该是根证书，不管是自签发还是其他 CA 机构签发的，最后都会得到<strong>数字证书</strong>。</li>
+</ul>
+</li>
+<li>私钥由 CA 机构自行保存。
+<ul>
+<li>这样子就保证了数字签名的可靠，因为别人是无法得到 CA 机构的私钥的，也就无法伪造该 CA 机构所签发的数字证书。</li>
+</ul>
+</li>
+</ul>
+<h2 id="签发数字证书"><a class="markdownIt-Anchor" href="#签发数字证书">#</a> 签发数字证书</h2>
+<ul>
+<li>B 假定是服务器，他如果想和客户端建立安全信道，得到客户端的信任，就需要先向 CA 机构申请数字证书。
+<ul>
+<li>B 提交证书</li>
+<li>CA 机构对证书进行签名，得到数字证书，交回给 B</li>
+</ul>
+</li>
+<li>签发后的数字证书包含了：证书内容、摘要算法、加密摘要信息 三部分。</li>
+</ul>
+<p>CA 机构使用摘要算法对证书内容进行计算，得到摘要信息，再对摘要信息使用私钥进行加密。</p>
+<ul>
+<li>为什么不直接加密证书内容？因为加密摘要信息可以减少计算量，同样也可以保证数字证书不被篡改。</li>
+</ul>
+<p>客户端收到 B 的数字证书时，就会先使用预装的 CA 数字证书 (包含了 CA 的公钥) 对加密摘要信息进行解密，同时用摘要算法对证书内容进行计算，得到摘要信息。<br>
+最后比较解密后的摘要信息与计算得出的摘要信息，相同则表示数据并未被篡改。</p>
+<p>看到这里想必有些读者就迷糊了：<br>
+CA 机构的数字证书和服务器的数字证书到底是不是一回事呢？</p>
+<ul>
+<li>可以说是一回事，他们是逐层签发的关系。</li>
+<li>我先信任我计算机中的数字证书，而服务器发过来的数字证书又是我所信任的数字证书对应的私钥 (CA 机构持有) 签发的 (通过我所信任的数字证书进行验证)，故我再信任服务器发过来的数字证书。<br>
+为什么预装的是数字证书，而不是直接是公钥呢？</li>
+<li>有更多的信息需要存放，因此将其封装是更好的选择。<br>
+为什么是服务器申请数字证书，客户端不需要吗？</li>
+<li>首先数字证书通常需要向权威机构申请，并且是需要钱的。</li>
+<li>其次也很难为全世界所有计算机都分配数字证书。</li>
+<li>最后通常也无需验证客户端的身份，因为服务器所服务的对象绝大多数应用场景下并不特指某个客户端 (不管你是正常用户还是坏蛋，我都一视同仁)，只需要客户端认证服务器的身份就足够了。</li>
+</ul>
+<h1 id="验证过程"><a class="markdownIt-Anchor" href="#验证过程">#</a> 验证过程</h1>
+<h2 id="签名"><a class="markdownIt-Anchor" href="#签名">#</a> 签名：</h2>
+<ol>
+<li>A 生成证书 (填好个人信息)，发给 CA 机构。</li>
+<li>CA 机构通过散列函数对明文证书进行计算，得到明文证书的信息摘要。</li>
+<li>CA 机构通过持有的私钥加密信息摘要，其结果即<strong>数字签名</strong>。</li>
+<li>将明文证书以及数字签名打包，即得到<strong>数字证书</strong>，再发给申请者 A。</li>
+</ol>
+<h2 id="验签"><a class="markdownIt-Anchor" href="#验签">#</a> 验签：</h2>
+<ol>
+<li>B 收到 A 发来的<strong>数字证书</strong>，包含了明文证书与 CA 机构签发的<strong>数字签名</strong>。</li>
+<li>B 通过本地预置的 CA 机构<strong>数字证书</strong>中的公钥，对<strong>数字签名</strong>进行解密，得到信息摘要</li>
+<li>B 通过散列函数对明文证书进行计算，得到明文证书的信息摘要。</li>
+<li>比较计算明文证书得到的信息摘要与解密<strong>数字签名</strong>得到的信息摘要，不同则表示明文证书被篡改了。</li>
+</ol>
+<h2 id="补充"><a class="markdownIt-Anchor" href="#补充">#</a> 补充</h2>
+<ul>
+<li>
+<p>CA 是有能力进行中间人攻击的，因为 CA 持有大家伙本地计算机预置公钥的私钥。</p>
+<ul>
+<li>CA 叫做 CA 的意义就在这里，CA 机构必须是权威公信的，不能做出这种行为，否则将会失去大家伙的信任。</li>
+</ul>
+</li>
+<li>
+<p><strong>数字签名并非只能用于签名明文证书得到数字证书，可以用于签名任何数据防止篡改。</strong></p>
+</li>
+</ul>
+<h1 id="信任证书链"><a class="markdownIt-Anchor" href="#信任证书链">#</a> 信任证书链</h1>
+<p>如公司 ABC 的数字证书，就是由 A 机构签发的，需要用 A 机构的数字证书来验签；</p>
+<p>而 A 机构的数字证书又是 B 机构签发的，需要用 B 机构的数字证书来验签；</p>
+<p>这样就形成了信任链。</p>
+<p>信任过程就是逐层向上的验签，直到根证书 (Root，即自签名的证书) 为止。</p>
+<p>对根证书只能无条件信任。</p>
+<h1 id="windowspe文件数字签名"><a class="markdownIt-Anchor" href="#windowspe文件数字签名">#</a> WindowsPE 文件数字签名</h1>
+<p>Windows 的 PE 文件如果存在数字签名，那么在其安全目录中，即包含了数字证书，以及对 PE 文件数据的数字签名。</p>
+<p>数字证书中存放了公钥，用于验证 PE 文件数据的数字签名。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献">#</a> 参考文献</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sky8336/article/details/113696551">https://blog.csdn.net/sky8336/article/details/113696551</a><br>
+<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43789231">https://zhuanlan.zhihu.com/p/43789231</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://yuyuaqwq.github.io">鱼鱼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yuyuaqwq.github.io/posts/5d13.html">http://yuyuaqwq.github.io/posts/5d13.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yuyuaqwq.github.io" target="_blank">鹿鹿鱼鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><a class="post-meta__tags" href="/tags/PKI/">PKI</a><a class="post-meta__tags" href="/tags/%E8%AF%81%E4%B9%A6/">证书</a><a class="post-meta__tags" href="/tags/%E7%AD%BE%E5%90%8D/">签名</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/819.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【动手写ToyLang】6-虚拟机设计</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">鱼鱼</div><div class="author-info__description">人为什么要起床？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yuyuaqwq"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/yuyuaqwq" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-gitHub"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1454832774@qq.com" target="_blank" title="Email"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/atom.xml" target="_blank" title="RSS"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-rss"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/18393600" target="_blank" title="BiliBili"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bilibili"></use></svg></a><a class="social-icon faa-parent animated-hover" href="tencent://Message/?Uin=1454832774&amp;amp;websiteName=local.edu.com:8888=&amp;amp;Menu=yes" target="_blank" title="QQ"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-QQ1"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">玩得开心</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pki%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> PKI 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%8E%E6%96%87%E4%B8%8E%E5%AF%86%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text"> 明文与密文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text"> 前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E9%92%A5"><span class="toc-number">3.1.</span> <span class="toc-text"> 密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">3.2.</span> <span class="toc-text"> 对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">3.3.</span> <span class="toc-text"> 非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%91%98%E8%A6%81"><span class="toc-number">3.4.</span> <span class="toc-text"> 信息摘要</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%80%9A%E4%BF%A1"><span class="toc-number">4.</span> <span class="toc-text"> 安全通信</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">4.1.</span> <span class="toc-text"> 基本框架：非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E8%AE%A1%E7%AE%97%E6%95%88%E7%8E%87"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 第一个问题：计算效率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8F%90%E9%AB%98%E5%BC%95%E5%85%A5%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">4.2.</span> <span class="toc-text"> 性能提高：引入对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E9%97%AE%E9%A2%98%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 第二个问题：中间人攻击</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E7%AF%A1%E6%94%B9%E6%95%B0%E6%8D%AE%E6%8C%87%E7%BA%B9"><span class="toc-number">4.3.</span> <span class="toc-text"> 避免篡改：数据指纹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E6%98%8E%E8%BA%AB%E4%BB%BD%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="toc-number">4.4.</span> <span class="toc-text"> 验明身份：数字证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6"><span class="toc-number">4.4.1.</span> <span class="toc-text"> 证书</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E4%BC%AA%E9%80%A0%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">4.5.</span> <span class="toc-text"> 拒绝伪造：数字签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%A5%88%E4%B9%8B%E4%B8%BE%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A3%85"><span class="toc-number">4.6.</span> <span class="toc-text"> 无奈之举：本地预装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E8%A7%A3%E6%B3%95%E6%9D%83%E5%A8%81%E6%9C%BA%E6%9E%84"><span class="toc-number">4.7.</span> <span class="toc-text"> 最终解法：权威机构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ca%E8%AF%81%E4%B9%A6%E6%8E%88%E6%9D%83%E4%B8%AD%E5%BF%83"><span class="toc-number">4.7.1.</span> <span class="toc-text"> CA 证书授权中心</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%8F%91%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="toc-number">4.8.</span> <span class="toc-text"> 签发数字证书</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E8%BF%87%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text"> 验证过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D"><span class="toc-number">5.1.</span> <span class="toc-text"> 签名：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E7%AD%BE"><span class="toc-number">5.2.</span> <span class="toc-text"> 验签：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">5.3.</span> <span class="toc-text"> 补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E4%BB%BB%E8%AF%81%E4%B9%A6%E9%93%BE"><span class="toc-number">6.</span> <span class="toc-text"> 信任证书链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windowspe%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">7.</span> <span class="toc-text"> WindowsPE 文件数字签名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text"> 参考文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/5d13.html" title="【密码学】PKI体系：谁来保证我的通信安全？"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【密码学】PKI体系：谁来保证我的通信安全？"/></a><div class="content"><a class="title" href="/posts/5d13.html" title="【密码学】PKI体系：谁来保证我的通信安全？">【密码学】PKI体系：谁来保证我的通信安全？</a><time datetime="2022-12-08T07:31:19.000Z" title="发表于 2022-12-08 15:31:19">2022-12-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/819.html" title="【动手写ToyLang】6-虚拟机设计"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【动手写ToyLang】6-虚拟机设计"/></a><div class="content"><a class="title" href="/posts/819.html" title="【动手写ToyLang】6-虚拟机设计">【动手写ToyLang】6-虚拟机设计</a><time datetime="2022-12-07T16:24:27.000Z" title="发表于 2022-12-08 00:24:27">2022-12-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/41fe.html" title="【Windows内核】x64下定位随机页表基址的思路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Windows内核】x64下定位随机页表基址的思路"/></a><div class="content"><a class="title" href="/posts/41fe.html" title="【Windows内核】x64下定位随机页表基址的思路">【Windows内核】x64下定位随机页表基址的思路</a><time datetime="2022-12-02T08:21:05.000Z" title="发表于 2022-12-02 16:21:05">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/329c.html" title="【动手写ToyLang】5.四则表达式解析与运算"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【动手写ToyLang】5.四则表达式解析与运算"/></a><div class="content"><a class="title" href="/posts/329c.html" title="【动手写ToyLang】5.四则表达式解析与运算">【动手写ToyLang】5.四则表达式解析与运算</a><time datetime="2022-11-22T16:10:11.333Z" title="发表于 2022-11-23 00:10:11">2022-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2fd3.html" title="【Qt】前言"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Qt】前言"/></a><div class="content"><a class="title" href="/posts/2fd3.html" title="【Qt】前言">【Qt】前言</a><time datetime="2022-11-12T08:39:44.161Z" title="发表于 2022-11-12 16:39:44">2022-11-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 鱼鱼</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/js/ali_font.js"></script><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#425aef' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="Butterfly主题" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在湘进行备案" title=""><img src="https://img.shields.io/badge/还没有备-233333号-e1d492?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

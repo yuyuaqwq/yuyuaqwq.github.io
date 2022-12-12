@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;保护模式&#34; tag</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2022-12-02T08:21:05.000Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <category term="逆向分析" />
+    <category term="工具" />
+    <category term="C/C++" />
+    <category term="反汇编" />
+    <category term="网络分析" />
+    <category term="Proxifier" />
+    <category term="编译原理" />
+    <category term="动手写ToyLang" />
+    <category term="C++" />
+    <category term="界面开发" />
+    <category term="Qt" />
+    <category term="保护模式" />
+    <category term="Windows内核" />
+    <category term="密码学" />
+    <category term="PKI" />
+    <category term="证书" />
+    <category term="签名" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/41fe.html</id>
+        <title>【Windows内核】x64下定位随机页表基址的思路</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/41fe.html"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;昨天在看周哥讲 x64 内核的时候，得知了 windows10 的某个版本开始，页表基址不再固定了。&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;今天晚上突然有了个思路，就动手把他敲出来了，这种思路是不是已经烂大街了我也不确定，就当发出来学习交流吧。&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;随机页表基址原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#随机页表基址原理&#34;&gt;#&lt;/a&gt; 随机页表基址原理&lt;/h1&gt;
+&lt;p&gt;这里用 x32 的 10-10-12 分页举例吧，比较好理解，理解了 x64 的也差不多的&lt;/p&gt;
+&lt;p&gt;启用了保护模式和分页机制后，咱就不能直接访问物理地址了，都会被 MMU 当作虚拟地址进行转换。&lt;/p&gt;
+&lt;p&gt;但是 cr3 存的又是物理地址，不能直接操作页表了，那咋办呢？&lt;/p&gt;
+&lt;p&gt;聪明的前辈们，选择在页目录表中选择一项 (共 1024 项，每一项 4 字节)，使其存储的物理地址与页目录表的基址 (cr3) 相同，这样子就可以构造一个访问页表的虚拟地址了，大概就是&lt;strong&gt;让 cpu 在地址转换的过程中绕圈圈&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;画个图吧&lt;/li&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/undefined/1.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;定位思路&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#定位思路&#34;&gt;#&lt;/a&gt; 定位思路&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;x64 也必然是随机选择 PXT 的其中一项 PXE 来存储 PXT 的物理地址，实现的随机页表基址&lt;/li&gt;
+&lt;li&gt;那么就可以通过&lt;strong&gt;构造所有可能指向 PXT 的虚拟地址 (共 512 项)&lt;/strong&gt;，转换为物理地址，再与 cr3 比较，最终得到正确的 PXT 基址。&lt;/li&gt;
+&lt;li&gt;只要知道了存储 PXT 的物理地址的 PXE 的 PXI，构造 PPT/PDT/PTT 基址都很简单了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;实现&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实现&#34;&gt;#&lt;/a&gt; 实现&lt;/h1&gt;
+&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;PVOID &lt;span class=&#34;title&#34;&gt;GetPXTBase&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	UINT64 cr3 = __readcr3();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;KdPrint&lt;/span&gt;((&lt;span class=&#34;string&#34;&gt;&amp;quot;yuyu:cr3:%p\n&amp;quot;&lt;/span&gt;, cr3));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (UINT64 i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&#34;number&#34;&gt;512&lt;/span&gt;; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;// 通过PXI构造虚拟地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		PVOID pxtBase = (PVOID)(&lt;span class=&#34;number&#34;&gt;0xffff000000000000&lt;/span&gt; | (i &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;12&lt;/span&gt;) | (i &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;) | (i &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;) | (i &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;39&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		PHYSICAL_ADDRESS physical = &lt;span class=&#34;built_in&#34;&gt;MmGetPhysicalAddress&lt;/span&gt;(pxtBase);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;built_in&#34;&gt;KdPrint&lt;/span&gt;((&lt;span class=&#34;string&#34;&gt;&amp;quot;yuyu:i:%d 物理:%p 虚拟:%p\n&amp;quot;&lt;/span&gt;, i, physical.QuadPart, pxtBase));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (cr3 == physical.QuadPart) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; pxtBase;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/undefined/2.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;结尾&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#结尾&#34;&gt;#&lt;/a&gt; 结尾&lt;/h1&gt;
+&lt;p&gt;理解有限，如有错误，还请指正&lt;/p&gt;
+&lt;h1 id=&#34;2022514补充&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2022514补充&#34;&gt;#&lt;/a&gt; 2022/5/14 补充&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;其实除开这个之外，我先想到的是另一个思路，即&lt;strong&gt;构造所有可能存储 PXT 的物理地址的 PXE 的虚拟地址&lt;/strong&gt;。
+&lt;ul&gt;
+&lt;li&gt;依旧是 512 项，探测地址是否可访问，读取 8 字节；&lt;/li&gt;
+&lt;li&gt;将其当作 PXE，取出物理页面基址，再与 cr3 进行比较。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;但是这种方法有概率出现问题，即存放的数据可能正好与 cr3 相同，但所在页面并不是 PXT。
+&lt;ul&gt;
+&lt;li&gt;因此我就没有写出来，不过我想了一下，还是贴出来了，也算是一种思路嘛。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="保护模式" />
+        <category term="Windows内核" />
+        <updated>2022-12-02T08:21:05.000Z</updated>
+    </entry>
+</feed>

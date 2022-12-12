@@ -17,6 +17,12 @@
     <category term="C++" />
     <category term="界面开发" />
     <category term="Qt" />
+    <category term="保护模式" />
+    <category term="Windows内核" />
+    <category term="密码学" />
+    <category term="PKI" />
+    <category term="证书" />
+    <category term="签名" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/842e.html</id>
         <title>【MFC】视图与文档</title>

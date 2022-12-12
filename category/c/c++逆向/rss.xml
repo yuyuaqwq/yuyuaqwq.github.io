@@ -20,6 +20,12 @@
         <category>C++</category>
         <category>界面开发</category>
         <category>Qt</category>
+        <category>保护模式</category>
+        <category>Windows内核</category>
+        <category>密码学</category>
+        <category>PKI</category>
+        <category>证书</category>
+        <category>签名</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/51b.html</guid>
             <title>【C/C++逆向】数据类型的表现形式</title>
