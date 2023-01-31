@@ -23,6 +23,8 @@
     <category term="PKI" />
     <category term="证书" />
     <category term="签名" />
+    <category term="Git" />
+    <category term="版本管理" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/5e1f.html</id>
         <title>【Proxifier】基本配置与使用</title>

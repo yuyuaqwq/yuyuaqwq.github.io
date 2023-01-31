@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;git&#34; category</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2023-01-31T01:05:39.000Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <category term="逆向分析" />
+    <category term="工具" />
+    <category term="C/C++" />
+    <category term="反汇编" />
+    <category term="网络分析" />
+    <category term="Proxifier" />
+    <category term="编译原理" />
+    <category term="动手写ToyLang" />
+    <category term="C++" />
+    <category term="界面开发" />
+    <category term="Qt" />
+    <category term="保护模式" />
+    <category term="Windows内核" />
+    <category term="密码学" />
+    <category term="PKI" />
+    <category term="证书" />
+    <category term="签名" />
+    <category term="Git" />
+    <category term="版本管理" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/91e5.html</id>
+        <title>【Git】远程仓库登录</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/91e5.html"/>
+        <content type="html">&lt;h2 id=&#34;github身份校验&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github身份校验&#34;&gt;#&lt;/a&gt; Github 身份校验&lt;/h2&gt;
+&lt;p&gt;Github 通过 SSH 登录，通过提前在 Github 上设置公钥，以及本地存储的私钥，使得 Github 能够校验身份的合法性。&lt;/p&gt;
+&lt;h2 id=&#34;配置用户名和邮箱&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置用户名和邮箱&#34;&gt;#&lt;/a&gt; 配置用户名和邮箱&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;&amp;lt;用户名&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.email &amp;quot;&amp;lt;邮箱地址&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;查看配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#查看配置&#34;&gt;#&lt;/a&gt; 查看配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;密钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#密钥&#34;&gt;#&lt;/a&gt; 密钥&lt;/h2&gt;
+&lt;p&gt;生成密钥对：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;&amp;lt;邮箱地址|用户名|...&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;放置在～/.ssh 目录中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;config 文件指定有效的密钥文件&lt;/li&gt;
+&lt;li&gt;Windows 下可以在 Git Bash 中查看路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认公钥文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id_rsa.pub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认私钥文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id_rsa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;打开公钥文件，将其复制。&lt;/p&gt;
+&lt;h2 id=&#34;设置公钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置公钥&#34;&gt;#&lt;/a&gt; 设置公钥&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 Github&lt;/li&gt;
+&lt;li&gt;在个人设置 -&amp;gt; SSH and GPG keys -&amp;gt; SSH keys 中，添加刚刚复制的公钥。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;验证登录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证登录&#34;&gt;#&lt;/a&gt; 验证登录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh -T git@github.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;出现 “Hi xxxx! …” 表示配置完成&lt;/p&gt;
+</content>
+        <category term="Git" />
+        <category term="版本管理" />
+        <updated>2023-01-31T01:05:39.000Z</updated>
+    </entry>
+</feed>

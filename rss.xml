@@ -5,8 +5,8 @@
         <link>http://yuyuaqwq.github.io</link>
         <description>人为什么要起床？</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 08 Dec 2022 15:31:19 +0800</pubDate>
-        <lastBuildDate>Thu, 08 Dec 2022 15:31:19 +0800</lastBuildDate>
+        <pubDate>Tue, 31 Jan 2023 09:05:39 +0800</pubDate>
+        <lastBuildDate>Tue, 31 Jan 2023 09:05:39 +0800</lastBuildDate>
         <category>MFC</category>
         <category>没饭吃</category>
         <category>逆向分析</category>
@@ -26,6 +26,64 @@
         <category>PKI</category>
         <category>证书</category>
         <category>签名</category>
+        <category>Git</category>
+        <category>版本管理</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/91e5.html</guid>
+            <title>【Git】远程仓库登录</title>
+            <link>http://yuyuaqwq.github.io/posts/91e5.html</link>
+            <category>Git</category>
+            <category>版本管理</category>
+            <pubDate>Tue, 31 Jan 2023 09:05:39 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;github身份校验&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github身份校验&#34;&gt;#&lt;/a&gt; Github 身份校验&lt;/h2&gt;
+&lt;p&gt;Github 通过 SSH 登录，通过提前在 Github 上设置公钥，以及本地存储的私钥，使得 Github 能够校验身份的合法性。&lt;/p&gt;
+&lt;h2 id=&#34;配置用户名和邮箱&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置用户名和邮箱&#34;&gt;#&lt;/a&gt; 配置用户名和邮箱&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;&amp;lt;用户名&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.email &amp;quot;&amp;lt;邮箱地址&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;查看配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#查看配置&#34;&gt;#&lt;/a&gt; 查看配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config --list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;密钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#密钥&#34;&gt;#&lt;/a&gt; 密钥&lt;/h2&gt;
+&lt;p&gt;生成密钥对：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;&amp;lt;邮箱地址|用户名|...&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;放置在～/.ssh 目录中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;config 文件指定有效的密钥文件&lt;/li&gt;
+&lt;li&gt;Windows 下可以在 Git Bash 中查看路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认公钥文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id_rsa.pub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认私钥文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id_rsa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;打开公钥文件，将其复制。&lt;/p&gt;
+&lt;h2 id=&#34;设置公钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置公钥&#34;&gt;#&lt;/a&gt; 设置公钥&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 Github&lt;/li&gt;
+&lt;li&gt;在个人设置 -&amp;gt; SSH and GPG keys -&amp;gt; SSH keys 中，添加刚刚复制的公钥。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;验证登录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证登录&#34;&gt;#&lt;/a&gt; 验证登录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh -T git@github.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;出现 “Hi xxxx! …” 表示配置完成&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/75b5.html</guid>
+            <title>【C/C++逆向】AMD64架构下MSVC编译器的调用约定与栈帧分析</title>
+            <link>http://yuyuaqwq.github.io/posts/75b5.html</link>
+            <pubDate>Mon, 19 Dec 2022 11:36:37 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/5d13.html</guid>
             <title>【密码学】PKI体系：谁来保证我的通信安全？</title>
@@ -77,7 +135,7 @@ PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为�
 通常可以用于验证数据是否被篡改。&lt;br&gt;
 &lt;em&gt;&lt;strong&gt;数据被篡改一位，都会导致计算出来的信息摘要不同。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;安全通信&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安全通信&#34;&gt;#&lt;/a&gt; 安全通信&lt;/h1&gt;
-&lt;p&gt;有了上述基础，你能否在公共网络中构建安全传输通信呢？&lt;br&gt;
+&lt;p&gt;有了上述基础，你能否在公共网络中构建安全通信信道呢？&lt;br&gt;
 我们来尝试一下。&lt;/p&gt;
 &lt;h2 id=&#34;基本框架非对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本框架非对称加密&#34;&gt;#&lt;/a&gt; 基本框架：非对称加密&lt;/h2&gt;
 &lt;p&gt;当然，我们的数据不能在公网上裸奔，因此首先就需要对明文进行加密。&lt;/p&gt;
@@ -106,7 +164,7 @@ PKI 体系是计算机软硬件、权威机构及应用系统的结合。它为�
 &lt;p&gt;在基础中提及到，非对称加密的计算缓慢，假设传输的数据较多，那么需要消耗大量的时间进行计算。&lt;/p&gt;
 &lt;h2 id=&#34;性能提高引入对称加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#性能提高引入对称加密&#34;&gt;#&lt;/a&gt; 性能提高：引入对称加密&lt;/h2&gt;
 &lt;p&gt;此时，对称加密计算效率高的特性能够完美弥补这个缺陷，故我们还是需要引入 &lt;code&gt;对称加密&lt;/code&gt; ：&lt;br&gt;
-&lt;em&gt;加密方案基本上都会首先基于已有的 &lt;code&gt;对称加密算法&lt;/code&gt; ，只有这种经过全世界密码学家考验的加密算法才是可靠的。&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt;加密方案基本上都会首先基于流行的 &lt;code&gt;加密算法&lt;/code&gt; ，只有这种经过全世界密码学家考验的加密算法才是可靠的。&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&#34;通信过程改进&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#通信过程改进&#34;&gt;#&lt;/a&gt; 通信过程改进&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;A、B 交换公钥；&lt;/li&gt;
@@ -277,14 +335,28 @@ B：还想抵赖？我都能用你的公钥解开你的数字证书！&lt;/p&gt;
             <category>编译原理</category>
             <category>动手写ToyLang</category>
             <pubDate>Thu, 08 Dec 2022 00:24:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;虚拟机简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#虚拟机简述&#34;&gt;#&lt;/a&gt; 虚拟机简述&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;所谓解释器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#所谓解释器&#34;&gt;#&lt;/a&gt; 所谓 &amp;quot;解释器&amp;quot;&lt;/h1&gt;
+&lt;p&gt;我们除了能对遵循 ToyLang 语法的源文件编译之外，还要能够执行编译的结果。&lt;br&gt;
+若编译结果需要由其他程序负责执行，该程序便可称之为解释器。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如先前提及的 AST 解释器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;百度百科上对解释器的定义也较为模糊：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解释器（英语：Interpreter），又译为直译器，是一种电脑程序，能够把高级编程语言一行一行直接转译运行。解释器不会一次把整个程序转译出来，只像一位 “中间人”，每次运行程序时都要先转成另一种语言再作运行，因此解释器的程序运行速度比较缓慢。它每转译一行程序叙述就立刻运行，然后再转译下一行，再运行，如此不停地进行下去。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照百度百科的定义，一行一行动态执行高级编程语言的程序，才能算解释器。&lt;br&gt;
+但是以现在常见的编程语言，如 Python、Java 等也在某些情况下会被定义为解释型语言来看，已经与 &amp;quot;解释器&amp;quot; 的定义相违背了。&lt;br&gt;
+因为 Python 和 Java 并不是逐行解释源代码的，实际上得以 &amp;quot;解释&amp;quot; 的是字节码，而执行字节码的程序又被称为 &amp;quot;虚拟机&amp;quot;。&lt;/p&gt;
+&lt;p&gt;我的个人理解是，“解释器”、&amp;quot;解释型语言&amp;quot; 等名词的诞生，或许是为了与在当时已成体系的本地编译型语言进行区分，不过历史是否如此我也不好追溯了。&lt;/p&gt;
+&lt;p&gt;因此，不必过度纠结 &amp;quot;解释器&amp;quot; 和 &amp;quot;虚拟机&amp;quot;，可以简单理解成解释器是一种笼统的统称，虚拟机是一种具体的实现，AST 解释器则是另一种实现，最终目标都是为了使得源代码得以以某种方式运行起来。&lt;/p&gt;
+&lt;h1 id=&#34;虚拟机简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#虚拟机简述&#34;&gt;#&lt;/a&gt; 虚拟机简述&lt;/h1&gt;
 &lt;p&gt;想必各位读者读者也经常见过&lt;strong&gt;虚拟机&lt;/strong&gt;这个词。&lt;/p&gt;
-&lt;p&gt;我们除了能对遵循 ToyLang 语法的源程序编译之外，还要能够执行编译的结果。&lt;br&gt;
-而负责执行编译结果的程序，就是虚拟机。&lt;/p&gt;
+&lt;p&gt;咱们的 ToyLang 不选择直接解释 AST，而是设计虚拟机以执行编译结果。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;虚拟机在不同场景下，所代指的东西存在差异，此处仅解释在编译原理中虚拟机的定义。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;实际上，虚拟机的开发应该是在更靠后一些，在编写指令生成时顺带完成虚拟机。&lt;/em&gt;&lt;br&gt;
+&lt;p&gt;&lt;em&gt;实际上，虚拟机的开发应该是在更靠后一些的章节中讲述，在编写指令生成时顺带完成虚拟机。&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;不过虚拟机的编写并不复杂，并且相对独立，因此就提前将其设计好，代码生成时以我们所设计的虚拟机为准去生成代码，有需要再对虚拟机进行修改与补充。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;我们并不选择生成本地代码 (与机器相关的机器指令)，而是生成一种被称为 &lt;code&gt;字节码&lt;/code&gt; 的编译产物。&lt;/p&gt;
 &lt;p&gt;如果读者曾经学习过 &lt;code&gt;Java&lt;/code&gt; ，应该或多或少听过这种说法：&lt;/p&gt;
@@ -300,7 +372,151 @@ B：还想抵赖？我都能用你的公钥解开你的数字证书！&lt;/p&gt;
 当然这个虚拟机你要叫什么都可以，我在这里就把它叫成 &lt;code&gt;TVM(Toy Virtual Machine)&lt;/code&gt; ，&lt;/p&gt;
 &lt;h1 id=&#34;tvm&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tvm&#34;&gt;#&lt;/a&gt; TVM&lt;/h1&gt;
 &lt;p&gt;我们的 &lt;code&gt;TVM&lt;/code&gt;  设计十分简单，只有十几条指令，但也足够我们使用了。&lt;/p&gt;
- ]]></description>
+&lt;p&gt;为了实现更加简单， &lt;code&gt;TVM&lt;/code&gt;  被设计为基于栈的虚拟机。&lt;/p&gt;
+&lt;h2 id=&#34;指令集设计&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#指令集设计&#34;&gt;#&lt;/a&gt; 指令集设计&lt;/h2&gt;
+&lt;h3 id=&#34;指令结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#指令结构&#34;&gt;#&lt;/a&gt; 指令结构&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;字段&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;长度&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Reserved&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1bit&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;保留位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Opcode&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;7bit&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;操作码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Immediate&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4byte&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;立即数，可选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;opcode&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#opcode&#34;&gt;#&lt;/a&gt; Opcode&lt;/h3&gt;
+&lt;p&gt;Opcode，即操作码，是指令的一部分，在虚拟机的指令解码器在会根据指令的 Opcode 来进行不同的操作。&lt;br&gt;
+以下是 TVM 指令集的 Opcode 表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;助记符&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;编码&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;stop&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x00&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;停止虚拟机&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;nop&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x01&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;空指令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;pushk&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x02&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;将常量推入栈顶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;pushv&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x03&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;将变量推入栈顶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;pop&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x04&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;弹出栈顶值并抛弃&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;popv&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x05&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;弹出栈顶值并保存到变量中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;add&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x06&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;依次弹出栈顶的值，stack2 + stack1，压入结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;sub&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x07&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;依次弹出栈顶的值，stack2 - stack1，压入结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;mul&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x08&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;依次弹出栈顶的值，stack2 * stack1，压入结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;div&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x09&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;依次弹出栈顶的值，stack2 /stack1，压入结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;call&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;函数调用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;ret&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0b&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;函数调用返回&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;ne&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0c&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;不等于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;eq&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0d&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;等于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;lt&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0e&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;小于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;le&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x0f&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;小于等于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;gt&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x10&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;大于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;ge&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x11&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;大于等于比较&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;jcf&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x12&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;条件为否则跳转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;jmp&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0x13&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;无条件跳转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;toylang-源码-最终转换为-虚拟机指令的简单示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#toylang-源码-最终转换为-虚拟机指令的简单示例&#34;&gt;#&lt;/a&gt; ToyLang 源码 最终转换为 虚拟机指令的简单示例&lt;/h3&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;if a == 1 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    print(&amp;quot;a==1&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    print(&amp;quot;a!=1&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pushv a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pushk 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;eq&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;jcf .else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;jmp .end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;.end:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/41fe.html</guid>
@@ -313,7 +529,7 @@ B：还想抵赖？我都能用你的公钥解开你的数字证书！&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;昨天在看周哥讲 x64 内核的时候，得知了 windows10 的某个版本开始，页表基址不再固定了。&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;今天晚上突然有了个思路，就动手把他敲出来了，这种思路是不是已经烂大街了我也不确定，就当发出来学习交流吧。&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;随机页表基址原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#随机页表基址原理&#34;&gt;#&lt;/a&gt; 随机页表基址原理&lt;/h1&gt;
-&lt;p&gt;这里用 x32 的 10-10-12 分页举例吧，比较好理解，理解了 x64 的也差不多的&lt;/p&gt;
+&lt;p&gt;这里用 x86 的 10-10-12 分页举例吧，比较好理解，理解了 x64 的也差不多的&lt;/p&gt;
 &lt;p&gt;启用了保护模式和分页机制后，咱就不能直接访问物理地址了，都会被 MMU 当作虚拟地址进行转换。&lt;/p&gt;
 &lt;p&gt;但是 cr3 存的又是物理地址，不能直接操作页表了，那咋办呢？&lt;/p&gt;
 &lt;p&gt;聪明的前辈们，选择在页目录表中选择一项 (共 1024 项，每一项 4 字节)，使其存储的物理地址与页目录表的基址 (cr3) 相同，这样子就可以构造一个访问页表的虚拟地址了，大概就是&lt;strong&gt;让 cpu 在地址转换的过程中绕圈圈&lt;/strong&gt;。&lt;/p&gt;
@@ -1503,318 +1719,6 @@ Direct：&lt;/p&gt;
 &lt;p&gt;主要参考资料&lt;br&gt;
 《C++ 反汇编与逆向分析技术揭秘 (第 2 版)》. 钱林松、张延清&lt;/p&gt;
 &lt;/blockquote&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/3f7e.html</guid>
-            <title>【逆向工具】常用工具推荐</title>
-            <link>http://yuyuaqwq.github.io/posts/3f7e.html</link>
-            <category>逆向分析</category>
-            <category>工具</category>
-            <pubDate>Fri, 14 Oct 2022 16:13:05 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;&lt;em&gt;&lt;strong&gt;工欲善其事，必先利其器。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里收录了一些我个人常用并推荐的工具。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;动态分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#动态分析&#34;&gt;#&lt;/a&gt; 动态分析&lt;/h1&gt;
-&lt;h2 id=&#34;软件调试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#软件调试&#34;&gt;#&lt;/a&gt; 软件调试&lt;/h2&gt;
-&lt;h3 id=&#34;x64dbg&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#x64dbg&#34;&gt;#&lt;/a&gt; x64dbg&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;面向未来的 Windows R3 调试器，开源，支持 x86/x64。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;官方网站&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://x64dbg.com/&#34;&gt;https://x64dbg.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;推荐插件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ret-sync&lt;/li&gt;
-&lt;li&gt;SharpOD&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;windbg&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windbg&#34;&gt;#&lt;/a&gt; WinDbg&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;微软家的东西，不仅能够调试应用，还能调试内核，学习内核必备的工具。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推荐辅助工具
-&lt;ul&gt;
-&lt;li&gt;VirtualKD-Redux&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;内存搜索&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内存搜索&#34;&gt;#&lt;/a&gt; 内存搜索&lt;/h2&gt;
-&lt;h3 id=&#34;cheat-engine&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cheat-engine&#34;&gt;#&lt;/a&gt; Cheat Engine&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;大名鼎鼎的 CE，开源的内存修改工具，但不仅仅只能用于修改内存，其中依赖于调试机制的 &amp;quot;找出是什么访问 / 修改了这个地址&amp;quot; 等功能也非常好用。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cheatengine.org/&#34;&gt;https://www.cheatengine.org/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;进程监控&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#进程监控&#34;&gt;#&lt;/a&gt; 进程监控&lt;/h2&gt;
-&lt;h3 id=&#34;process-monitor&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#process-monitor&#34;&gt;#&lt;/a&gt; Process Monitor&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;用于 Windows 的高级监控工具，能够实时监控进程的行为，如文件、注册表、网络等动作，对分析工作有很大的帮助。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;下载地址
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/sysinternals/downloads/procmon&#34;&gt;https://learn.microsoft.com/en-us/sysinternals/downloads/procmon&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;火绒剑&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#火绒剑&#34;&gt;#&lt;/a&gt; 火绒剑&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;火绒剑的系统监控也意外的好用，比起 Process Monitor，我觉得火绒剑的使用体验更加轻快。&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;网络分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络分析&#34;&gt;#&lt;/a&gt; 网络分析&lt;/h2&gt;
-&lt;h3 id=&#34;wireshark&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wireshark&#34;&gt;#&lt;/a&gt; WireShark&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;开源的网络分析工具，针对网卡抓包，能用于分析学习更底层的协议 (传输层，网络层、数据链路层)。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/&#34;&gt;https://www.wireshark.org/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;fiddler&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#fiddler&#34;&gt;#&lt;/a&gt; Fiddler&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;免费的 http/https 抓包工具，基于系统代理工作，https 抓包原理是中间人攻击，为操作系统安装 Fiddler 生成的证书，就能截获信任操作系统中安装的证书的应用程序的 https 流量。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.telerik.com/fiddler&#34;&gt;https://www.telerik.com/fiddler&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;proxifier&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#proxifier&#34;&gt;#&lt;/a&gt; Proxifier&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;强制代理工具，有些应用并不会使用系统代理设置指定的代理，因此 Fiddler 无法截获这类应用的 http/https 流量，这个时候 Proxifier 是很好的搭档。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;个人文章
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&#34;/posts/5e1f.html&#34; title=&#34;【Proxifier】基本配置与使用&#34;&gt;【Proxifier】基本配置与使用&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;静态分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#静态分析&#34;&gt;#&lt;/a&gt; 静态分析&lt;/h1&gt;
-&lt;h2 id=&#34;反汇编&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#反汇编&#34;&gt;#&lt;/a&gt; 反汇编&lt;/h2&gt;
-&lt;h3 id=&#34;ida&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ida&#34;&gt;#&lt;/a&gt; IDA&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;我觉得 &amp;quot;IDA&amp;quot; 这个名字，就是对 &amp;quot;静态分析&amp;quot; 最有力的诠释了，世界顶级的交互式反汇编工具，功能及其强大，所以使用也很复杂。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;推荐书籍&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;《IDA Pro 权威指南 (第 2 版)》&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;推荐插件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ret-sync&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;pe分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pe分析&#34;&gt;#&lt;/a&gt; PE 分析&lt;/h2&gt;
-&lt;h3 id=&#34;cff-explorer-viii&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cff-explorer-viii&#34;&gt;#&lt;/a&gt; CFF Explorer VIII&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;很优秀的 PE 分析工具，用过之后就基本上没有再尝试其他的 PE 工具了。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;十六进制编辑器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#十六进制编辑器&#34;&gt;#&lt;/a&gt; 十六进制编辑器&lt;/h2&gt;
-&lt;h3 id=&#34;hxd&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hxd&#34;&gt;#&lt;/a&gt; HxD&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;个人体验很好的免费十六进制编辑器，轻便。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://mh-nexus.de/en/hxd/&#34;&gt;https://mh-nexus.de/en/hxd/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/c22c.html</guid>
-            <title>【MFC】探索消息映射机制的实现原理</title>
-            <link>http://yuyuaqwq.github.io/posts/c22c.html</link>
-            <category>MFC</category>
-            <category>没饭吃</category>
-            <category>C++</category>
-            <category>界面开发</category>
-            <pubDate>Tue, 11 Oct 2022 22:08:21 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;消息机制简述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息机制简述&#34;&gt;#&lt;/a&gt; 消息机制简述&lt;/h1&gt;
-&lt;p&gt;我们知道，Windows 的窗口是由&lt;strong&gt;消息&lt;/strong&gt;驱动的；&lt;br&gt;
-Windows 通过捕获鼠标、键盘等输入设备产生的动作，再生成对应的消息，并传递给相应的窗口所属的线程。&lt;/p&gt;
-&lt;div class=&#34;note purple icon-padding simple&#34;&gt;&lt;i class=&#34;note-icon fas fa-fan&#34;&gt;&lt;/i&gt;&lt;p&gt;直接基于 &lt;code&gt;Win32API&lt;/code&gt;  开发时，我们需要在注册窗口类时指定&lt;strong&gt;窗口过程函数&lt;/strong&gt;，以告知 Windows 回调 (传递消息) 的入口。&lt;/p&gt;
-&lt;/div&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;mfc的消息映射&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mfc的消息映射&#34;&gt;#&lt;/a&gt; MFC 的消息映射&lt;/h1&gt;
-&lt;p&gt;而 MFC 为我们提供了一种更为方便的机制，&lt;emp&gt;直接为一个消息与一个函数建立映射关系&lt;/emp&gt;，在消息产生时，回调此函数，而不再需要我们去自行分发。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; 消息映射示例 &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;afxwin.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyFrameWnd&lt;/span&gt; : &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CFrameWnd &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;DECLARE_MESSAGE_MAP&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;function&#34;&gt;LRESULT &lt;span class=&#34;title&#34;&gt;OnCreate&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(WPARAM wParam, LPARAM lParam)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;built_in&#34;&gt;AfxMessageBox&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;L&amp;quot;Window Create!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;BEGIN_MESSAGE_MAP&lt;/span&gt;(CMyFrameWnd, CFrameWnd)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;ON_MESSAGE&lt;/span&gt;(WM_CREATE, OnCreate)   &lt;span class=&#34;comment&#34;&gt;// 将WM_CREATE与CMyFrameWnd类的成员函数OnCreate建立映射&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;END_MESSAGE_MAP&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyWinApp&lt;/span&gt; : &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CWinApp &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;CMyWinApp&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; BOOL &lt;span class=&#34;title&#34;&gt;InitInstance&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		CMyFrameWnd* frame = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; CMyFrameWnd;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;Create&lt;/span&gt;(&lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;L&amp;quot;MFCBase&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		m_pMainWnd = frame;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;ShowWindow&lt;/span&gt;(SW_SHOW);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;UpdateWindow&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; TRUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;CMyWinApp g_theApp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;h2 id=&#34;消息映射宏&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息映射宏&#34;&gt;#&lt;/a&gt; 消息映射宏&lt;/h2&gt;
-&lt;p&gt;MFC 的消息映射是通过几个&lt;strong&gt;宏函数&lt;/strong&gt;来实现的，我们以上述代码为例，将宏展开，一探究竟。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;声明宏&lt;br&gt;
- MFC 的声明宏，就是在窗口类中声明两个受保护的成员函数。&lt;/p&gt;
-  &lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; ECLARE_MESSAGE_MAP() &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;protected&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;定义宏&lt;br&gt;
-定义则稍显复杂，由多个宏函数组成，实际上是在实现声明宏声明的成员函数。&lt;/p&gt;
-  &lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; BEGIN_MESSAGE_MAP() &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;p&gt;&lt;code&gt;BEGIN_MESSAGE_MAP(CMyFrameWnd, CFrameWnd)&lt;/code&gt;&lt;/p&gt;&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;PTM_WARNING_DISABLE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;GetThisMessageMap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;typedef&lt;/span&gt; CMyFrameWnd ThisClass;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;typedef&lt;/span&gt; CFrameWnd TheBaseClass;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	__pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(push))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	__pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(disable: &lt;span class=&#34;number&#34;&gt;4640&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP_ENTRY _messageEntries[] =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-  &lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; ON_MESSAGE() &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;p&gt;&lt;code&gt;ON_MESSAGE(WM_CREATE, OnCreate)&lt;/code&gt;&lt;/p&gt;&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 实际上是在为_messageEntries变量的初始化列表添加结构体元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#123; WM_CREATE, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_lwl, (AFX_PMSG)(AFX_PMSGW)(&lt;span class=&#34;built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;LRESULT&lt;/span&gt;(AFX_MSG_CALL CWnd::*)(WPARAM, LPARAM)&amp;gt;(OnCreate))&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-  &lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; END_MESSAGE_MAP() &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#123; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_end, (AFX_PMSG)&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	__pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(pop))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP messageMap =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123; &amp;amp;TheBaseClass::GetThisMessageMap, &amp;amp;_messageEntries[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &amp;amp;messageMap;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PTM_WARNING_RESTORE&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;整体展开&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; 消息映射示例-宏展开 &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;57&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;afxwin.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyFrameWnd&lt;/span&gt; :&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CFrameWnd &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;protected&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;LRESULT &lt;span class=&#34;title&#34;&gt;OnCreate&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(WPARAM wParam, LPARAM lParam)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;built_in&#34;&gt;AfxMessageBox&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;L&amp;quot;Window Create!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;PTM_WARNING_DISABLE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;GetThisMessageMap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;typedef&lt;/span&gt; CMyFrameWnd ThisClass;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;typedef&lt;/span&gt; CFrameWnd TheBaseClass;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    __pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(push))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    __pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(disable: &lt;span class=&#34;number&#34;&gt;4640&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP_ENTRY _messageEntries[] =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#123; WM_CREATE, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_lwl, (AFX_PMSG)(AFX_PMSGW)(&lt;span class=&#34;built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;LRESULT&lt;/span&gt;(AFX_MSG_CALL CWnd::*)(WPARAM, LPARAM)&amp;gt;(OnCreate))&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#123; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_end, (AFX_PMSG)&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    __pragma(&lt;span class=&#34;built_in&#34;&gt;warning&lt;/span&gt;(pop))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP messageMap =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123; &amp;amp;TheBaseClass::GetThisMessageMap, &amp;amp;_messageEntries[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &amp;amp;messageMap;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PTM_WARNING_RESTORE&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyWinApp&lt;/span&gt; :&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CWinApp &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;CMyWinApp&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; BOOL &lt;span class=&#34;title&#34;&gt;InitInstance&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CMyFrameWnd* frame = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; CMyFrameWnd;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;Create&lt;/span&gt;(&lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;L&amp;quot;MFCBase&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        m_pMainWnd = frame;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;ShowWindow&lt;/span&gt;(SW_SHOW);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;UpdateWindow&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; TRUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;CMyWinApp g_theApp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;note purple icon-padding simple&#34;&gt;&lt;i class=&#34;note-icon fas fa-fan&#34;&gt;&lt;/i&gt;&lt;p&gt;通过宏添加消息映射时，实际上是重写了 &lt;code&gt;CFrameWnd&lt;/code&gt;  类的 &lt;code&gt;GetMessageMap&lt;/code&gt;  成员虚函数；&lt;br&gt;
-而 &lt;code&gt;GetMessageMap&lt;/code&gt;  函数初始化了一个名为 &lt;code&gt;_messageEntries&lt;/code&gt;  和 &lt;code&gt;messageMap&lt;/code&gt;  的&lt;strong&gt;静态局部变量&lt;/strong&gt;，并将该变量的地址返回。&lt;br&gt;
-我们简单猜测，与上一节重写 &lt;code&gt;WindowProc&lt;/code&gt;  类似，微软在&lt;strong&gt;窗口过程函数&lt;/strong&gt; &lt;code&gt;AfxWndProc&lt;/code&gt;  的某处，得到窗口对象之后，以窗口对象的身份调用其成员虚函数 &lt;code&gt;GetMessageMap&lt;/code&gt; ；&lt;br&gt;
-由于成员虚函数被重写的原因，得到我们所设定的&lt;strong&gt;映射关系表&lt;/strong&gt;，我们这里就把它叫做&lt;strong&gt;消息映射表&lt;/strong&gt;；&lt;br&gt;
-基于此消息映射表，就可以在&lt;strong&gt;窗口过程函数&lt;/strong&gt;中，&lt;emp&gt;根据消息调用对应的成员函数&lt;/emp&gt;。&lt;/p&gt;
-&lt;/div&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;探索实现原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#探索实现原理&#34;&gt;#&lt;/a&gt; 探索实现原理&lt;/h1&gt;
-&lt;p&gt;我们基本上能够理解消息映射机制的工作原理，这小节我们就扒一下微软的源码，以便更清晰的了解消息映射机制。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; AfxWndProc &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;LRESULT CALLBACK&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;AfxWndProc&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;// special message which identifies the window as using AfxWndProc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (nMsg == WM_QUERYAFXWNDPROC)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;// all other messages route through message map&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	CWnd* pWnd = CWnd::&lt;span class=&#34;built_in&#34;&gt;FromHandlePermanent&lt;/span&gt;(hWnd);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;ASSERT&lt;/span&gt;(pWnd != &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;ASSERT&lt;/span&gt;(pWnd==&lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt; || pWnd-&amp;gt;m_hWnd == hWnd);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (pWnd == &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt; || pWnd-&amp;gt;m_hWnd != hWnd)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; ::&lt;span class=&#34;built_in&#34;&gt;DefWindowProc&lt;/span&gt;(hWnd, nMsg, wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;AfxCallWndProc&lt;/span&gt;(pWnd, hWnd, nMsg, wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;调试上面提供的代码，首先在 &lt;code&gt;AfxWndProc&lt;/code&gt;  函数设置断点；&lt;/p&gt;
-&lt;p&gt;继续走到 &lt;code&gt;AfxCallWndProc&lt;/code&gt; ；&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; AfxCallWndProc &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;LRESULT AFXAPI &lt;span class=&#34;title&#34;&gt;AfxCallWndProc&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(CWnd* pWnd, HWND hWnd, UINT nMsg,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;function&#34;&gt;	WPARAM wParam = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, LPARAM lParam = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;// delegate to object&amp;#x27;s WindowProc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		lResult = pWnd-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;WindowProc&lt;/span&gt;(nMsg, wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;到此处停下，此时你可能会有些疑惑，诶，我们并没有重写 &lt;code&gt;Cwnd::WindowProc&lt;/code&gt; ，为什么要到此处停下？&lt;br&gt;
-因为微软将消息映射机制放到了此函数内实现。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::WindowProc &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;LRESULT &lt;span class=&#34;title&#34;&gt;CWnd::WindowProc&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(UINT message, WPARAM wParam, LPARAM lParam)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;// OnWndMsg does most of the work, except for DefWindowProc call&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	LRESULT lResult = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (!&lt;span class=&#34;built_in&#34;&gt;OnWndMsg&lt;/span&gt;(message, wParam, lParam, &amp;amp;lResult))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		lResult = &lt;span class=&#34;built_in&#34;&gt;DefWindowProc&lt;/span&gt;(message, wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; lResult;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;继续到进入 &lt;code&gt;CWnd::OnWndMsg&lt;/code&gt; 。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::OnWndMsg &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;BOOL &lt;span class=&#34;title&#34;&gt;CWnd::OnWndMsg&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* pMessageMap; pMessageMap = &lt;span class=&#34;built_in&#34;&gt;GetMessageMap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;上面的代码我们暂时不关心，只关心对 &lt;code&gt;GetMessageMap&lt;/code&gt;  函数的调用；&lt;br&gt;
-还记得吗？我们将消息声明 / 定义宏展开后，就相当于我们为 &lt;code&gt;CMyFrameWnd&lt;/code&gt;  类定义了两个函数：&lt;/p&gt;
-&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;此处是以 &lt;code&gt;CMyFrameWnd&lt;/code&gt;  类的对象的身份调用的 &lt;code&gt;GetMessageMap&lt;/code&gt; ，因此实际上是在调用我们类中由消息映射宏重写的成员虚函数。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CMyFrameWnd::GetMessageMap &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;GetThisMessageMap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;这里只是简单的调用了静态成员函数 &lt;code&gt;GetThisMessageMap&lt;/code&gt; 。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CMyFrameWnd::GetThisMessageMap &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* PASCAL &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::GetThisMessageMap&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP_ENTRY _messageEntries[] =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#123; WM_CREATE, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_lwl, (AFX_PMSG)(AFX_PMSGW)(&lt;span class=&#34;built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;LRESULT&lt;/span&gt;(AFX_MSG_CALL CWnd::*)(WPARAM, LPARAM)&amp;gt;(&amp;amp;OnCreate)) &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#123; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, AfxSig_end, (AFX_PMSG)&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP messageMap =&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123; &amp;amp;CFrameWnd::GetThisMessageMap, &amp;amp;_messageEntries[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &amp;amp;messageMap;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;我这里对原先的代码做了一些简化，更方便看一点，实际上呢就是为当前函数的静态局部变量 &lt;code&gt;_messageEntries&lt;/code&gt; 、 &lt;code&gt;messageMap&lt;/code&gt;  赋值，并返回 &lt;code&gt;messageMap&lt;/code&gt;  的地址。&lt;/p&gt;
-&lt;p&gt;又回到 &lt;code&gt;CWnd::OnWndMsg&lt;/code&gt;&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::OnWndMsg &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;BOOL &lt;span class=&#34;title&#34;&gt;CWnd::OnWndMsg&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP* pMessageMap; pMessageMap = &lt;span class=&#34;built_in&#34;&gt;GetMessageMap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  UINT iHash; iHash = (&lt;span class=&#34;built_in&#34;&gt;LOWORD&lt;/span&gt;((DWORD_PTR)pMessageMap) ^ message) &amp;amp; (iHashMax&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	winMsgLock.&lt;span class=&#34;built_in&#34;&gt;Lock&lt;/span&gt;(CRIT_WINMSGCACHE);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	AFX_MSG_CACHE* pMsgCache; pMsgCache = &amp;amp;_afxMsgCache[iHash];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; AFX_MSGMAP_ENTRY* lpEntry;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (message == pMsgCache-&amp;gt;nMsg &amp;amp;&amp;amp; pMessageMap == pMsgCache-&amp;gt;pMessageMap)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;// not in cache, look for it&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		pMsgCache-&amp;gt;nMsg = message;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		pMsgCache-&amp;gt;pMessageMap = pMessageMap;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;comment&#34;&gt;/* pMessageMap already init&amp;#x27;ed */&lt;/span&gt;; pMessageMap-&amp;gt;pfnGetBaseMap != &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      pMessageMap = (*pMessageMap-&amp;gt;pfnGetBaseMap)())&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;使 &lt;code&gt;pMessageMap&lt;/code&gt;  指向静态局部变量 &lt;code&gt;messageMap&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;记住上述代码的第 &lt;code&gt;19&lt;/code&gt; ~ &lt;code&gt;20&lt;/code&gt;  行要进入循环；&lt;/p&gt;
-&lt;p&gt;剩下的我们暂时不关心，继续向下看。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::OnWndMsg &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;comment&#34;&gt;/* pMessageMap already init&amp;#x27;ed */&lt;/span&gt;; pMessageMap-&amp;gt;pfnGetBaseMap != &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			pMessageMap = (*pMessageMap-&amp;gt;pfnGetBaseMap)())&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&lt;span class=&#34;comment&#34;&gt;// Note: catch not so common but fatal mistake!!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&lt;span class=&#34;comment&#34;&gt;//      BEGIN_MESSAGE_MAP(CMyWnd, CMyWnd)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&lt;span class=&#34;built_in&#34;&gt;ASSERT&lt;/span&gt;(pMessageMap != (*pMessageMap-&amp;gt;pfnGetBaseMap)());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (message &amp;lt; &lt;span class=&#34;number&#34;&gt;0xC000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				&lt;span class=&#34;comment&#34;&gt;// constant window message&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; ((lpEntry = &lt;span class=&#34;built_in&#34;&gt;AfxFindMessageEntry&lt;/span&gt;(pMessageMap-&amp;gt;lpEntries,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;					message, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)) != &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;					pMsgCache-&amp;gt;lpEntry = lpEntry;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;					winMsgLock.&lt;span class=&#34;built_in&#34;&gt;Unlock&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;					&lt;span class=&#34;keyword&#34;&gt;goto&lt;/span&gt; LDispatch;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;第 &lt;code&gt;10&lt;/code&gt; ~ &lt;code&gt;11&lt;/code&gt;  行是关键函数， &lt;code&gt;pMessageMap-&amp;gt;lpEntries&lt;/code&gt;  即是访问静态局部变量 &lt;code&gt;messageMap&lt;/code&gt;  的第二个成员，也就是 &lt;code&gt;_messageEntries&lt;/code&gt;  的地址；&lt;br&gt;
-而 &lt;code&gt;message&lt;/code&gt;  就是本次窗口过程处理的消息 ID 了；&lt;/p&gt;
-&lt;emp&gt;即传入消息映射表地址和消息，查找对应的条目&lt;/emp&gt;。
-&lt;p&gt;返回值即是 &lt;code&gt;_messageEntries&lt;/code&gt;  中对应条目的地址，如果返回 &lt;code&gt;NULL&lt;/code&gt;  表示消息映射表中不存在此消息。&lt;br&gt;
-我们假定此消息已经被我们影射了，跟随 &lt;code&gt;goto LDispatch;&lt;/code&gt;  继续。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::OnWndMsg &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;LDispatch:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;ASSERT&lt;/span&gt;(message &amp;lt; &lt;span class=&#34;number&#34;&gt;0xC000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	mmf.pfn = lpEntry-&amp;gt;pfn;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;switch&lt;/span&gt; (lpEntry-&amp;gt;nSig)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; AfxSig_l_w_l:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		lResult = (&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;*mmf.pfn_l_w_l)(wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;最终会在此处以 &lt;code&gt;CMyFrameWnd&lt;/code&gt;  类对象的身份调用我们指定的 &lt;code&gt;OnCreate&lt;/code&gt;  成员函数。&lt;/p&gt;
-&lt;h2 id=&#34;消息映射表链表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息映射表链表&#34;&gt;#&lt;/a&gt; 消息映射表链表&lt;/h2&gt;
-&lt;p&gt;整个流程基本上到这里就完成了，实际上我们留了一个小坑，即上面代码中我们暂时跳过的 for 循环。&lt;/p&gt;
-&lt;p&gt;实际上那是在遍历&lt;emp&gt;消息映射表链表&lt;/emp&gt;，但是我们并没有提过，存在多个消息映射表这件事。&lt;/p&gt;
-&lt;p&gt;实际上， &lt;code&gt;CFrameWnd&lt;/code&gt;  类也使用了消息映射机制，而 &lt;code&gt;CMyFrameWnd::GetMessageMap&lt;/code&gt;  函数中的静态局部变量 &lt;code&gt;messageMap&lt;/code&gt; ，第一个成员指向的就是静态成员函数 &lt;code&gt;CFrameWnd::GetThisMessageMap&lt;/code&gt; 。&lt;/p&gt;
-&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;comment&#34;&gt;/* pMessageMap already init&amp;#x27;ed */&lt;/span&gt;; pMessageMap-&amp;gt;pfnGetBaseMap != &lt;span class=&#34;literal&#34;&gt;NULL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      pMessageMap = (*pMessageMap-&amp;gt;pfnGetBaseMap)())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;而 &lt;code&gt;pMessageMap-&amp;gt;pfnGetBaseMap&lt;/code&gt; ，就是在访问 &lt;code&gt;messageMap&lt;/code&gt;  的第一个成员。&lt;/p&gt;
-&lt;p&gt;此 for 循环的工作：&lt;br&gt;
-从链表头 ( &lt;code&gt;CMyFrameWnd&lt;/code&gt; ) 开始，&lt;emp&gt;即最子类向上遍历，依次查找是否存在与本次消息匹配的消息映射关系，存在则调用对应的成员函数并返回&lt;/emp&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;消息映射分类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#消息映射分类&#34;&gt;#&lt;/a&gt; 消息映射分类&lt;/h1&gt;
-&lt;p&gt;其实，除了 &lt;code&gt;ON_MESSAGE&lt;/code&gt;  之外，微软还提供了更加方便的，直接映射指定消息的宏。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; 代码示例 &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;afxwin.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyFrameWnd&lt;/span&gt; :&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CFrameWnd &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;DECLARE_MESSAGE_MAP&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;OnCreate&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(LPCREATESTRUCT pCs)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;BEGIN_MESSAGE_MAP&lt;/span&gt;(CMyFrameWnd, CFrameWnd)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;ON_WM_CREATE&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;END_MESSAGE_MAP&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;CMyFrameWnd::OnCreate&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(LPCREATESTRUCT pCs)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;AfxMessageBox&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;L&amp;quot;OnCreate!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CMyWinApp&lt;/span&gt; :&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; CWinApp &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;CMyWinApp&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;virtual&lt;/span&gt; BOOL &lt;span class=&#34;title&#34;&gt;InitInstance&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CMyFrameWnd* frame = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; CMyFrameWnd;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;Create&lt;/span&gt;(&lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;L&amp;quot;MFCBase&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        m_pMainWnd = frame;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;ShowWindow&lt;/span&gt;(SW_SHOW);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        frame-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;UpdateWindow&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; TRUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;CMyWinApp g_theApp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;我们将 &lt;code&gt;ON_WM_CREATE&lt;/code&gt;  宏展开，看看与 &lt;code&gt;ON_MESSAGE&lt;/code&gt;  有什么区别。&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; ON_WM_CREATE &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;define&lt;/span&gt; ON_WM_CREATE() \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;	&amp;#123; WM_CREATE, 0, 0, 0, AfxSig_is, \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;		(AFX_PMSG) (AFX_PMSGW) \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;		(static_cast&lt;span class=&#34;string&#34;&gt;&amp;lt; int (AFX_MSG_CALL CWnd::*)(LPCREATESTRUCT) &amp;gt;&lt;/span&gt; ( &amp;amp;ThisClass :: OnCreate)) &amp;#125;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; ON_MESSAGE &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;define&lt;/span&gt; ON_MESSAGE(message, memberFxn) \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;	&amp;#123; message, 0, 0, 0, AfxSig_lwl, \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;		(AFX_PMSG)(AFX_PMSGW) \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;		(static_cast&lt;span class=&#34;string&#34;&gt;&amp;lt; LRESULT (AFX_MSG_CALL CWnd::*)(WPARAM, LPARAM) &amp;gt;&lt;/span&gt; \&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;		(memberFxn)) &amp;#125;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;首先就是， &lt;code&gt;ON_WM_CREATE&lt;/code&gt;  不再要求我们提供参数消息 id 与回调函数名，而是直接指定为 &lt;code&gt;WM_CREATE&lt;/code&gt;  与 &lt;code&gt;OnCreate&lt;/code&gt; ；&lt;br&gt;
-其次， &lt;code&gt;ON_MESSAGE&lt;/code&gt;  与 &lt;code&gt;ON_WM_CREATE&lt;/code&gt;  添加的消息映射条目 &lt;code&gt;AFX_MSGMAP_ENTRY&lt;/code&gt;  元素的第 5 个成员 &lt;code&gt;nSig&lt;/code&gt; ，分别是 &lt;code&gt;AfxSig_l_w_l&lt;/code&gt;  与 &lt;code&gt;AfxSig_i_v_s&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;还记得吗，我们指定的消息映射函数，都是在 &lt;code&gt;CWnd::OnWndMsg&lt;/code&gt;  函数内被调用的；&lt;br&gt;
-而先前通过 &lt;code&gt;ON_MESSAGE&lt;/code&gt;  定义的消息映射，回调函数原型都是相同的。&lt;br&gt;
-而通过 &lt;code&gt;ON_WM_CREATE&lt;/code&gt;  定义的消息映射，和 &lt;code&gt;ON_MESSAGE&lt;/code&gt;  指定的消息映射函数的原型是不同的，那么 &lt;code&gt;CWnd::OnWndMsg&lt;/code&gt;  是怎么区分不同的函数原型并进行回调的呢？&lt;/p&gt;
-&lt;p&gt;我们回到 &lt;code&gt;CWnd::OnWndMsg&lt;/code&gt;  函数：&lt;/p&gt;
-&lt;details class=&#34;folding-tag&#34; blue&gt;&lt;summary&gt; CWnd::OnWndMsg &lt;/summary&gt;
-              &lt;div class=&#39;content&#39;&gt;
-              &lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;LDispatch:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;built_in&#34;&gt;ASSERT&lt;/span&gt;(message &amp;lt; &lt;span class=&#34;number&#34;&gt;0xC000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	mmf.pfn = lpEntry-&amp;gt;pfn;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;switch&lt;/span&gt; (lpEntry-&amp;gt;nSig)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; AfxSig_i_v_s:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		lResult = (&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;*mmf.pfn_i_s)(&lt;span class=&#34;built_in&#34;&gt;reinterpret_cast&lt;/span&gt;&amp;lt;LPTSTR&amp;gt;(lParam));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;case&lt;/span&gt; AfxSig_l_w_l:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		lResult = (&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;*mmf.pfn_l_w_l)(wParam, lParam);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-              &lt;/div&gt;
-            &lt;/details&gt;
-&lt;p&gt;其中最关键的就是 &lt;code&gt;switch (lpEntry-&amp;gt;nSig)&lt;/code&gt; ：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过 &lt;code&gt;ON_MESSAGE&lt;/code&gt;  定义的消息映射时，nSig 成员是 &lt;code&gt;AfxSig_l_w_l&lt;/code&gt; ；&lt;/li&gt;
-&lt;li&gt;通过 &lt;code&gt;ON_WM_CREATE&lt;/code&gt;  定义的消息映射时，nSig 成员是 &lt;code&gt;AfxSig_i_v_s&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这就是为什么，函数原型不同，回调也能正确进行的缘故。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

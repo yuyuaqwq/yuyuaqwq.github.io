@@ -26,6 +26,8 @@
         <category>PKI</category>
         <category>证书</category>
         <category>签名</category>
+        <category>Git</category>
+        <category>版本管理</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/842e.html</guid>
             <title>【MFC】视图与文档</title>

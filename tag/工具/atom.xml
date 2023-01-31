@@ -23,6 +23,8 @@
     <category term="PKI" />
     <category term="证书" />
     <category term="签名" />
+    <category term="Git" />
+    <category term="版本管理" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/3f7e.html</id>
         <title>【逆向工具】常用工具推荐</title>

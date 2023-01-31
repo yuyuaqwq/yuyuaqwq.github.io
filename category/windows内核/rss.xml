@@ -26,6 +26,8 @@
         <category>PKI</category>
         <category>证书</category>
         <category>签名</category>
+        <category>Git</category>
+        <category>版本管理</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/41fe.html</guid>
             <title>【Windows内核】x64下定位随机页表基址的思路</title>
@@ -37,7 +39,7 @@
 &lt;p&gt;&lt;em&gt;昨天在看周哥讲 x64 内核的时候，得知了 windows10 的某个版本开始，页表基址不再固定了。&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;今天晚上突然有了个思路，就动手把他敲出来了，这种思路是不是已经烂大街了我也不确定，就当发出来学习交流吧。&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;随机页表基址原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#随机页表基址原理&#34;&gt;#&lt;/a&gt; 随机页表基址原理&lt;/h1&gt;
-&lt;p&gt;这里用 x32 的 10-10-12 分页举例吧，比较好理解，理解了 x64 的也差不多的&lt;/p&gt;
+&lt;p&gt;这里用 x86 的 10-10-12 分页举例吧，比较好理解，理解了 x64 的也差不多的&lt;/p&gt;
 &lt;p&gt;启用了保护模式和分页机制后，咱就不能直接访问物理地址了，都会被 MMU 当作虚拟地址进行转换。&lt;/p&gt;
 &lt;p&gt;但是 cr3 存的又是物理地址，不能直接操作页表了，那咋办呢？&lt;/p&gt;
 &lt;p&gt;聪明的前辈们，选择在页目录表中选择一项 (共 1024 项，每一项 4 字节)，使其存储的物理地址与页目录表的基址 (cr3) 相同，这样子就可以构造一个访问页表的虚拟地址了，大概就是&lt;strong&gt;让 cpu 在地址转换的过程中绕圈圈&lt;/strong&gt;。&lt;/p&gt;
