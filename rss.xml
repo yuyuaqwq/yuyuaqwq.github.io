@@ -35,8 +35,8 @@
             <category>Git</category>
             <category>版本管理</category>
             <pubDate>Tue, 31 Jan 2023 09:05:39 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;github身份校验&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github身份校验&#34;&gt;#&lt;/a&gt; Github 身份校验&lt;/h2&gt;
-&lt;p&gt;Github 通过 SSH 登录，通过提前在 Github 上设置公钥，以及本地存储的私钥，使得 Github 能够校验身份的合法性。&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;github身份验证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github身份验证&#34;&gt;#&lt;/a&gt; Github 身份验证&lt;/h2&gt;
+&lt;p&gt;Github 通过 SSH 登录，通过提前在 Github 上设置公钥，以及本地存储的私钥，使得 Github 能够验证身份的合法性。&lt;/p&gt;
 &lt;h2 id=&#34;配置用户名和邮箱&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置用户名和邮箱&#34;&gt;#&lt;/a&gt; 配置用户名和邮箱&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;&amp;lt;用户名&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
