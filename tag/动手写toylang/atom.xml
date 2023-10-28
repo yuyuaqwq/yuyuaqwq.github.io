@@ -16,7 +16,6 @@
     <category term="动手写ToyLang" />
     <category term="C++" />
     <category term="界面开发" />
-    <category term="Qt" />
     <category term="保护模式" />
     <category term="Windows内核" />
     <category term="密码学" />
@@ -25,6 +24,7 @@
     <category term="签名" />
     <category term="Git" />
     <category term="版本管理" />
+    <category term="Linux" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/819.html</id>
         <title>【动手写ToyLang】6-虚拟机设计</title>
@@ -803,9 +803,9 @@
         <content type="html">&lt;h1 id=&#34;关于&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于&#34;&gt;#&lt;/a&gt; 关于&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门&lt;emp&gt;玩具&lt;/emp&gt;通用编程语言。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
-&lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
+&lt;p&gt;我对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
 学完本系列文章之后，基本上可以对编译原理有所认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;笔者会尽可能保证文章内容的准确，若还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;我会尽可能保证文章内容的准确，若还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;h2 id=&#34;开发语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发语言&#34;&gt;#&lt;/a&gt; 开发语言&lt;/h2&gt;

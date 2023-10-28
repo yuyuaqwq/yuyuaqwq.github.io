@@ -19,7 +19,6 @@
         <category>动手写ToyLang</category>
         <category>C++</category>
         <category>界面开发</category>
-        <category>Qt</category>
         <category>保护模式</category>
         <category>Windows内核</category>
         <category>密码学</category>
@@ -28,6 +27,7 @@
         <category>签名</category>
         <category>Git</category>
         <category>版本管理</category>
+        <category>Linux</category>
         <item>
             <guid isPermalink="true">http://yuyuaqwq.github.io/posts/5e1f.html</guid>
             <title>【Proxifier】基本配置与使用</title>

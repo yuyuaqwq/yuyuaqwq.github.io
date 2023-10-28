@@ -3,7 +3,7 @@
     <id>http://yuyuaqwq.github.io</id>
     <title>鹿鹿鱼鱼</title>
     <link href="http://yuyuaqwq.github.io" />
-    <updated>2023-02-17T14:57:07.000Z</updated>
+    <updated>2023-10-28T14:25:37.000Z</updated>
     <category term="MFC" />
     <category term="没饭吃" />
     <category term="逆向分析" />
@@ -16,7 +16,6 @@
     <category term="动手写ToyLang" />
     <category term="C++" />
     <category term="界面开发" />
-    <category term="Qt" />
     <category term="保护模式" />
     <category term="Windows内核" />
     <category term="密码学" />
@@ -25,6 +24,19 @@
     <category term="签名" />
     <category term="Git" />
     <category term="版本管理" />
+    <category term="Linux" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/c4d3.html</id>
+        <title>0.前言</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/c4d3.html"/>
+        <content type="html">&lt;p&gt;好久没写博客了…&lt;/p&gt;
+&lt;p&gt;嗯… 因为某些原因，打算转 Linux 下做 C++ 开发，Windows 的东西就当成业余的兴趣去研究吧。&lt;/p&gt;
+&lt;p&gt;这个系列的文章就记录一下我在学习过程中的一些思考，想法，以及备忘吧，就这样吧。&lt;/p&gt;
+</content>
+        <category term="C++" />
+        <category term="Linux" />
+        <updated>2023-10-28T14:25:37.000Z</updated>
+    </entry>
     <entry>
         <id>http://yuyuaqwq.github.io/posts/f54c.html</id>
         <title>【保护模式】2.基于段的保护</title>
@@ -1368,23 +1380,6 @@
         <updated>2022-11-22T16:10:11.333Z</updated>
     </entry>
     <entry>
-        <id>http://yuyuaqwq.github.io/posts/2fd3.html</id>
-        <title>【Qt】前言</title>
-        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/2fd3.html"/>
-        <content type="html">&lt;p&gt;当前分类所收录的文章主要是我个人学习 QT 时记录的读书笔记。&lt;/p&gt;
-&lt;p&gt;记得初学 C++ 不久学习过 QT，一直用不上，基本遗忘了。&lt;br&gt;
-最近有些需求，重新捡一捡。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;主要参考资料&lt;br&gt;
-&lt;a href=&#34;https://www.bilibili.com/video/BV1Qp4y167dD?p=5&amp;amp;spm_id_from=pageDriver&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt;【风骚程序员】QT&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-        <category term="C++" />
-        <category term="界面开发" />
-        <category term="Qt" />
-        <updated>2022-11-12T08:39:44.161Z</updated>
-    </entry>
-    <entry>
         <id>http://yuyuaqwq.github.io/posts/f573.html</id>
         <title>【动手写ToyLang】4.递归下降</title>
         <link rel="alternate" href="http://yuyuaqwq.github.io/posts/f573.html"/>
@@ -1858,9 +1853,9 @@
         <content type="html">&lt;h1 id=&#34;关于&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于&#34;&gt;#&lt;/a&gt; 关于&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;本系列文章会手把手教你打造一门&lt;emp&gt;玩具&lt;/emp&gt;通用编程语言。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;计算机本身就是一门需要动手的学科，在对基本原理有一定程度的理解之后，自己动手实践才是学习的最好捷径，为此制造 &amp;quot;玩具&amp;quot;，并不丢人。&lt;/p&gt;
-&lt;p&gt;笔者对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
+&lt;p&gt;我对《编译原理》这门学科的学习程度也十分有限，因此本系列文章的读者不仅仅是你们，也包括我，写下的这篇文章也是支撑我继续动手实践的动力。&lt;br&gt;
 学完本系列文章之后，基本上可以对编译原理有所认知，再继续往下学习也就不会那么困难了。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;笔者会尽可能保证文章内容的准确，若还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;我会尽可能保证文章内容的准确，若还是难以避免的出现了错误，望批评指正，感激不尽。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;h2 id=&#34;开发语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开发语言&#34;&gt;#&lt;/a&gt; 开发语言&lt;/h2&gt;

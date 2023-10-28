@@ -16,7 +16,6 @@
     <category term="动手写ToyLang" />
     <category term="C++" />
     <category term="界面开发" />
-    <category term="Qt" />
     <category term="保护模式" />
     <category term="Windows内核" />
     <category term="密码学" />
@@ -25,6 +24,7 @@
     <category term="签名" />
     <category term="Git" />
     <category term="版本管理" />
+    <category term="Linux" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/5d13.html</id>
         <title>【密码学】PKI体系：谁来保证我的通信安全？</title>

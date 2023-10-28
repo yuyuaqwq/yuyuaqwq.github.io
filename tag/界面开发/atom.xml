@@ -3,7 +3,7 @@
     <id>http://yuyuaqwq.github.io</id>
     <title>鹿鹿鱼鱼 • Posts by &#34;界面开发&#34; tag</title>
     <link href="http://yuyuaqwq.github.io" />
-    <updated>2022-11-12T08:39:44.161Z</updated>
+    <updated>2022-10-25T14:01:10.000Z</updated>
     <category term="MFC" />
     <category term="没饭吃" />
     <category term="逆向分析" />
@@ -16,7 +16,6 @@
     <category term="动手写ToyLang" />
     <category term="C++" />
     <category term="界面开发" />
-    <category term="Qt" />
     <category term="保护模式" />
     <category term="Windows内核" />
     <category term="密码学" />
@@ -25,23 +24,7 @@
     <category term="签名" />
     <category term="Git" />
     <category term="版本管理" />
-    <entry>
-        <id>http://yuyuaqwq.github.io/posts/2fd3.html</id>
-        <title>【Qt】前言</title>
-        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/2fd3.html"/>
-        <content type="html">&lt;p&gt;当前分类所收录的文章主要是我个人学习 QT 时记录的读书笔记。&lt;/p&gt;
-&lt;p&gt;记得初学 C++ 不久学习过 QT，一直用不上，基本遗忘了。&lt;br&gt;
-最近有些需求，重新捡一捡。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;主要参考资料&lt;br&gt;
-&lt;a href=&#34;https://www.bilibili.com/video/BV1Qp4y167dD?p=5&amp;amp;spm_id_from=pageDriver&amp;amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3&#34;&gt;【风骚程序员】QT&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-        <category term="C++" />
-        <category term="界面开发" />
-        <category term="Qt" />
-        <updated>2022-11-12T08:39:44.161Z</updated>
-    </entry>
+    <category term="Linux" />
     <entry>
         <id>http://yuyuaqwq.github.io/posts/842e.html</id>
         <title>【MFC】视图与文档</title>

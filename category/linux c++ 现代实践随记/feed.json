@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "鹿鹿鱼鱼 • All posts by \"linux c++ 现代实践随记\" category",
+    "description": "人为什么要起床？",
+    "home_page_url": "http://yuyuaqwq.github.io",
+    "items": [
+        {
+            "id": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "url": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "title": "0.前言",
+            "date_published": "2023-10-28T14:25:37.000Z",
+            "content_html": "<p>好久没写博客了…</p>\n<p>嗯… 因为某些原因，打算转 Linux 下做 C++ 开发，Windows 的东西就当成业余的兴趣去研究吧。</p>\n<p>这个系列的文章就记录一下我在学习过程中的一些思考，想法，以及备忘吧，就这样吧。</p>\n",
+            "tags": [
+                "C++",
+                "Linux"
+            ]
+        }
+    ]
+}

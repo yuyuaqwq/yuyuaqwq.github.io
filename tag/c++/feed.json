@@ -5,15 +5,14 @@
     "home_page_url": "http://yuyuaqwq.github.io",
     "items": [
         {
-            "id": "http://yuyuaqwq.github.io/posts/2fd3.html",
-            "url": "http://yuyuaqwq.github.io/posts/2fd3.html",
-            "title": "【Qt】前言",
-            "date_published": "2022-11-12T08:39:44.161Z",
-            "content_html": "<p>当前分类所收录的文章主要是我个人学习 QT 时记录的读书笔记。</p>\n<p>记得初学 C++ 不久学习过 QT，一直用不上，基本遗忘了。<br>\n最近有些需求，重新捡一捡。</p>\n<blockquote>\n<p>主要参考资料<br>\n<a href=\"https://www.bilibili.com/video/BV1Qp4y167dD?p=5&amp;spm_id_from=pageDriver&amp;vd_source=2f16cbe6e2d0a9708b5b399c0b862fe3\">【风骚程序员】QT</a></p>\n</blockquote>\n",
+            "id": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "url": "http://yuyuaqwq.github.io/posts/c4d3.html",
+            "title": "0.前言",
+            "date_published": "2023-10-28T14:25:37.000Z",
+            "content_html": "<p>好久没写博客了…</p>\n<p>嗯… 因为某些原因，打算转 Linux 下做 C++ 开发，Windows 的东西就当成业余的兴趣去研究吧。</p>\n<p>这个系列的文章就记录一下我在学习过程中的一些思考，想法，以及备忘吧，就这样吧。</p>\n",
             "tags": [
                 "C++",
-                "界面开发",
-                "Qt"
+                "Linux"
             ]
         },
         {
