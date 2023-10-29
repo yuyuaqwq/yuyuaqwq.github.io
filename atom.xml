@@ -66,7 +66,8 @@
 &lt;p&gt;以下命令启动 &lt;code&gt;ssh 服务&lt;/code&gt; ：&lt;br&gt;
  &lt;code&gt;sudo /etc/init.d/ssh start&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;以下命令查看 &lt;code&gt;ssh 服务&lt;/code&gt; 是否启用：&lt;br&gt;
- &lt;code&gt;s -e|grep ssh&lt;/code&gt;&lt;/p&gt;
+ &lt;code&gt;ps -e|grep ssh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;有进程 &lt;code&gt;sshd&lt;/code&gt;  在运行就是 ok 了。&lt;/p&gt;
 &lt;h3 id=&#34;配置免密登录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置免密登录&#34;&gt;#&lt;/a&gt; 配置免密登录&lt;/h3&gt;
 &lt;p&gt;我们需要让 &lt;code&gt;Linux端的OpenSSH服务&lt;/code&gt; 识别我们的身份，以实现免密登录。&lt;/p&gt;
 &lt;h4 id=&#34;生成密钥对&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生成密钥对&#34;&gt;#&lt;/a&gt; 生成密钥对&lt;/h4&gt;
@@ -86,7 +87,7 @@
 &lt;p&gt;其中 &lt;code&gt;yuyu&lt;/code&gt;  替换成你自己的用户名。&lt;/p&gt;
 &lt;h4 id=&#34;配置公钥&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置公钥&#34;&gt;#&lt;/a&gt; 配置公钥&lt;/h4&gt;
 &lt;p&gt;如果你是安装的桌面版 &lt;code&gt;Ubuntu&lt;/code&gt; ，就可以很轻松的在 &lt;code&gt;VMWare Workstation&lt;/code&gt;  中通过拖动来传输文件。&lt;/p&gt;
-&lt;p&gt;打开文件浏览器，按下 &lt;code&gt;Ctrl + H&lt;/code&gt; ，即可显示隐藏文件。&lt;br&gt;
+&lt;p&gt;在 &lt;code&gt;Ubuntu桌面&lt;/code&gt; 中打开文件浏览器，会显示在 Home 目录下 (实际路径是 &lt;code&gt;/Home/你的用户名&lt;/code&gt;  / &lt;code&gt;~&lt;/code&gt; )，按下 &lt;code&gt;Ctrl + H&lt;/code&gt; ，即可显示隐藏文件。&lt;br&gt;
 可以看到一个目录 &lt;code&gt;.ssh&lt;/code&gt; ，进入。&lt;/p&gt;
 &lt;p&gt;将 &lt;code&gt;Windows&lt;/code&gt;  下生成的公钥文件 &lt;code&gt;id_rsa.pub&lt;/code&gt;  复制到 Linux 的 &lt;code&gt;.ssh&lt;/code&gt;  目录下。&lt;/p&gt;
 &lt;p&gt;在该目录中复制一份 &lt;code&gt;id_rsa.pub&lt;/code&gt; ，并更名为 &lt;code&gt;authorized_keys&lt;/code&gt; 。&lt;/p&gt;
