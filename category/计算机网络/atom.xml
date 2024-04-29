@@ -3,7 +3,7 @@
     <id>http://yuyuaqwq.github.io</id>
     <title>鹿鹿鱼鱼 • Posts by &#34;计算机网络&#34; category</title>
     <link href="http://yuyuaqwq.github.io" />
-    <updated>2024-04-29T04:26:30.000Z</updated>
+    <updated>2024-04-29T06:58:25.000Z</updated>
     <category term="MFC" />
     <category term="没饭吃" />
     <category term="逆向分析" />
@@ -26,6 +26,14 @@
     <category term="版本管理" />
     <category term="Linux" />
     <category term="计算机网络" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/5255.html</id>
+        <title>2.连接多台终端设备：同轴电缆和集线器</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/5255.html"/>
+        <content type="html"></content>
+        <category term="计算机网络" />
+        <updated>2024-04-29T06:58:25.000Z</updated>
+    </entry>
     <entry>
         <id>http://yuyuaqwq.github.io/posts/7ee4.html</id>
         <title>1.通过网线直连的两台终端设备</title>
@@ -56,17 +64,17 @@
 &lt;p&gt;可以看到它们之间是连通的！&lt;br&gt;
 在此之上我们就可以使用耳熟能详的 UDP、TCP 协议去交换数据了。&lt;/p&gt;
 &lt;h2 id=&#34;mac&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#mac&#34;&gt;#&lt;/a&gt; MAC&lt;/h2&gt;
-&lt;p&gt;但事实上，处于统一网段内的设备的网络通信的过程是这样的：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;PC0 期望将某个数据包发送给 PC1，就需要将这个数据包广播给直接连接到 PC0 接口中的所有连接。&lt;/li&gt;
-&lt;li&gt;在我们的示例中，只连接了 2 台设备，所以 PC0 只会通过这一个接口让数据包流向 PC1。&lt;/li&gt;
-&lt;li&gt;PC1 检查一下这个数据包是不是发给它自己的，如果是的话就会接收并向上层转发，如果不是则丢弃，负责此工作的是位于 TCP/IP 分层模型中的&lt;strong&gt;数据链路层&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;设备之间不是通过 IP 去识别设备身份的，而是使用一个叫 MAC 地址的东西：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;MAC 地址（英语：Media Access Control Address），直译为媒体访问控制地址，也称为局域网地址（LAN Address），以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的地址。在 OSI 模型中，第三层网络层负责 IP 地址，第二层数据链接层则负责 MAC 地址。MAC 地址用于在网络中唯一标示一个网卡，一台设备若有一或多个网卡，则每个网卡都需要并会有一个唯一的 MAC 地址。        – 摘自维基百科&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;简而言之，在每一台终端设备的网卡中，都会存在 MAC 地址，该地址应当是在出厂时就确定的、全世界唯一的地址。&lt;/p&gt;
+&lt;p&gt;处于统一网段内的设备的网络通信的部分过程是这样的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PC0 期望将某个数据包发送给 PC1，就需要为这个数据包的目标 MAC 地址字段填写为 PC1 的 MAC 地址。&lt;/li&gt;
+&lt;li&gt;在我们的示例中，PC0 会通过这一个接口让数据包流向 PC1。&lt;/li&gt;
+&lt;li&gt;PC1 收到之后，检查一下这个数据包是不是发给它自己的 (即检查数据包中的目标 MAC 地址和本机网卡 MAC 地址是否匹配)，如果是的话就会接收并向上层转发，如果不是则丢弃，负责此工作的是位于 TCP/IP 分层模型中的&lt;strong&gt;数据链路层&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;我们查看一下 PC0 和 PC1 的 MAC 地址：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -76,7 +84,8 @@
 &lt;img src=&#34;/posts/7ee4/5.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;以上的 Physical Address 就是这两台设备的网卡对应的 MAC 地址了，我们来看一下 Ping 阶段发送的 ICMP 协议包的字段：&lt;/p&gt;
+&lt;p&gt;以上的 Physical Address 就是这两台设备的网卡对应的 MAC 地址了，但是现在又会有一个新的问题：PC0 如何得知 PC1 的 MAC 地址？我们在 Ping 时只填写了目标 IP，并未填写目标 MAC；&lt;br&gt;
+关于这个问题你可以先思考一下 and 查阅资料，不懂也没关系，后续我会再详细解答。&lt;/p&gt;
 </content>
         <category term="计算机网络" />
         <updated>2024-04-29T04:26:30.000Z</updated>
