@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://yuyuaqwq.github.io</id>
+    <title>鹿鹿鱼鱼 • Posts by &#34;计算机网络&#34; tag</title>
+    <link href="http://yuyuaqwq.github.io" />
+    <updated>2024-04-29T04:26:30.000Z</updated>
+    <category term="MFC" />
+    <category term="没饭吃" />
+    <category term="逆向分析" />
+    <category term="工具" />
+    <category term="C/C++" />
+    <category term="反汇编" />
+    <category term="网络分析" />
+    <category term="Proxifier" />
+    <category term="编译原理" />
+    <category term="动手写ToyLang" />
+    <category term="C++" />
+    <category term="界面开发" />
+    <category term="保护模式" />
+    <category term="Windows内核" />
+    <category term="密码学" />
+    <category term="PKI" />
+    <category term="证书" />
+    <category term="签名" />
+    <category term="Git" />
+    <category term="版本管理" />
+    <category term="Linux" />
+    <category term="计算机网络" />
+    <entry>
+        <id>http://yuyuaqwq.github.io/posts/7ee4.html</id>
+        <title>1.通过网线直连的两台终端设备</title>
+        <link rel="alternate" href="http://yuyuaqwq.github.io/posts/7ee4.html"/>
+        <content type="html">&lt;h2 id=&#34;连接它们&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#连接它们&#34;&gt;#&lt;/a&gt; 连接它们&lt;/h2&gt;
+&lt;p&gt;连接两台终端设备最简单的方式是什么？其一当然是直接通过一条网线来连接。&lt;/p&gt;
+&lt;p&gt;假设我们准备了两台 PC，并用铜交叉线连接了它们：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/1.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;仅是如此还是不够的，我们还需要为他们配置一下 IP 地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/2.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ping&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ping&#34;&gt;#&lt;/a&gt; Ping&lt;/h2&gt;
+&lt;p&gt;相信你应该对 Ping 这个命令有所耳闻，其作用是探测本机与网络中另一主机之间是否可达，基于 ICMP 协议 (现在不清楚这些协议也没关系，后面会讲)。&lt;br&gt;
+如果配置正确，我们的两台设备应该是能够 Ping 通的。&lt;/p&gt;
+&lt;p&gt;配置完 IP 地址之后，我们尝试一下用 &lt;code&gt;192.168.1.10&lt;/code&gt;  这台设备 Ping &lt;code&gt;192.168.1.11&lt;/code&gt; 。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/3.gif&#34; class=&#34;&#34; title=&#34;这是一张动图&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="计算机网络" />
+        <updated>2024-04-29T04:26:30.000Z</updated>
+    </entry>
+</feed>

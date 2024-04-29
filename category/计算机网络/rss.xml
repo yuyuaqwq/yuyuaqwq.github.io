@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>鹿鹿鱼鱼 • Posts by &#34;计算机网络&#34; category</title>
+        <link>http://yuyuaqwq.github.io</link>
+        <description>人为什么要起床？</description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 29 Apr 2024 12:26:30 +0800</pubDate>
+        <lastBuildDate>Mon, 29 Apr 2024 12:26:30 +0800</lastBuildDate>
+        <category>MFC</category>
+        <category>没饭吃</category>
+        <category>逆向分析</category>
+        <category>工具</category>
+        <category>C/C++</category>
+        <category>反汇编</category>
+        <category>网络分析</category>
+        <category>Proxifier</category>
+        <category>编译原理</category>
+        <category>动手写ToyLang</category>
+        <category>C++</category>
+        <category>界面开发</category>
+        <category>保护模式</category>
+        <category>Windows内核</category>
+        <category>密码学</category>
+        <category>PKI</category>
+        <category>证书</category>
+        <category>签名</category>
+        <category>Git</category>
+        <category>版本管理</category>
+        <category>Linux</category>
+        <category>计算机网络</category>
+        <item>
+            <guid isPermalink="true">http://yuyuaqwq.github.io/posts/7ee4.html</guid>
+            <title>1.通过网线直连的两台终端设备</title>
+            <link>http://yuyuaqwq.github.io/posts/7ee4.html</link>
+            <category>计算机网络</category>
+            <pubDate>Mon, 29 Apr 2024 12:26:30 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;连接它们&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#连接它们&#34;&gt;#&lt;/a&gt; 连接它们&lt;/h2&gt;
+&lt;p&gt;连接两台终端设备最简单的方式是什么？其一当然是直接通过一条网线来连接。&lt;/p&gt;
+&lt;p&gt;假设我们准备了两台 PC，并用铜交叉线连接了它们：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/1.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;仅是如此还是不够的，我们还需要为他们配置一下 IP 地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/2.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ping&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ping&#34;&gt;#&lt;/a&gt; Ping&lt;/h2&gt;
+&lt;p&gt;相信你应该对 Ping 这个命令有所耳闻，其作用是探测本机与网络中另一主机之间是否可达，基于 ICMP 协议 (现在不清楚这些协议也没关系，后面会讲)。&lt;br&gt;
+如果配置正确，我们的两台设备应该是能够 Ping 通的。&lt;/p&gt;
+&lt;p&gt;配置完 IP 地址之后，我们尝试一下用 &lt;code&gt;192.168.1.10&lt;/code&gt;  这台设备 Ping &lt;code&gt;192.168.1.11&lt;/code&gt; 。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;img src=&#34;/posts/7ee4/3.gif&#34; class=&#34;&#34; title=&#34;这是一张动图&#34;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
