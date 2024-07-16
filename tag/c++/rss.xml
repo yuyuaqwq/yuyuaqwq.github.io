@@ -125,7 +125,7 @@
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Read more about SSH config files: https://linux.die.net/man/5/ssh_config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Host alias&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#     HostName hostname&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#     User user&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Host&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Ubuntu&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;HostName&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;192.168&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.229&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.132&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;User&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;yuyu&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;Port&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;将 ip 和用户名 (都是 &lt;code&gt;linux&lt;/code&gt;  的) 修改为你的，保存即可。&lt;/p&gt;
-&lt;p&gt;配置完成后即出现了你添加的主机，开始连接吧！&lt;/p&gt;
+&lt;p&gt;点击齿轮旁边的刷新按钮，即出现了你添加的主机，开始连接吧！&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;img src=&#34;/posts/54a8/4.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
@@ -169,11 +169,13 @@
 &lt;p&gt;能够快速上手 CMake 并了解到足够在当前阶段使用的知识。&lt;/p&gt;
 &lt;h2 id=&#34;vscode扩展-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vscode扩展-2&#34;&gt;#&lt;/a&gt; VsCode 扩展&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;C/C++&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;C/C++&lt;/code&gt;  &amp;amp;  &lt;code&gt;C/C++ Extension Pack&lt;/code&gt;
 &lt;ul&gt;
 &lt;li&gt;语法、浏览等辅助扩展。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C/C++ Themes&lt;/code&gt; &lt;br&gt;
+`   - 非必要，C++ 主题。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;CMake&lt;/code&gt;  &amp;amp;  &lt;code&gt;CMake Tools&lt;/code&gt;
 &lt;ul&gt;
 &lt;li&gt;cmake&lt;/li&gt;
@@ -186,7 +188,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;C/C++ Compile Run&lt;/code&gt;
 &lt;ul&gt;
-&lt;li&gt;单文件运行扩展，按 f6 即可直接编译运行当前浏览的源文件。&lt;/li&gt;
+&lt;li&gt;非必要，单文件运行扩展，按 f6 即可直接编译运行当前浏览的源文件。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;clangd&lt;/code&gt;
@@ -196,7 +198,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Catppuccin Noctis&lt;/code&gt;
 &lt;ul&gt;
-&lt;li&gt;非必须，感觉还行的主题。&lt;/li&gt;
+&lt;li&gt;非必要，感觉还行的主题。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Remote - SSH&lt;/code&gt;
@@ -239,7 +241,7 @@
 &lt;img src=&#34;/posts/54a8/10.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;将此处的 &lt;code&gt;executable&lt;/code&gt;  修改成 &lt;code&gt;hello_world&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将此处的 &lt;code&gt;./bin/executable&lt;/code&gt;  修改成 &lt;code&gt;$&amp;#123;workspaceRoot&amp;#125;/bin/hello_world&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;img src=&#34;/posts/54a8/11.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
@@ -252,6 +254,7 @@
 &lt;img src=&#34;/posts/54a8/12.png&#34; class=&#34;&#34; title=&#34;这是一张图片&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;如果希望附加调试，则使用：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;quot;request&amp;quot;:&amp;quot;attach&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;quot;processId&amp;quot;:&amp;quot;$&amp;#123;command:pickProcess&amp;#125;&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;quot;program&amp;quot;: &amp;quot;$&amp;#123;workspaceRoot&amp;#125;/bin/hello_world&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;附加可能会出现需要root权限的情况， 使用root用户登录可以解决此问题。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h1 id=&#34;gcc升级至132&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gcc升级至132&#34;&gt;#&lt;/a&gt; GCC 升级至 13.2&lt;/h1&gt;
 &lt;p&gt;由于 Ubuntu22.04 自带的 GCC 版本是 11 的，这里因为个人需要需要升级成 13，特意记录一下。&lt;/p&gt;
 &lt;h2 id=&#34;下载gcc&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下载gcc&#34;&gt;#&lt;/a&gt; 下载 GCC&lt;/h2&gt;
